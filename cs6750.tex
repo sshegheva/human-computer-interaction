@@ -112,20 +112,20 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-\lipsum[1]
+Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process. There exist many tools that can accomplish the task of creating and maintaining a data warehouse. However, sometimes it is advantageous to have a custom solution that allows user to interact with the data directly during some or all of the ETL phases. In this project, we analyze an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. 
 \end{abstract}
 
 \section*{Problem Space}
-\lipsum[1]
+The data ingestion is described by the \textit{Extract, Transform and Load} (ETL) process - a cycle that converts a raw data into structured records more convenient for further Data Analysis and/or use for Machine Learning algorithms \cite{wiki:xxx}. Figure~\ref{fig::1} shows the ETL process from the Source to the Destination. The entire cycle may be completely hidden from the user (full automation of data ingestion), or a human is required to guide the components of the process to reach their desired goal. In this project we focus on the \textit{transform} task that is centered around interactions with the user to alter the original data to meet their needs. For example, a user who looks at the weather feed in Fahrenheit may choose to convert it to Celsius. 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=2.5in, scale=.25]{ETLProcess.png}
-\caption{Pizza's Post Filtering Functionality}
+\includegraphics[width=3in, scale=.3]{ETLProcess.png}
+\caption{Extract-Transform-Load Process from Data Science Central blogpost on Open Source ETL tools (https://www.datasciencecentral.com/profiles/blogs/10-open-source-etl-tools)}
 \label{fig::1}
 \end{figure}
 
-
+To accomplish the data transformation task, a user needs an access to the original data, as well as an arsenal of mapping tools suitable to the domain. 
 
 \section*{User Types}
 \lipsum[1]
