@@ -143,13 +143,13 @@ A context of the task varies significantly, and is largely data-driven. A system
 
 
 \subsection*{Needfinding Plan 1 - Hacks and Workarounds}
-We have briefly described what is the user's ultimate goal, and how that can be broken down into sub-goals. In this section, we are going to further zoom into the user's actions for performing the task of data transformation. As our objective is to understand the weaknesses of the existing interface, as shown in Figure~\ref{fig::2}, we analyze the cases where the user breaks out of the provided interface and resorts to various hacks and workarounds to accomplish the task. A user in a Data Scientist role has a frequent need for manipulating the raw data that moves through the ETL pipeline. The main reasons for why the user in that role currently changes their intended workflow and perform a subsets of the actions outside of the given interface can be summarized by the following three categories: 
+We have briefly described what is the user's ultimate goal, and how that can be broken down into sub-goals. In this section, we are going to further zoom into the user's actions for performing the task of data transformation. As our objective is to understand the weaknesses of the existing interface, as shown in Figure~\ref{fig::2}, we analyze the cases where the user breaks out of the provided interface and resorts to various hacks and workarounds to accomplish the task. A user in a Data Scientist role has a frequent need for manipulating the raw data that moves through the ETL pipeline. The main reasons for why the user in that role currently changes their intended workflow and performs a subsets of the actions outside of the given interface can be summarized by the following three categories: 
 
 \begin{enumerate}
     \item \textbf{Limited functionality}. Prior to deciding on the transformation rules, user needs to have a visibility on the data being transformed. In the current interface (see Figure~\ref{fig::3}), user selects the targeted data field, for example a \textit{published date}, and is given an \textit{edit} button. However, the interface does not provide enough information to make a fully informed action on the required transformation rule. Therefore, a workaround\#1:  
-    \subparagraph{Load the data in the external interface (command line, Jupyter notebooks, database queries) to explore descriptive statistics of the original field - the most frequent values,  the extreme values, etc.}
+    \textit{Load the data in the external interface (command line, Jupyter notebooks, database queries) to explore descriptive statistics of the original field - the most frequent values,  the extreme values, the rate is missing fields, etc.}
     
-    \begin{figure}[H]
+    \begin{figure}[h]
     \centering
     \includegraphics[width=4in, scale=.4]{DataVisibility.png}
     \caption{An example of the interface limitation to provide the user with knowledge of the present data form to enable an informed action.}
@@ -157,8 +157,21 @@ We have briefly described what is the user's ultimate goal, and how that can be 
     \end{figure}
     
     
-    \item \textbf{Poor Organization}. After the user has decided on transformation rule, the next step is to map the intentions to the given selection
+    \item \textbf{Poor Organization}. After the user has decided on transformation rule, the next step is to map their intentions to one of the of existing transformers. Figure~\ref{fig::4} shows that in the current interfaces the selection is given without consideration for priority or relevance of the transformation to the field being examined. Therefore, a workaround\#2:
+    \textit{Browse through previously made transformations (if available) for examples and common use cases, ask colleagues for an advice, or make educated guesses until the right transformer is found}
+    
+    \begin{figure}[h]
+    \centering
+    \includegraphics[width=4in, scale=.3]{Transformers.png}
+    \caption{An example of the interface that displays ALL available transformation functions without priority or relevance consideration.}
+    \label{fig::4}
+    \end{figure}
+    
+    \item \textbf{Bug in the functionality}. Unintended behavior in a software happens all the time. The interface needs to provide accessible means to recover from a mistake by undoing an erroneous operation. User should be comfortable exploring the interface without the fear of irreversibly corrupting the data. A good interface, therefore, should be able to guide the user from the failed state. As the current interface does not provide visibility on the original or the final data (after the applied transformation), there are no mean to undo an action where transformation has unintended effect. Workaround\#3: \textit{Modify the data via direct database access from, hopefully existing, backups.} 
+    
 \end{enumerate}
+
+The need-finding approach covered in this section connects the user's goals of altering a data feed to the sub-tasks of viewing the existing data, planning the transformation, and confirming the outcome.   
 
 \subsection*{Needfinding Plan 2}
 \lipsum[1]
