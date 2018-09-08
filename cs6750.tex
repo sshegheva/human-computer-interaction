@@ -146,7 +146,18 @@ A context of the task varies significantly, and is largely data-driven. A system
 We have briefly described what is the user's ultimate goal, and how that can be broken down into sub-goals. In this section, we are going to further zoom into the user's actions for performing the task of data transformation. As our objective is to understand the weaknesses of the existing interface, as shown in Figure~\ref{fig::2}, we analyze the cases where the user breaks out of the provided interface and resorts to various hacks and workarounds to accomplish the task. A user in a Data Scientist role has a frequent need for manipulating the raw data that moves through the ETL pipeline. The main reasons for why the user in that role currently changes their intended workflow and perform a subsets of the actions outside of the given interface can be summarized by the following three categories: 
 
 \begin{enumerate}
-    \item \textbf{Limited functionality}. Prior to deciding on the transformation rules, user needs to have a visibility on the data being transformed. In the current interface, user selects the targeted data field
+    \item \textbf{Limited functionality}. Prior to deciding on the transformation rules, user needs to have a visibility on the data being transformed. In the current interface (see Figure~\ref{fig::3}), user selects the targeted data field, for example a \textit{published date}, and is given an \textit{edit} button. However, the interface does not provide enough information to make a fully informed action on the required transformation rule. Therefore, a workaround\#1:  
+    \subparagraph{Load the data in the external interface (command line, Jupyter notebooks, database queries) to explore descriptive statistics of the original field - the most frequent values,  the extreme values, etc.}
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=4in, scale=.4]{DataVisibility.png}
+    \caption{An example of the interface limitation to provide the user with knowledge of the present data form to enable an informed action.}
+    \label{fig::3}
+    \end{figure}
+    
+    
+    \item \textbf{Poor Organization}. After the user has decided on transformation rule, the next step is to map the intentions to the given selection
 \end{enumerate}
 
 \subsection*{Needfinding Plan 2}
