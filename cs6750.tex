@@ -115,7 +115,7 @@
 Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process. There exist many tools that can accomplish the task of creating and maintaining a data warehouse. However, sometimes it is advantageous to have a custom solution that allows user to interact with the data directly during some or all of the ETL phases. In this project, we analyze an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. 
 \end{abstract}
 
-\section*{Problem Space}
+\subsection*{Problem Space}
 The data ingestion is described by the \textit{Extract, Transform and Load} (ETL) process - a cycle that converts a raw data into structured records more convenient for further Data Analysis and/or use for Machine Learning algorithms \cite{wiki:xxx}. Figure~\ref{fig::1} shows the ETL process from the Source to the Destination. The entire cycle may be completely hidden from the user (full automation of data ingestion), or a human is required to guide the components of the process to reach their desired goal. In this project we focus on the \textit{transform} task that is centered around interactions with the user to alter the original data to meet their needs. For example, a user who looks at the weather feed in Fahrenheit may choose to convert it to Celsius. 
 
 \begin{figure}[H]
@@ -125,18 +125,30 @@ The data ingestion is described by the \textit{Extract, Transform and Load} (ETL
 \label{fig::1}
 \end{figure}
 
-To accomplish the data transformation task, a user needs an access to the original data, as well as an arsenal of mapping tools suitable to the domain. 
+To accomplish the data transformation task, a user needs an access to the original data, as well as an arsenal of mapping tools suitable to the domain. Figure~\ref{fig::2} shows an existing version of an internal interface \footnote{A very rough version of a custom tool to perform user-driven ETL process.} that we will be analyzing and re-designing to improve user experience in undertaking the transformation task. 
 
-\section*{User Types}
+\begin{figure}[H]
+\centering
+\includegraphics[width=4in, scale=.4]{NaraTransform.png}
+\caption{A version of an internal interface for transforming a single data field. Here, the data source is the data from the Arxiv Library collected via ATOM API. User selects the original field, here the \textit{published} date, and wishes to transform it to a different date format.}
+\label{fig::2}
+\end{figure}
+
+Our main goal is to assess all the weak areas of the existing interface in order to provide recommendations for alternative models that simplify the user interaction without assuming any pre-existing knowledge of the tool.
+
+\subsection*{User Types}
+Let's outline the user who is expected to engage in the data transformation task described above. The target user's expertise ranges from a novice (an external business client without extensive technical background) to an expert (data analyst interacting with the tool on daily basis). The task assumes a basic proficiency with computer interfaces, which is a reasonable assumption given that the expected audience are professionals that use data to make business decisions. The task for different categories of users remains the same, however, the approach for accomplishing it may differ significantly. On one hand, a user with substantial knowledge of the data (a domain expert) may want to explore complex relationships between the existing variables and generate new outcomes that capture the essence of the observed relationship. On the other hand, a user tasked with a data cleanup process, might not wish to delve into data intricacies, and instead focus on common exercise of standardizing the content (for example, change a \textit{thousands} separator in the numerical data). 
+
+A context of the task varies significantly, and is largely data-driven. A system for recommending movies involves data on user preferences and feedback. A system for optimizing financial portfolios continuously streams data from financial markets and/or other sources. Therefore, an interface for accomplishing the described goals should be domain agnostic, and abstract the functionality of the transformation process to support a plethora of contexts. In general, a user needs an access to a Web interface that allows uploading a data from many sources, and subsequently either loading it to warehouse as is, or applying necessary and desired transformations to alter the original form. In order to accomplish a transformation task, users needs to 1) know \textit{what} data and in what form is currently available, 2) define the rules to \textit{convert} the data from the original to the desired form, 3) \textit{see} the final result to confirm the success, or \textit{receive a feedback} for required adjustments in failure cases. The large bulk of the user interaction with the interface is expected around the sub-task of defining a transformation rule. Therefore, a good design should focus on simplifying this step by providing an intuitive interface for data manipulation.
+
+
+\subsection*{Needfinding Plan 1 - Analysis of existing user interface}
 \lipsum[1]
 
-\section*{Needfinding Plan 1}
+\subsection*{Needfinding Plan 2}
 \lipsum[1]
 
-\section*{Needfinding Plan 2}
-
-\lipsum[1]
-\section*{Needfinding Plan 3}
+\subsection*{Needfinding Plan 3}
 \lipsum[1]
 
 
