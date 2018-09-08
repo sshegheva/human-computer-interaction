@@ -142,8 +142,12 @@ Let's outline the user who is expected to engage in the data transformation task
 A context of the task varies significantly, and is largely data-driven. A system for recommending movies involves data on user preferences and feedback. A system for optimizing financial portfolios continuously streams data from financial markets and/or other sources. Therefore, an interface for accomplishing the described goals should be domain agnostic, and abstract the functionality of the transformation process to support a plethora of contexts. In general, a user needs an access to a Web interface that allows uploading a data from many sources, and subsequently either loading it to warehouse as is, or applying necessary and desired transformations to alter the original form. In order to accomplish a transformation task, users needs to 1) know \textit{what} data and in what form is currently available, 2) define the rules to \textit{convert} the data from the original to the desired form, 3) \textit{see} the final result to confirm the success, or \textit{receive a feedback} for required adjustments in failure cases. The large bulk of the user interaction with the interface is expected around the sub-task of defining a transformation rule. Therefore, a good design should focus on simplifying this step by providing an intuitive interface for data manipulation.
 
 
-\subsection*{Needfinding Plan 1 - Analysis of existing user interface}
-\lipsum[1]
+\subsection*{Needfinding Plan 1 - Hacks and Workarounds}
+We have briefly described what is the user's ultimate goal, and how that can be broken down into sub-goals. In this section, we are going to further zoom into the user's actions for performing the task of data transformation. As our objective is to understand the weaknesses of the existing interface, as shown in Figure~\ref{fig::2}, we analyze the cases where the user breaks out of the provided interface and resorts to various hacks and workarounds to accomplish the task. A user in a Data Scientist role has a frequent need for manipulating the raw data that moves through the ETL pipeline. The main reasons for why the user in that role currently changes their intended workflow and perform a subsets of the actions outside of the given interface can be summarized by the following three categories: 
+
+\begin{enumerate}
+    \item \textbf{Limited functionality}. Prior to deciding on the transformation rules, user needs to have a visibility on the data being transformed. In the current interface, user selects the targeted data field
+\end{enumerate}
 
 \subsection*{Needfinding Plan 2}
 \lipsum[1]
