@@ -171,7 +171,7 @@ We have briefly described what is the user's ultimate goal, and how that can be 
     
 \end{enumerate}
 
-The need-finding approach covered in this section connects the user's goals of altering a data feed to the sub-tasks of viewing the existing data, planning the transformation, and confirming the outcome. In the scenarios presented above, the workaround descriptions can be used to inform the interface designers about system's limitations and constraints.     
+The need-finding approach covered in this section connects the user's goals of altering a data feed to the sub-tasks of viewing the existing data, planning the transformation, and confirming the outcome. In the scenarios presented above, the workaround descriptions can be used to inform the interface designers about system's limitations and constraints. The approach of need-finding via analysis of hacks and workarounds is susceptible to \textit{observational selection bias} as we tend notice workarounds when they impact us directly. To avoid this bias, we pair up this approach with another method that seeks to understand pain points of a larger group of users, preferably with diverse roles.
 
 \subsection*{Needfinding Plan 2 - Errors}
 To better understand the user's struggles with the interface, it is useful to analyze the frequencies of two kind of errors, such as \textit{slips} and \textit{mistakes}. A mental model is a process that explain how a user is thinking about the task in terms of actions and outcomes \cite{wiki:mental_model}. When a mental model matches the logic implemented by an algorithm, the user has a correct understanding of the system's functionality. In this case the user's error can be classified as a slip vs. a mistake where the user has a wrong mental model. The approach for need-finding that focuses on error analysis, broadens the spectrum of users  in terms of their expertise in the given task. A novice in the field can be guided through the process of transformation by automatically matching the compatible functions to the field subjected to alterations. 
@@ -194,6 +194,8 @@ When an user has a correct mental model, but still makes an error due to a rushe
 \label{fig::6}
 \end{figure}
 
+Similarly to the approach of Hacks and Workaround, the Error analysis approach is susceptible to the \textit{observational selection} bias. In both approaches, the effect of the bias can be reduced by quantitatively measuring the impact those errors have on the productivity of the end users. Metrics such as, time spent troubleshooting the errors, likelihood of data corruption/loss, resources requires to re-design the specific components of the interface, etc. can help prioritize one types of errors over others.  
+
 \subsection*{Needfinding Plan 3 - Interviews}
 Previously described two approaches on need-finding, Hacks and Workarounds, and Errors, are less prone to biases as they collect the outcomes of the interactions with the interface as opposed to user's responses. Those approaches, however, can be limiting in understanding the users (who they are) and their experiences in interacting with the product. Conducting User Interviews, especially the Contextual kinds, can help the designers accurately estimate the user-experience situations \cite{basics_ux_design}. The data collected from the interviews has less quantitative nature, but combining its qualitative approach with the metrics and analysis of the previous two methods leads a holistic view on the interface's strength and weaknesses.   
 
@@ -209,7 +211,7 @@ The process of collecting and analyzing the answers to the questions posed above
 
 The bias of the Interview approach might arise if the group selected for the interview is susceptible to a single view on the interface and its functionality. For example, engineers may have conceptual models of the task that bias the design towards the processor model. As code implementers, they might have pre-conceived notion on the workflow for the given task. To address this bias, the interview needs to include users from other areas as well, such as business (Product Managers), Analytics (data scientists), and Infrastructure (DevOps). 
 
-Figure~\ref{fig::7} illustrates the idea of the need-finding cycle, where the approach of analyzing Errors leads to narrowing down the scope of the questions prepared for the interview. Understanding why the user is making certain errors is a critical step towards designing a better user experience with interfaces. The synthesis of responses then launches a series of prototypes that suggest specific workarounds to address the current system limitation.
+Figure~\ref{fig::7} illustrates the idea of the need-finding cycle, where the approach of analyzing Errors leads to narrowing down the scope of the questions prepared for the interview. Understanding why the user is making certain errors is a critical step towards designing a better user experience with interfaces. The synthesis of responses then launches a series of prototypes that suggest specific workarounds to address the current system limitation, and provide a loop back to the interview questions. 
 
 \begin{figure}[h]
 \centering
