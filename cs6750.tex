@@ -174,7 +174,25 @@ We have briefly described what is the user's ultimate goal, and how that can be 
 The need-finding approach covered in this section connects the user's goals of altering a data feed to the sub-tasks of viewing the existing data, planning the transformation, and confirming the outcome. In the scenarios presented above, the workaround descriptions can be used to inform the interface designers about system's limitations and constraints.     
 
 \subsection*{Needfinding Plan 2 - Errors}
-To better understand the user's struggles with the interface, it is useful to analyze the frequencies of two kind of errors, such as \textit{slips} and \textit{mistakes}. A mental model is a process that explain how a user is thinking about the task in terms of actions and outcomes \cite{wiki:mental_model}. When a mental model matches the logic implemented by an algorithm, the user has a correct understanding of the system's functionality. The approach for need-finding that focuses on error analysis, broadens the spectrum of users  in terms of their expertise in the given task. A novice in the field can be guided through the process 
+To better understand the user's struggles with the interface, it is useful to analyze the frequencies of two kind of errors, such as \textit{slips} and \textit{mistakes}. A mental model is a process that explain how a user is thinking about the task in terms of actions and outcomes \cite{wiki:mental_model}. When a mental model matches the logic implemented by an algorithm, the user has a correct understanding of the system's functionality. In this case the user's error can be classified as a slip vs. a mistake where the user has a wrong mental model. The approach for need-finding that focuses on error analysis, broadens the spectrum of users  in terms of their expertise in the given task. A novice in the field can be guided through the process of transformation by automatically matching the compatible functions to the field subjected to alterations. 
+
+Figure~\ref{fig::5} exemplifies a hypothetical scenario where user does not have a correct representation of the state and applicable actions. In this example, the user attempts to transform a field that captures a person's name (\textit{author}) by applying a function that is designed to manipulate \textit{dates}. This is an incompatible operation that should not be allowed by the interface. The analysis of errors for such type outlines a \textit{need} for system's intelligence to understand the input data types and the \textit{schemata} of the available transform to reduce the space of possible matches. An improvement like can decrease the chances for user to apply incorrect action for the task at hand.   
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=4in, scale=.3]{mistake.png}
+\caption{An example of the incorrect user action where their mental model of the underlying process is incorrect. A textual field, such as person's name cannot be computed as a date transformation.}
+\label{fig::5}
+\end{figure}
+
+When an user has a correct mental model, but still makes an error due to a rushed behavior, 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=4in, scale=.3]{slip.png}
+\caption{An example of the incorrect user action where their mental model of the underlying process is incorrect. A textual field, such as person's name cannot be computed as a date transformation.}
+\label{fig::6}
+\end{figure}
 
 \subsection*{Needfinding Plan 3}
 \lipsum[1]
