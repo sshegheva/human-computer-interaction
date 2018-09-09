@@ -116,7 +116,7 @@ Mapping data from one form to another for its ease-of-use is at the core of the 
 \end{abstract}
 
 \subsection*{Problem Space}
-The data ingestion is described by the \textit{Extract, Transform and Load} (ETL) process - a cycle that converts a raw data into structured records more convenient for further Data Analysis and/or use for Machine Learning algorithms \cite{wiki:xxx}. Figure~\ref{fig::1} shows the ETL process from the Source to the Destination. The entire cycle may be completely hidden from the user (full automation of data ingestion), or a human is required to guide the components of the process to reach their desired goal. In this project we focus on the \textit{transform} task that is centered around interactions with the user to alter the original data to meet their needs. For example, a user who looks at the weather feed in Fahrenheit may choose to convert it to Celsius. 
+The data ingestion is described by the \textit{Extract, Transform and Load} (ETL) process - a cycle that converts a raw data into structured records more convenient for further Data Analysis and/or use for Machine Learning algorithms \cite{wiki:etl}. Figure~\ref{fig::1} shows the ETL process from the Source to the Destination. The entire cycle may be completely hidden from the user (full automation of data ingestion), or a human is required to guide the components of the process to reach their desired goal. In this project we focus on the \textit{transform} task that is centered around interactions with the user to alter the original data to meet their needs. For example, a user who looks at the weather feed in Fahrenheit may choose to convert it to Celsius. 
 
 \begin{figure}[H]
 \centering
@@ -157,7 +157,7 @@ We have briefly described what is the user's ultimate goal, and how that can be 
     \end{figure}
     
     
-    \item \textbf{Poor Organization}. After the user has decided on transformation rule, the next step is to map their intentions to one of the of existing transformers. Figure~\ref{fig::4} shows that in the current interfaces the selection is given without consideration for priority or relevance of the transformation to the field being examined. Therefore, a workaround\#2:
+    \item \textbf{Poor Feature Organization}. After the user has decided on transformation rule, the next step is to map their intentions to one of the of existing transformers. Figure~\ref{fig::4} shows that in the current interfaces the selection is given without consideration for priority or relevance of the transformation to the field being examined. Therefore, a workaround\#2:
     \textit{Browse through previously made transformations (if available) for examples and common use cases, ask colleagues for an advice, or make educated guesses until the right transformer is found}
     
     \begin{figure}[h]
@@ -167,14 +167,14 @@ We have briefly described what is the user's ultimate goal, and how that can be 
     \label{fig::4}
     \end{figure}
     
-    \item \textbf{Bug in the functionality}. Unintended behavior in a software happens all the time. The interface needs to provide accessible means to recover from a mistake by undoing an erroneous operation. User should be comfortable exploring the interface without the fear of irreversibly corrupting the data. A good interface, therefore, should be able to guide the user from the failed state. As the current interface does not provide visibility on the original or the final data (after the applied transformation), there are no mean to undo an action where transformation has unintended effect. Workaround\#3: \textit{Modify the data via direct database access from, hopefully existing, backups.} 
+    \item \textbf{Bugs in the existing functionality}. Unintended behavior in a software happens all the time. The interface needs to provide accessible means to recover from a mistake by undoing an erroneous operation. User should be comfortable exploring the interface without the fear of irreversibly corrupting the data. A good interface, therefore, should be able to guide the user from the failed state. As the current interface does not provide visibility on the original or the final data (after the applied transformation), there are no mean to undo an action where transformation has unintended effect. Workaround\#3: \textit{Modify the data via direct database access from, hopefully existing, backups.} 
     
 \end{enumerate}
 
-The need-finding approach covered in this section connects the user's goals of altering a data feed to the sub-tasks of viewing the existing data, planning the transformation, and confirming the outcome.   
+The need-finding approach covered in this section connects the user's goals of altering a data feed to the sub-tasks of viewing the existing data, planning the transformation, and confirming the outcome. In the scenarios presented above, the workaround descriptions can be used to inform the interface designers about system's limitations and constraints.     
 
-\subsection*{Needfinding Plan 2}
-\lipsum[1]
+\subsection*{Needfinding Plan 2 - Errors}
+To better understand the user's struggles with the interface, it is useful to analyze the frequencies of two kind of errors, such as \textit{slips} and \textit{mistakes}. A mental model is a process that explain how a user is thinking about the task in terms of actions and outcomes \cite{wiki:mental_model}. When a mental model matches the logic implemented by an algorithm, the user has a correct understanding of the system's functionality. The approach for need-finding that focuses on error analysis, broadens the spectrum of users  in terms of their expertise in the given task. A novice in the field can be guided through the process 
 
 \subsection*{Needfinding Plan 3}
 \lipsum[1]
