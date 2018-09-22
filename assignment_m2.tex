@@ -141,25 +141,29 @@ In this needfinding plan, it was very hard to avoid the \textit{Confirmation} bi
 \subsection*{Needfinding Plan 2 - Interviews}
 With the Participant plan, we have addressed questions such as \textit{What are the users' goals} and \textit{What are their tasks}. To understand \textit{Who are the users} and \textit{What is the context of the task}, I interviewed four of my colleagues who also interact with the interface being analyzed. I specifically selected them based on their roles as together they represent a large variety of user types. 
 
-\textbf{Who} are the users and What are their \textit{contexts}:
+\textbf{Who} are the users and \textbf{What} are their \textbf{contexts}:
 
-1) Product Manager / Client Lead - Deals with the interface on the daily basis from bossiness perspective: load customer's data during early phases to understand the problem space, and how the overall product needs customer's needs.
+1) Product Manager / Client Lead - Deals with the interface on the daily basis from the business perspective: load customer's data during early phases to understand their problem space, and how the overall product needs customer's needs.
 
-2) Chief Technical Officer (CTO)
+2) Chief Technology Officer (CTO) - Similarly to the Product Manager, evaluates the customer's needs with early prototypes that involve significant data manipulations and enrichment.
 
-3) UX Designer 
+3) UX Designer - Does not work directly with the transformation task since they do not deal with data, however, is closely aware of the interface being discussed.   
 
-4) Software Architect
+4) Software Architect - Does not need to work with transformations on daily basis, however, need to considers the overall system's capabilities.
 
-\textit{Contextual} interview takes place right \textit{after}, or as user \textit{is} interacting with the product. This format allows observing the main \textit{pain points} for users achieving their goal of transforming existing data. As the goals, motivations, and sub-goals are understood, the interviews must focus on the specific areas of the existing interface:
+The interview questions covered a broad aspect of the interface, focusing on three areas - Data Presentation, Data Transformation and Feedback. The full list of questions is available in the \textit{Appendix A}. The raw answers, based on the verbal interviews, are available in the \textit{Appendix B}. 
 
-\begin{itemize}
-    \item Data Presentation. What are the user benefits in being able to assess the shape and size of the data easily? Here it is important to consider that the \textit{data} is the main asset in the analyzed task)  
-    \item Data Transformation. How frequently do the users need/want to manipulate the data, and alter and/or explore more complex relationships? What is the business value in incorporating the requirements of the hands-on transformation?
-    \item Feedback/Recovery. What is the role of the interface in continuously providing feedback on the user's actions? What problems do the interfaces help solve, and what are the product benefits from providing a solution?
-\end{itemize}
+\textbf{Takeaways}:
 
-The process of collecting and analyzing the answers to the questions posed above helps avoid the common trap - \textit{you are not your user}. What the interface designer might consider as the most important feature does not necessarily match the user's needs. The need-finding research conducted via interviews connects benefits between end-user, product and business value overall. The bias of the Interview approach might arise if the group selected for the interview is susceptible to a single view of the interface and its functionality. For example, engineers may have conceptual models of the task that bias the design towards the processor model. As code implementers, they might have a pre-conceived notion on the workflow for the given task. To address this bias the interview needs to include users from other areas as well, such as business (Product Managers), Analytics (data scientists), and Infrastructure (DevOps). 
+1) The workflow of the interface is not very intuitive, and it lacks \textit{wizard-like} features to walk the user through the setup.
+
+2) The interface does not follow a standard design (button positions) that leads to a confusion on the sequence of steps. For example, the interface currently has a great way to provide an immediate feedback by letting the user \textit{try} the transformation; however, because the designated location of this functionality is \textit{below} the \textit{Save} button, it is not clear if selected transformation is \textit{Applied} to the entire set.
+
+3) Generalization vs. Flexibility. Re-designing an interface must consider the trade-offs between how much flexibility it has (addressing the needs for very specialized audiences) and how many different users it can serve.
+
+\textit{Recall} is an important bias in conducting interviews since studies have shown that people do not always remember their experiences accurately. To control for that, I selected some users with a significant experience with the tool (more than four years). For the new users, I conducted the interview \textit{right} after they went through the task.  
+
+This approach for needfinding turned out to be surprisingly effective in collecting different perspectives on the same task. It forced me to re-think my original priority for features that need redesign, and to consider the additional load on the system especiallty in the case for only marginally improved user's experience.
 
 \iffalse 
 THIS IS COPIED FOR INSPIRATION
@@ -312,6 +316,25 @@ Do you feel that the current system's feedback is adequate? For example, recall 
 \subsubsection*{Question 3 - Feedback/Recovery}
 \begin{itemize}
     \item The main advice in providing a good feedback to the user is being consistent with the standard interfaces (buttons especially). For example, the actions should be ordered as \textit{Cancel}, \textit{Apply}, and \textit{Save}. In our case, \textit{Try it} button is below \textit{Save} which might confuse the user.
+\end{itemize}
+
+\subsection*{Role: Software Architect}
+
+Note: For this interview, I did not have a chance to record the answers immediately, so I paraphrased their main takeways
+\subsubsection*{Question 1 - Data Presentation}
+
+\begin{itemize}
+    \item Although it is noble goal to show user teh sample of the data, what needs to be considered carefully is scalabillity of such requests. Would this additional feature, although nice, interfere with the overall task.  
+\end{itemize}
+
+\subsubsection*{Question 2 - Data Transformation}
+\begin{itemize}
+    \item Too many transformations can be generalized and combined into a single function. No need to be too granular in what each function can do.  
+\end{itemize}
+
+\subsubsection*{Question 3 - Feedback/Recovery}
+\begin{itemize}
+    \item The users currently may suffer from system's frugal messaging when something goes wrong, and its overly verbosity for the typical workflow.
 \end{itemize}
 
 \end{document}
