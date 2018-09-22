@@ -163,43 +163,22 @@ The interview questions covered a broad aspect of the interface, focusing on thr
 
 \textit{Recall} is an important bias in conducting interviews since studies have shown that people do not always remember their experiences accurately. To control for that, I selected some users with a significant experience with the tool (more than four years). For the new users, I conducted the interview \textit{right} after they went through the task.  
 
-This approach for needfinding turned out to be surprisingly effective in collecting different perspectives on the same task. It forced me to re-think my original priority for features that need redesign, and to consider the additional load on the system especiallty in the case for only marginally improved user's experience.
+This approach for needfinding turned out to be surprisingly effective in collecting different perspectives on the same task. It forced me to re-think my original priority for features that need redesign, and to consider the additional load on the system especiallty in the case for only marginally improved user's experience. 
 
-\iffalse 
-THIS IS COPIED FOR INSPIRATION
-The main bias I expect to encounter with the interviewis recallbias. The user may remember things differently, or have difficulty remembering during the interview. To combat this, I will need to carefully analyze the data coming from the interview and compare it with the data from theother needfinding methods. Being aware and consciousof this bias should be sufficient for combating it. 
-\fi
 
-\subsection*{Needfinding Plan 1 - Hacks and Workarounds}
-We have briefly described what the user's ultimate goal is, and how that can be broken down into sub-goals. In this section, we are going to further zoom into the user's actions for performing the task of data transformation. As our objective is to understand the weaknesses of the existing interface, as shown in Figure~\ref{fig::2}, we analyze the cases where the user breaks out of the provided interface and resorts to various hacks and workarounds to accomplish the task. A user in a Data Scientist role has a frequent need for manipulating the raw data that moves through the ETL pipeline. The main reasons why the user in that role currently changes their intended workflow and performs a subset of the actions outside of the given interface can be summarized by the following three categories: 
+\subsection*{Needfinding Plan 3 - Analysis of Existing Interface}
+Analysis of existing interfaces, via \textit{Hacks and Workarounds} approach greatly compliments the previous two approaches, where we collected the data on the user and their goals. Analyzing the hacks, workarounds helps understand \textbf{What users need} in the context of their roles and their daily activities. 
 
-\begin{enumerate}
-    \item \textbf{Limited functionality}. Before deciding on the transformation rules, a user needs to have a visibility on the data being transformed. In the current interface (see Figure~\ref{fig::3}), user selects the targeted data field, for example a \textit{published date}, and is given an \textit{edit} button. However, the interface does not provide enough information to make a fully informed action on the required transformation rule. Therefore, a workaround\#1:  
-    \textit{Load the data in the external interface (command line, Jupyter notebooks, database queries) to explore descriptive statistics of the original field - the most frequent values,  the extreme values, the rate is missing fields, etc.}
-    
-    \begin{figure}[h]
-    \centering
-    \includegraphics[width=4in, scale=.4]{DataVisibility.png}
-    \caption{An example of the interface limitation to provide the user with knowledge of the present data form to enable an informed action.}
-    \label{fig::3}
-    \end{figure}
-    
-    
-    \item \textbf{Poor Feature Organization}. After the user has decided on the transformation rule, the next step is to map their intentions to one of the of existing transformers. Figure~\ref{fig::4} shows that in the current interfaces the selection is given without consideration for priority or relevance of the transformation to the field being examined. Therefore, a workaround\#2:
-    \textit{Browse through previously made transformations (if available) for examples and common use cases, ask colleagues for a bit of advice, or make educated guesses until the right transformer is found}
-    
-    \begin{figure}[h]
-    \centering
-    \includegraphics[width=4in, scale=.3]{Transformers.png}
-    \caption{An example of the interface that displays ALL available transformation functions without priority or relevance consideration.}
-    \label{fig::4}
-    \end{figure}
-    
-    \item \textbf{Bugs in the existing functionality}. Unintended behavior in software happens all the time. The interface needs to provide accessible means to recover from a mistake by undoing an erroneous operation. A user should be comfortable exploring the interface without the fear of irreversibly corrupting the data. A good interface, therefore, should be able to guide the user from the failed state. As the current interface does not provide visibility on the original or the final data (after the applied transformation), there are no means to undo an action where transformation has the unintended effect. Workaround\#3: \textit{Modify the data via direct database access from, hopefully existing, backups.} 
-    
-\end{enumerate}
+\textbf{Observations}:
 
-New type of bias: status quo:
+1) The interface does not provide enough information to make a fully informed action on the required transformation rule. Therefore, a user frequently performs a workaround: \textit{Load the data in the external interface (command line, Jupyter notebooks, database queries) to explore descriptive statistics of the original field - the most frequent values,  the extreme values, the rate is missing fields, etc.}
+
+2) Lack of guidance of which transformations are most relevant to the selected field. Therefore, a workaround\#2: \textit{Browse through previously made transformations (if available) for examples and common use cases, ask colleagues for a bit of advice, or make educated guesses until the right transformer is found}
+
+3) There is a "Try-it" button that allows user to see the impact of the transformation. However, there is no distinction between "Apply" and "Save" and user may inadvertently force the system into heavy processing mode, especially for the high-volume data.  As there is no way to cancel the operation, user has to wait for a completion of the task before reverting it back to the previous state.
+
+\bigskip
+The most common bias for needfinding approach that involves analysis of existing interfaces is \textit{status quo}. Although, the interface has some serious limitations, the need the accomplish a goal forces use to frequently perform the same workaround that after awhile becomes a norm.
 
 \iffalse 
 
