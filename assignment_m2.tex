@@ -122,11 +122,11 @@ In the Participant Observation approach, we experience the task ourselves and re
 
 To get started with a transformation task, I first need to get input data. For this project, I chose to retrieve data from the website \textit{http://arxiv.org} that provides an open access to papers in Physics, Mathematics, Computer Science, and other fields. After loading the data into the system and extracting 30 fields, such as \textit{authors}, \textit{title}, \textit{summary}, \textit{published}, etc., I was presented with a view that allows seeing each property's metadata - \textit{id}, \textit{name}, \textit{data type}, and an option to \textit{Edit} the property. Pressing the \textit{Edit} button enters the interface portion that deals with transformation task for a chosen property.    
 
-\textbf{Goal}: From a data property, \textit{published}, that has a format \textit{dd-mm-yy}, I wish to extract the \textit{year} portion only so I can possibly perform other statistics with this field. 
+\textbf{Goal}: From a data property, \textit{published}, that has a format \textit{dd-mm-yy}, I wish to extract the \textit{year} portion only so I can possibly use it as a feature in the platform algorithms. 
 
-\textbf{Task}: Find the original property \textit{published}, transform it into a new property that keeps only the last two digits, and store the result in a \textbf{new} property \textit{year}.
+\textbf{Task}: Find the original property \textit{published}, find a transformation that keeps only the last two digits, and store the result in a new property \textit{year}.
 
-After briefly looking at the list of available transformation functions, the closest candidate I found was \textit{RegexTransformer}, an internal wrapper over the regular expression language \cite{wiki:regex}. This prompted a new \textbf{subtask}: generate a correct expression that finds the last two digits in a string. Trial, error, and Google eventually led me to an expression "{\textbackslash{d}\{2\}\$}" that provided the output I was expecting.
+After briefly looking at the list of available transformation functions, the closest candidate I found was \textit{RegexTransformer}, an internal wrapper over the regular expression language \cite{wiki:regex}. This prompted a new \textbf{subtask}: generate a correct expression that finds the last two digits in a string. Trial, error, and Google eventually led me to an expression "{\textbackslash{d}\{2\}\$}" that provided the output I was expecting. Hitting \textit{Save} button saves my preference and applies the transformation to the entire dataset.
 
 \textbf{Observations}:
 
@@ -136,10 +136,11 @@ After briefly looking at the list of available transformation functions, the clo
 
 3) The most substantial interface limitation that I have noticed is \textbf{constraining} user to select a single source property for which to perform a transformation. I can imagine a case where I would want to subtract two dates, for example, \textit{submitted date} and \textit{published date}, to gain some insights on the publication process.
 
-In this needfinding plan, it was tough to avoid the \textit{Confirmation} bias, since, as a Data Scientist dealing with data manipulations on a daily basis, I have a strong opinion on what an interface designed for transformations should support. To control for that, I complimented this needfinding approach with \textit{Interviews} so that I can gather perspectives from users of different roles. 
+\bigskip
+In this needfinding plan, it was tough to avoid the \textit{Confirmation} bias, since, as a Data Scientist dealing with data manipulations on a daily basis, I have a strong opinion on what an interface designed for transformations should support. To control for this bias, I complimented a Participant Observation approach with \textit{Interviews} approach so that I can gather different perspectives from users with unique roles. Therefore, selecting a right group of users for the interviews is crucial to battle the confirmation bias. 
 
 \subsection*{Needfinding Plan 2 - Interviews}
-With the Participant plan, we have addressed questions such as \textit{What are the users' goals} and \textit{What are their tasks}. To understand \textit{Who are the users} and \textit{What is the context of the task}, I interviewed four of my colleagues who also interact with the interface being analyzed. I specifically selected them based on their roles as together they represent a large variety of user types. 
+With the Participant Observation plan, we have addressed questions such as \textit{What are the users' goals} and \textit{What are their tasks}. To understand \textit{Who are the users} and \textit{What is the context of the task}, I interviewed four of my colleagues who also interact with the interface being analyzed. I specifically selected them based on their roles as together they represent a large variety of user types. 
 
 \textbf{Who} are the users and \textbf{What} are their \textbf{contexts}:
 
@@ -151,7 +152,7 @@ With the Participant plan, we have addressed questions such as \textit{What are 
 
 4) Software Architect - Does not need to work with transformations on a daily basis, however, need to consider the overall system's capabilities.
 
-The interview questions covered a broad aspect of the interface, focusing on three areas - Data Presentation, Data Transformation, and Feedback. The full list of questions is available in the \textit{Appendix A}. The raw answers, based on the oral interviews, are available in the \textit{Appendix B}. 
+The interview questions covered a broad aspect of the interface, falling in one of three areas - Data Presentation, Data Transformation, and Feedback. The full list of questions is available in the \textit{Appendix A}. The raw answers, based on the oral interviews, are available in the \textit{Appendix B}. 
 
 \textbf{Takeaways}:
 
@@ -161,9 +162,10 @@ The interview questions covered a broad aspect of the interface, focusing on thr
 
 3) Generalization vs. Flexibility. Re-designing an interface must consider the trade-offs between how much flexibility it has (addressing the needs for very specialized audiences) and how many different users it can serve.
 
+\bigskip
 \textit{Recall} is a typical bias in conducting interviews since studies have shown that people do not always remember their experiences accurately. To control for that, I selected some users with significant experience with the tool (more than four years). For the new users, I conducted the interview \textit{right} after they went through the task.  
 
-This approach for needfinding turned out to be surprisingly effective in collecting different perspectives on the same task. It forced me to re-think my original priority for features that need a redesign, and to consider the additional load on the system especially in the case for only marginally improved user's experience. 
+This approach for needfinding turned out to be surprisingly effective in collecting different perspectives on the same task. It forced me to re-think my original priority for features that need a redesign, and to consider the additional load on the system especially in the case of only marginally improved user's experience. 
 
 
 \subsection*{Needfinding Plan 3 - Analysis of Existing Interface}
@@ -175,7 +177,7 @@ My original instinct for analyzing the interface weaknesses was to search throug
 
 1) The interface does not provide enough information to make a fully informed action on the required transformation rule. Therefore, a user frequently performs a workaround: \textit{Load the data in the external interface (command line, Jupyter notebooks, database queries) to explore descriptive statistics of the original field - the most frequent values,  the extreme values, the rate is missing fields, etc.}
 
-2) Lack of guidance of which transformations are most relevant to the selected field. Therefore, a workaround\#2: \textit{Browse through previously made transformations (if available) for examples and common use cases, ask colleagues for a bit of advice, or make educated guesses until the right transformer is found}
+2) There is a lack of guidance of which transformations are most relevant to the selected field. Therefore, a workaround\#2: \textit{Browse through previously made transformations (if available) for examples and common use cases, ask colleagues for a bit of advice, or make educated guesses until the right transformer is found}
 
 3) There is a "Try-it" button that allows the user to see the impact of the transformation. However, there is no distinction between "Apply" and "Save," and the user may inadvertently force the system into heavy processing mode, especially for the high-volume data.  As there is no way to cancel the operation, the user has to wait for completion of the task before reverting it to the previous state.
 
@@ -203,9 +205,10 @@ An interesting insight based on the observations for what else competes with use
 
 \subsection*{Defining Requirements}
 
-Based on the results from the performed needfinding analysis, we can start describing the desired set of requirements for the interface that supports a data transformation task as part of the ETL process. The recommendations are provided for three areas - functionality, usability and learnability. Our analysis of existing users suggests that we need to cater to both, novices, and experts. 
+Based on the results from the performed needfinding analysis, we can start describing the desired set of requirements for the interface that supports a data transformation task as part of the ETL process. The recommendations are provided for three areas - functionality, usability and learnability. Our analysis of existing users suggests that we need to cater to both, novices, and experts. The latter group benefits from the speed and efficiency, while the former is comforted with explorative feel of the interface.
 
-\textbf{Functionality} - range of tasks supported for data transformation
+\bigskip
+\textbf{Functionality} - range of tasks supported for data transformation.
 
 1) The interface must let user \textit{select} a source data intended for modification, \textit{choose} a transformation, \textit{save} the configuration and \textit{apply} the task to the dataset.
 
@@ -213,13 +216,13 @@ Based on the results from the performed needfinding analysis, we can start descr
 
 3) The interface should allow the user to create/edit/delete transformations, and optionally export it to a human-readable form.
 
-\textbf{Usability} - quality of the available functionality
+\textbf{Usability} - quality of the available functionality.
 
 1) The interface must support a transformation that is based on multiple sources, for example, combining two fields into one, or performing mathematical operations on them.
 
 2) The interface must provide clear distinction between actions for \textit{saving} a configuration for a transformation, or \textit{applying} the transformation the data.
 
-\textbf{Learnability} - ease and speed by transforming data
+\textbf{Learnability} - ease and speed for the task of transforming data.
 
 1) The interface should have a toolbox of standard transformations with meaningful names, and built-in tooltip that expands the capabilities of each transformation with examples.
 
@@ -237,7 +240,7 @@ Since the interface described in this project is an internal tool, I have access
 
 
 \subsection*{Continuing Needfinding}
-Conducting interviews gave me a wide range of perspectives on what and how the tool should accomplish the task. As a first step, this was very useful, and it steered my initial thoughts on the interface redesign in a different direction. I am planning to repeat the interviews by narrowing down the questions based on the outlined requirements. My original questions targeted large and generic areas such as Data Presentation, Data Transformation, and Feedback/Evaluation. For the next iteration, I would like to gather a sense of priority for each feature that requires a redesign. 
+Conducting interviews gave me a wide range of perspectives on what and how the tool should accomplish the task. As a first step, this was very useful, and it steered my initial thoughts on the interface redesign in a different direction. I am planning to repeat the interviews by narrowing down the questions based on the outlined requirements. For the next iteration, the discussion may be focused on the following three areas:
 
 1) What \textit{stylistic} improvements can be identified as low-hanging fruit in terms of implementation time, and value added to the user?
 
@@ -250,7 +253,7 @@ In addition to narrowing down the scope of the question, I would also like to wi
 \bibliographystyle{apacite} 
 \bibliography{bibtemp}
 
-\newpage
+\section*{Appendices}
 
 \appendix
 
