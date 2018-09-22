@@ -13,6 +13,7 @@
 % for crimson text
 \usepackage{crimson}
 \usepackage[T1]{fontenc}
+\usepackage{url}
 
 % setup parameter indentation
 \setlength{\parindent}{0pt}
@@ -113,30 +114,57 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process. There exist many tools that can accomplish the task of creating and maintaining a data warehouse. However, sometimes it is advantageous to have a custom solution that allows a user to interact with the data directly during some or all of the ETL phases. In this project, we analyze an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. 
+Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process \cite{wiki:etl}. There exist many tools that can accomplish the task of creating and maintaining a data warehouse. However, sometimes it is advantageous to have a custom solution that allows a user to interact with the data directly during some or all of the ETL phases. In this project, we analyze an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. Our main goal is to assess all the weak areas of the existing interface in order to provide recommendations for alternative models that simplify the user interaction without assuming any pre-existing knowledge of the tool.
 \end{abstract}
 
-\subsection*{Problem Space}
-The data ingestion is described by the \textit{Extract, Transform and Load} (ETL) process - a cycle that converts a raw data into structured records more convenient for further Data Analysis and/or uses for Machine Learning algorithms \cite{wiki:etl}. Figure~\ref{fig::1} shows the ETL process from the Source to the Destination. The entire cycle may be completely hidden from the user (full automation of data ingestion), or a human is required to guide the components of the process to reach their desired goal. In this project we focus on the \textit{transform} task that is centered around interactions with the user to alter the original data to meet their needs. For example, a user who looks at the weather feed in Fahrenheit may choose to convert it to Celsius. 
+\subsection*{Needfinding Plan 1 - Participant Observation}
+In the Participant Observation approach we experience the task ourselves and record both, the steps performed and their outcomes in order to analyze effectiveness and usability of the interface for the given task. 
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=3in, scale=.3]{ETLProcess.png}
-\caption{Extract-Transform-Load Process from Data Science Central blogpost on Open Source ETL tools (https://www.datasciencecentral.com/profiles/blogs/10-open-source-etl-tools)}
-\label{fig::1}
-\end{figure}
+To get started with a transformation task, I first need to get input data. For this project, I chose to retrieve data from the website \textit{http://arxiv.org} that provides an open access to papers in Physics, Mathematics, Computer Science, and other fields. After loading the data into the system and extracting 30 fields, such as \textit{authors}, \textit{title}, \textit{summary}, \textit{published}, etc., I was presented with a view that allows seeing each property's metadata - \textit{id}, \textit{name}, \textit{data type}, and an option to \textit{Edit} the property. Pressing the \textit{Edit} button enters the interface portion that deals with transformation task for a chosen property.    
 
-To accomplish the data transformation task, a user needs access to the original data, as well as an arsenal of mapping tools suitable to the domain. Figure~\ref{fig::2} shows an existing version of an internal interface \footnote{A very rough version of a custom tool to perform user-driven ETL process.} that we will be analyzing and re-designing to improve user experience in undertaking the transformation task. 
+\textbf{Goal}: From a data property, \textit{published}, that has a format \textit{dd-mm-yy}, I wish to extract the \textit{year} portion only so I can possibly perform other statistics with this field. 
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=4in, scale=.4]{NaraTransform.png}
-\caption{A version of an internal interface for transforming a single data field. Here, the data source is the data from the Arxiv Library collected via ATOM API. User selects the original field, here the \textit{published} date, and wishes to transform it to a different date format.}
-\label{fig::2}
-\end{figure}
+\textbf{Task}: Find the original property \textit{published}, transform it into a new property that keeps only the last two digits, and store the result in a \textbf{new} property \textit{year}.
 
-Our main goal is to assess all the weak areas of the existing interface in order to provide recommendations for alternative models that simplify the user interaction without assuming any pre-existing knowledge of the tool.
+After briefly looking at the list of available transformation functions, the closest candidate I found was \textit{RegexTransformer}, an internal wrapper over the regular expression language \cite{wiki:regex}. This prompted a new \textbf{subtask}: generate a correct expression that finds the last two digits in a string. Trial, error and Google eventually led me to an expression "{\textbackslash{d}\{2\}\$}" that provided output I was expecting.
 
+\textbf{Observations}:
+
+1) The list of available transformations is very large (over 30), and I had to go through at least five of them until I stumbled on \textit{RegexTransform}. There is no classification of the transformation functions available that can help narrow down the search.
+
+2) I was hoping to find a transformation that \textit{knows} how to deal with dates directly that can support multiple date formats. Although, I did not find a an exact operation, the system provided me with a generic type of transformation that I could mold to suit my task.
+
+3) The largest interface limitation that I have noticed is \textbf{constraining} user to select a single source property for which to perform a transformation. I can imagine a case where I would want to subtract two dates, for example \textit{submitted date} and \textit{published date}, to gain some insignts on the publication process.
+
+In this needfinding plan, it was very hard to avoid the \textit{Confirmation} bias, since, as a Data Scientist dealing with data manipulations on a daily basis, I have a strong opinion on what an interface designed for transformations should support. To control for that, I complimented this needfinding approach with \textit{Interviews}, so I can gather perspectives from users of different roles. 
+
+\subsection*{Needfinding Plan 2 - Interviews}
+With the Participant plan, we have addressed questions such as \textit{What are the users' goals} and \textit{What are their tasks}. To understand \textit{Who are the users} and \textit{What is the context of the task}, I interviewed four of my colleagues who also interact with the interface being analyzed. I specifically selected them based on their roles as together they represent a large variety of user types. 
+
+\textbf{Who} are the users and What are their \textit{contexts}:
+
+1) Product Manager / Client Lead - Deals with the interface on the daily basis from bossiness perspective: load customer's data during early phases to understand the problem space, and how the overall product needs customer's needs.
+
+2) Chief Technical Officer (CTO)
+
+3) UX Designer 
+
+4) Software Architect
+
+\textit{Contextual} interview takes place right \textit{after}, or as user \textit{is} interacting with the product. This format allows observing the main \textit{pain points} for users achieving their goal of transforming existing data. As the goals, motivations, and sub-goals are understood, the interviews must focus on the specific areas of the existing interface:
+
+\begin{itemize}
+    \item Data Presentation. What are the user benefits in being able to assess the shape and size of the data easily? Here it is important to consider that the \textit{data} is the main asset in the analyzed task)  
+    \item Data Transformation. How frequently do the users need/want to manipulate the data, and alter and/or explore more complex relationships? What is the business value in incorporating the requirements of the hands-on transformation?
+    \item Feedback/Recovery. What is the role of the interface in continuously providing feedback on the user's actions? What problems do the interfaces help solve, and what are the product benefits from providing a solution?
+\end{itemize}
+
+The process of collecting and analyzing the answers to the questions posed above helps avoid the common trap - \textit{you are not your user}. What the interface designer might consider as the most important feature does not necessarily match the user's needs. The need-finding research conducted via interviews connects benefits between end-user, product and business value overall. The bias of the Interview approach might arise if the group selected for the interview is susceptible to a single view of the interface and its functionality. For example, engineers may have conceptual models of the task that bias the design towards the processor model. As code implementers, they might have a pre-conceived notion on the workflow for the given task. To address this bias the interview needs to include users from other areas as well, such as business (Product Managers), Analytics (data scientists), and Infrastructure (DevOps). 
+
+\iffalse 
+THIS IS COPIED FOR INSPIRATION
+The main bias I expect to encounter with the interviewis recallbias. The user may remember things differently, or have difficulty remembering during the interview. To combat this, I will need to carefully analyze the data coming from the interview and compare it with the data from theother needfinding methods. Being aware and consciousof this bias should be sufficient for combating it. 
+\fi
 
 \subsection*{Needfinding Plan 1 - Hacks and Workarounds}
 We have briefly described what the user's ultimate goal is, and how that can be broken down into sub-goals. In this section, we are going to further zoom into the user's actions for performing the task of data transformation. As our objective is to understand the weaknesses of the existing interface, as shown in Figure~\ref{fig::2}, we analyze the cases where the user breaks out of the provided interface and resorts to various hacks and workarounds to accomplish the task. A user in a Data Scientist role has a frequent need for manipulating the raw data that moves through the ETL pipeline. The main reasons why the user in that role currently changes their intended workflow and performs a subset of the actions outside of the given interface can be summarized by the following three categories: 
@@ -200,33 +228,8 @@ When a user has a correct mental model, but still makes an error due to a rushed
 
 Similarly to the approach of Hacks and Workaround, the Error analysis approach is susceptible to the \textit{observational selection} bias. In both methods, the effect of the bias can be reduced by quantitatively measuring the impact those errors have on the productivity of the end users. Metrics such as time spent troubleshooting the errors, likelihood of data corruption/loss, resources requires to re-design the specific components of the interface, etc. can help prioritize one types of errors over others.  
 
-\subsection*{Needfinding Plan 2 - Participant Observation}
-In the Participant Observation approach we experience the task ourselves and record both, the steps performed and their outcomes in order to analyze effectiveness and usability of the interface for the given task.  
-
-\iffalse
-THIS IS COPIED FOR INSPIRATION
-This  section  describesthe plan  for  the needfinding  method  of participant observation.Plan for needfinding exerciseI will take up the role of a partipant observer and use the existing folder barin Piazzato filter posts by folder, as an OMSCS student enrolled in CS6750 Human Computer Interaction class. Specifically, the steps that I will follow are listed below. 1.Login to Piazza and go to CS6750 class forum.
-32.Assume I am preparing for assignment P2 and hence look for folder related tothat.3.Click on folder related to assignment P24.Wait for posts in that folder to appear in the feed section.5.Browse through each postswithin the folder and search for information I need related to assignment P2. 6.Repeat step 2 to 6 with different motivations, such as searching for posts related to class participation or browsing through all folders on the bar to catch up on unread posts. I will gather data aboutwhat other activities or tasks are competing for a user’s attention when they are trying to perform the task.This relates to the context of the task from the data inventory. In addition, this needfinding method also addresses the goals of potential users, such as what outcome would a user expect from a folder bar,includinglocating the correct folder and clicking a specific folder. Lastly, I will also collect data on tasks and sub-tasks encountered when performing the filtering functionality. The data collected will be in the form of notes taken afterI participated in the task. Potential biasesOne  potential  bias  in  this  method  is  confirmation  bias.  As  I  will  be  the participation  observer, my preconceived  notions  on  the  strengthes  and weaknesses of the existing interface will affect the data I collect. The best way to limit  the  impact  is  to  forget  the  fact  that  I  am  performing  the  task  as  a participation observerfor this project, and instead pretend I am a student who genuinely need to use the folder filtering function for some purpose. Another way is to get someone who is not aware of this project to perform the task and report the results. 
-\fi
 
 
-\subsection*{Needfinding Plan 3 - Interviews}
-Previously described two approaches on need-finding, Hacks and Workarounds, and Errors, are less prone to the social biases as they collect the outcomes of the interactions with the interface as opposed to user's responses. Those approaches, however, can be limiting in understanding the users (who they are) and their experiences in interacting with the product. Conducting User Interviews, especially the Contextual kinds, can help the designers accurately estimate the user-experience situations \cite{basics_ux_design}. The data collected from the interviews has less quantitative nature, but combining its qualitative approach with the metrics and analysis of the previous two methods leads a holistic view of the interface's strength and weaknesses.   
-
-\textit{Contextual} interview takes place right \textit{after}, or as user \textit{is} interacting with the product. This format allows observing the main \textit{pain points} for users achieving their goal of transforming existing data. As the goals, motivations, and sub-goals are understood, the interviews must focus on the specific areas of the existing interface:
-
-\begin{itemize}
-    \item Data Presentation. What are the user benefits in being able to assess the shape and size of the data easily? Here it is important to consider that the \textit{data} is the main asset in the analyzed task)  
-    \item Data Transformation. How frequently do the users need/want to manipulate the data, and alter and/or explore more complex relationships? What is the business value in incorporating the requirements of the hands-on transformation?
-    \item Feedback/Recovery. What is the role of the interface in continuously providing feedback on the user's actions? What problems do the interfaces help solve, and what are the product benefits from providing a solution?
-\end{itemize}
-
-The process of collecting and analyzing the answers to the questions posed above helps avoid the common trap - \textit{you are not your user}. What the interface designer might consider as the most important feature does not necessarily match the user's needs. The need-finding research conducted via interviews connects benefits between end-user, product and business value overall. The bias of the Interview approach might arise if the group selected for the interview is susceptible to a single view of the interface and its functionality. For example, engineers may have conceptual models of the task that bias the design towards the processor model. As code implementers, they might have a pre-conceived notion on the workflow for the given task. To address this bias the interview needs to include users from other areas as well, such as business (Product Managers), Analytics (data scientists), and Infrastructure (DevOps). 
-
-\iffalse 
-THIS IS COPIED FOR INSPIRATION
-The main bias I expect to encounter with the interviewis recallbias. The user may remember things differently, or have difficulty remembering during the interview. To combat this, I will need to carefully analyze the data coming from the interview and compare it with the data from theother needfinding methods. Being aware and consciousof this bias should be sufficient for combating it. 
-\fi
 
 
 
@@ -294,23 +297,21 @@ Do you feel that the current system's feedback is adequate? For example, recall 
     \item An area where I stumble is around naming for the current transforms. Name is not always representative.
 \end{itemize}
 
-\subsection*{Role: Chief UX Designer}
+\subsection*{Role: Lead UX Designer}
 \subsubsection*{Question 1 - Data Presentation}
 
 \begin{itemize}
-    \item Not using mental energy to imagine how data looks like before the transformation is very important to me; This allows to focus on the interface. Plus, imagination could be exhausting :)
+    \item It would be great to have a sneak peak into the data, however, one should be careful about not distracting the user from the task. Essentially, if the action of taking a look at the data underneath requires selecting multiple options, it does not improve user's experience overall. 
 \end{itemize}
 
 \subsubsection*{Question 2 - Data Transformation}
 \begin{itemize}
-    \item I am involved in rapid prototyping for a variety of clients. During this phase, the data we get is very unclean, therefore I have to perform a lot of transformations.
-    \item Main areas of transformations: Dictionary Mappings, Combining fields, Cleaning Up.
+    \item Although, I am not currently using this feature, I can imagine a need in a transformation that requires multiple variables.
 \end{itemize}
 
 \subsubsection*{Question 3 - Feedback/Recovery}
 \begin{itemize}
-    \item \textit{Try it} functionality we currently have is a great way to provide a feedback in the form of almost interactively reshaping the data
-    \item An area where I stumble is around naming for the current transforms. Name is not always representative.
+    \item The main advice in providing a good feedback to the user is being consistent with the standard interfaces (buttons especially). For example, the actions should be ordered as \textit{Cancel}, \textit{Apply}, and \textit{Save}. In our case, \textit{Try it} button is below \textit{Save} which might confuse the user.
 \end{itemize}
 
 \end{document}
