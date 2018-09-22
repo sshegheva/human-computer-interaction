@@ -8,7 +8,7 @@
 
 % for graphics
 \usepackage{graphicx}
-\graphicspath{{./figures/m1/}}
+\graphicspath{{./figures/m2/}}
 
 % for crimson text
 \usepackage{crimson}
@@ -169,6 +169,8 @@ This approach for needfinding turned out to be surprisingly effective in collect
 \subsection*{Needfinding Plan 3 - Analysis of Existing Interface}
 Analysis of existing interfaces, via \textit{Hacks and Workarounds} approach greatly compliments the previous two approaches, where we collected the data on the user and their goals. Analyzing the hacks, workarounds helps understand \textbf{What users need} in the context of their roles and their daily activities. 
 
+My original instinct for analyzing the interface weaknesses was to search through the Jira (Issue and Project Tracking Software) tickets with a goal to find the most common areas prone to errors. However, not many of them were focused on the UI portion, and even when they were, their scope was very limited to bugs in the implementation and obvious errors. In order to think beyond current bugs in the software, I leaned on my own experience with interacting with the interfaces, and reflected on the areas where I spent most of my time working around the interface limitations.  
+
 \textbf{Observations}:
 
 1) The interface does not provide enough information to make a fully informed action on the required transformation rule. Therefore, a user frequently performs a workaround: \textit{Load the data in the external interface (command line, Jupyter notebooks, database queries) to explore descriptive statistics of the original field - the most frequent values,  the extreme values, the rate is missing fields, etc.}
@@ -178,41 +180,14 @@ Analysis of existing interfaces, via \textit{Hacks and Workarounds} approach gre
 3) There is a "Try-it" button that allows user to see the impact of the transformation. However, there is no distinction between "Apply" and "Save" and user may inadvertently force the system into heavy processing mode, especially for the high-volume data.  As there is no way to cancel the operation, user has to wait for a completion of the task before reverting it back to the previous state.
 
 \bigskip
-The most common bias for needfinding approach that involves analysis of existing interfaces is \textit{status quo}. Although, the interface has some serious limitations, the need the accomplish a goal forces use to frequently perform the same workaround that after awhile becomes a norm.
-
-\iffalse 
-
-THIS IS COPIED FOR INSPIRATION: remove it!
-In this needfinding method, there is little potential for bias. Possibly, we might en-counter status quo bias. Status quo bias occurs when there is an emotional preferencefor the current state of affairs. We might look at an alternate existing interface and feelthat if it is too different than what we are used to, that this would be a negative thing.To avoid this bias, we will go into the needfinding method with an open mind and theattitude that, for now, nothing is off the table.
-\fi
-
-The need-finding approach covered in this section connects the user's goals of altering a data feed to the sub-tasks of viewing the existing data, planning the transformation, and confirming the outcome. The approach of need-finding via analysis of hacks and workarounds is susceptible to \textit{observational selection bias} as we tend to notice workarounds when they impact us directly. To avoid this bias, we pair up this approach with another method that seeks to understand the pain points of a larger group of users, preferably with diverse roles.
-
-
-To better understand the user's struggles with the interface, it is useful to analyze the frequencies of two kinds of errors, such as \textit{slips} and \textit{mistakes}. A mental model is a process that explains how a user is thinking about the task regarding actions and outcomes \cite{wiki:mental_model}. When a mental model matches the logic implemented by an algorithm, the user has a correct understanding of the system's functionality. In this case, the user's error can be classified as a slip vs. a mistake where the user has a wrong mental model. The approach for need-finding that focuses on error analysis broadens the spectrum of users in terms of their expertise in the given task. A novice in the field can be guided through the process of transformation by automatically matching the compatible functions to the field subjected to alterations. 
-
-Figure~\ref{fig::5} exemplifies a hypothetical scenario where the user does not have a correct representation of the state and appropriate actions. In this example, the user attempts to transform a field that captures a person's name (\textit{author}) by applying a function that is designed to manipulate \textit{dates}. This is an incompatible operation that should not be allowed by the interface. The analysis of errors for such type outlines a \textit{need} for system's intelligence to understand the input data types and the \textit{schemata} of the available transform to reduce the space of possible matches. An improvement like can decrease the chances for user to apply incorrect action for the task at hand.   
+The most common bias for needfinding approach that involves analysis of existing interfaces is \textit{status quo}. Although, the interface has some serious limitations, the need the accomplish a goal forces the user to frequently perform the same workaround which after awhile becomes a norm. To control for this bias, I looked at some open source tools that perform a similar task. Figure ~\ref{fig::1} contrasts the internal interface (left) with Pentaho Kettle (right) on a specific functionality of the transformation feature. In addition to encouraging being objective in the process in need finding, looking at alternative designs can give inspirations for improvements. 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=4in, scale=.3]{mistake.png}
-\caption{An example of the incorrect user action where their mental model of the underlying process is incorrect. A textual field, such as person's name cannot be computed as a date transformation.}
-\label{fig::5}
+\includegraphics[scale=.35]{alternatives.png}
+\caption{Transformation task for two interfaces: internal (left) and Pentaho Kettle (right)}
+\label{fig::1}
 \end{figure}
-
-When a user has a correct mental model, but still makes an error due to a rushed behavior, there is an opportunity to improve the interface to reduce the chance of \textit{slippage} by altering the nature of interactions. Figure~\ref{fig::6} shows an interface that expects the user to submit a list of characters for String Cleaning. This form of interaction allows easy creation of a typo that can be avoided by modifying the underlying interaction. A change like an abstraction of special characters into a class of invalid characters for a \textit{name} field can improve users' efficiency in performing a transformation task.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=4in, scale=.3]{slip.png}
-\caption{An example of the incorrect user action where their mental model of the underlying process is correct, but user can still easily make a mistake by making a typo.}
-\label{fig::6}
-\end{figure}
-
-Similarly to the approach of Hacks and Workaround, the Error analysis approach is susceptible to the \textit{observational selection} bias. In both methods, the effect of the bias can be reduced by quantitatively measuring the impact those errors have on the productivity of the end users. Metrics such as time spent troubleshooting the errors, likelihood of data corruption/loss, resources requires to re-design the specific components of the interface, etc. can help prioritize one types of errors over others.  
-
-
-
 
 
 
