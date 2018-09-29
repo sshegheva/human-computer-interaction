@@ -135,19 +135,27 @@ A strong relative to mapping principle is \textit{affordance} principle that det
 
 
 \subsection*{Question 3 - Slips, Mistakes and Errors}
+Yousican is an innovate application that allows students to learn how to play piano, guitar and other musical instruments\cite{eli2017yousician}. It is a fun game that involves following step-by-step tutorials, exercises and play-alongs. At the core of learning to play a musical instrument is a lot of practice, and slips and mistakes are unavoidable part of the experience. Figure~\ref{fig::2} shows an example of a screen that user interacts with.
 
-Yousician 
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in,scale=.6]{figures/p3/yousician.png}
+\caption{A screenshot from Yousician App that teachers the user to play piano}
+\label{fig::2}
+\end{figure}
 
-Slip: missing a note 
-Mistake: Hitting an incorrect note (ex, missing sharps in G major)
+\subsubsection*{Slips}
+When a user follows along by playing the given music score, they may inadvertently hit a wrong note. The player might have had a correct intention, but the action led to a \textit{slip}. Don Norman classifies slips into two categories: action-based and memory-based \cite{norman2013design}. Both types are applicable here that describes two different reasons for playing an incorrect note(s). In the action-based slip, the tempo of the music might be too fast for the user's dexterity level causing them to either miss a note or hit a note that is one or more semitones away from the original. In the memory-based slip, the user might have a memory lapse, that causes them to miss one or more notes even though they had learned the section correctly. While it can be argued that the interface should not change (since only practice can reduce slips), the app can learn the user's tendencies and frequencies of hitting incorrect notes, and \textit{intelligently} adjust the tempo when needed that can address action-based slips. The best way to improve the memory-based slips, is to help the use map and \textit{understand} the music passages, for example, highlight the notes that make up the chord, label the progression, link to the theory behind the music piece, etc.         
 
-First, describe a slip that a player of the game might make. Remember, a slip generally occurs when the player knows what action they should take, but does something different instead. In Tetris, this might be a player wanting to move a piece to the right, but pressing the left button instead. Then, describe why the player might make that slip. Then, briefly suggest a way the interface could be changed to prevent that slip in the future.
+\subsubsection*{Mistake}
+Playing incorrect note can be classified as a \textit{mistake} if there is a pattern for erring in playing the passage. For example, if a signature of the music piece is labeled as G major (all F's are sharp - "\#"), and the user plays all the F's natural instead, this clearly points to a \textit{rule-based} mistake as the user has incorrectly evaluated the accidentals associated with the piece. An interface can be improved by pausing the auto-play and providing a visual animation that shows raising a finger by a semitone to indicate the correct rule for the given signature.
 
-Second, describe a mistake that a player of the game might make. Remember, a mistake generally occurs when the player knows what they want to accomplish, but doesn’t know how to actually make it happen. In Tetris, this might be a player wanting to rotate a piece clockwise, but pressing to rotate it counter-clockwise instead because they do not know which button rotates clockwise. Then, describe why the player might make that mistake. Then, briefly suggest a way the interface could be changed to prevent that mistake in the future.
+Both improvements in the interfaces leverage constraints (slow down, pause, stop) and mappings (overlay chord schemes, show finger position) to correct user's conceptual model in case of mistakes, and user's tendencies to occasionally slip.
 
-Finally, describe something that makes the game challenging, but that is not a slip or a mistake. For example, in Tetris, there may be no obvious place for a piece to go, but that does not force the user to commit a slip or a mistake.
+\subsubsection*{Challenge}
+The game currently provides fourteen levels for piano playing ranging from elementary to advanced. A user selecting a level beyond their current abilities, is likely to fail at adequately executing the music piece. These type of errors are not characterized as either slips or mistakes. Correcting the user's actions may not lead to any improvements if user does not currently posses necessary knowledge and experience (pre-requisites) to play through a challenging piece.  
 
-\subsection*{Question 4 - Representation of the underlying content}
+\subsection*{Question 4 - Models and Representations}
 
 \bibliographystyle{apacite} 
 \bibliography{bibtemp}
