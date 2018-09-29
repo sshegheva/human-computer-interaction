@@ -1,0 +1,148 @@
+\documentclass[12pt,letterpaper]{article}
+
+% just for the example
+\usepackage{lipsum}
+% Set margins to 1.5in
+\usepackage[margin=1.5in]{geometry}
+
+% for graphics
+\usepackage{graphicx}
+\graphicspath{{./figures/p3/}}
+
+% for crimson text
+\usepackage{crimson}
+\usepackage[T1]{fontenc}
+
+% setup parameter indentation
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% for 1.15 spacing between text
+\renewcommand{\baselinestretch}{1.15}
+
+% For defining spacing between headers
+\usepackage{titlesec}
+% Level 1
+\titleformat{\section}
+  {\normalfont\fontsize{18}{0}\bfseries}{\thesection}{1em}{}
+% Level 2
+\titleformat{\subsection}
+  {\normalfont\fontsize{14}{0}\bfseries}{\thesection}{1em}{}
+% Level 3
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{12}{0}\bfseries}{\thesection}{1em}{}
+% Level 4
+\titleformat{\paragraph}
+  {\normalfont\fontsize{12}{0}\bfseries\itshape}{\theparagraph}{1em}{}
+% Level 5
+\titleformat{\subparagraph}
+  {\normalfont\fontsize{12}{0}\itshape}{\theparagraph}{1em}{}
+% Level 6
+\makeatletter
+\newcounter{subsubparagraph}[subparagraph]
+\renewcommand\thesubsubparagraph{%
+  \thesubparagraph.\@arabic\c@subsubparagraph}
+\newcommand\subsubparagraph{%
+  \@startsection{subsubparagraph}    % counter
+    {6}                              % level
+    {\parindent}                     % indent
+    {12pt} % beforeskip
+    {6pt}                           % afterskip
+    {\normalfont\fontsize{12}{0}}}
+\newcommand\l@subsubparagraph{\@dottedtocline{6}{10em}{5em}}
+\newcommand{\subsubparagraphmark}[1]{}
+\makeatother
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+\titlespacing*{\paragraph}{0pt}{12pt}{6pt}
+\titlespacing*{\subparagraph}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubparagraph}{0pt}{12pt}{6pt}
+
+% Set caption to correct size and location
+\usepackage[tableposition=top, figureposition=bottom, font=footnotesize, labelfont=bf]{caption}
+
+% set page number location
+\usepackage{fancyhdr}
+\fancyhf{} % clear all header and footers
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\rhead{\thepage}
+\pagestyle{fancy}
+
+% Overwrite Title
+\makeatletter
+\renewcommand{\maketitle}{\bgroup
+   \begin{center}
+   \textbf{{\fontsize{18pt}{20}\selectfont \@title}}\\
+   \vspace{10pt}
+   {\fontsize{12pt}{0}\selectfont \@author} 
+   \end{center}
+}
+\makeatother
+
+% Used for Tables and Figures
+\usepackage{float}
+
+% For using lists
+\usepackage{enumitem}
+
+% For using APA Citation format
+\usepackage{apacite}
+
+% Custom Quote
+\newenvironment{myquote}[1]%
+  {\list{}{\leftmargin=#1\rightmargin=#1}\item[]}%
+  {\endlist}
+  
+% Create Abstract 
+\renewenvironment{abstract}
+{\vspace*{-.5in}\fontsize{12pt}{12}\begin{myquote}{.5in}
+\noindent \par{\bfseries \abstractname.}}
+{\medskip\noindent
+\end{myquote}
+}
+
+\begin{document}
+
+% Set Title, Author, and email
+\title{Assignment P3}
+\author{Snejana Shegheva \\ sshegheva3@gatech.edu}
+
+\maketitle
+\thispagestyle{fancy}
+
+\subsection*{Question 1 - Design Principles and Heuristics}
+
+\subsection*{Question 2 - Constraint, Mappings and Affordances Principles}
+
+Although, not entirely an activity of my everyday life, I used to regularly participate in an adrenaline-raising practice of flying trapeze. For safety reasons, all students must wear protection gear that includes a belt. When on the platform, safety lines are attached to the belt so that trained professionals can reduce the impact of wrong falling.    
+
+\subsubsection*{Constraints}
+
+\subsubsection*{Mappings}
+
+\subsubsection*{Affordances}
+Flying Trapeze
+
+Constraint - do not let the carabine hook upside donwn 
+Mapping - map the shape of the carabine to the hand 
+
+\subsection*{Question 3 - Slips, Mistakes and Errors}
+
+Yousician 
+
+Slip: missing a note 
+Mistake: Hitting an incorrect note (ex, missing sharps in G major)
+
+First, describe a slip that a player of the game might make. Remember, a slip generally occurs when the player knows what action they should take, but does something different instead. In Tetris, this might be a player wanting to move a piece to the right, but pressing the left button instead. Then, describe why the player might make that slip. Then, briefly suggest a way the interface could be changed to prevent that slip in the future.
+
+Second, describe a mistake that a player of the game might make. Remember, a mistake generally occurs when the player knows what they want to accomplish, but doesn’t know how to actually make it happen. In Tetris, this might be a player wanting to rotate a piece clockwise, but pressing to rotate it counter-clockwise instead because they do not know which button rotates clockwise. Then, describe why the player might make that mistake. Then, briefly suggest a way the interface could be changed to prevent that mistake in the future.
+
+Finally, describe something that makes the game challenging, but that is not a slip or a mistake. For example, in Tetris, there may be no obvious place for a piece to go, but that does not force the user to commit a slip or a mistake.
+
+\subsection*{Question 4 - Representation of the underlying content}
+
+\bibliographystyle{apacite} 
+\bibliography{bibtemp}
+
+\end{document}

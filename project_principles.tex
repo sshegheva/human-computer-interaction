@@ -2,12 +2,13 @@
 
 % just for the example
 \usepackage{lipsum}
+\usepackage{url}
 % Set margins to 1.5in
 \usepackage[margin=1.5in]{geometry}
 
 % for graphics
 \usepackage{graphicx}
-\graphicspath{{./figures/p2/}}
+\graphicspath{{./figures/project-principles/}}
 
 % for crimson text
 \usepackage{crimson}
@@ -116,10 +117,35 @@ JupyterLab is a web-based interface for Project Jupyter that provides an interac
 \end{abstract}
 
 \subsection*{Heuristic Evaluation}
+Figure~\ref{fig::1} shows an example of my current JupyterLab workspace, that include a file navigation section, interactive notebook area, additional consoles, and many other things that the platform provides. As a development environment, JupyterLab allows access to terminals, file viewers, notebooks, text editors - all from one place, which I personally find very convenient. With a rapid growth of data science and machine learning, Jupyter Notebooks have become a standard for creating reproducible computational narratives \cite{blog:jupyter}. 
+
+\textbf{What works well}. Its most attractive feature - interactivity - thrives in both gulfs: \textit{execution} and \textit{evaluation}. In the former case, the cells provide a clear indication for where text/code should be entered. In the later case, executing a cell yields immediate feedback that allows user assessing how well their intentions have been met. Cells are viewed as building blocks, and as such can be re-arranged using a \textit{direct manipulation} via drag-n-drop functionality. User is engaged in the process of interacting with the interface by 1) planning the action, for example, hovering over the cell that needs to be moved; 2) grabbing the cell and dragging it over the area that specifies the new location; 3) performing the cell move operation by releasing the hold. The interface is so intuitive largely due to the tight relationships between two gulfs. As the user is performing the action of re-arrangement, the system provides a "hint" in form of target line for where the new cell would land before the action is complete. Therefore, the goal can be accomplished more accurately and more efficiently with means to see and interpret the actions and necessary adjustments.      
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.5]{figures/project-principles/jupyter.png}
+\caption{An example of JupyterLab Workspace.}
+\label{fig::1}
+\end{figure}
+
+\textbf{What doesn't works well}.
+
+\iffalse
+2.1 Introduction to Principles
+2.2 Feedback Cycles
+2.3 Direct Manipulation and Invisible Interfaces
+2.4 Human Abilities
+2.5 Design Principles and Heuristics
+2.6 Mental Models and Representations
+2.7 Task Analysis
+2.8 Distributed Cognition
+2.9 Interfaces and Politics
+2.10 Conclusion to Principles
 
 First, perform a heuristic evaluation using the principles from Unit 2 on the interface as it currently exists. Answer the questions: what works well? What makes it work well? What doesn’t work well? Why doesn’t it work well? Make sure to address all these: even the worst interfaces usually have some things that work well. If you can’t think of any good things to say about the interface, select a different one: redesigning an interface with no positive elements at all would be too easy!
 
 In writing this evaluation, it is critical that you ground your critiques in terms of the principles you have learned in Unit 2, both conceptually and using the same vocabulary. Your critique will primarily be evaluated based on how well it grounds its praise and criticism in the principles covered in Unit 2, and how accurately it leverages these principles. We would expect any strong answer to use at least five principles covered in Unit 2, where a ‘Principle’ can be nearly any topic from the unit, including any of the design principles, ideas like expert blindspot and learning curves, and concepts like gulfs of execution and evaluation. However, you are not limited to five principles, nor is five principles automatically sufficient if the individual principles are not leveraged with sufficient depth.
+\fi
 
 \subsection*{Interface Redesign}
 Second, based on your evaluation, redesign the interface. If it’s a visual interface (such as a mobile app, visual wearable interface, or traditional desktop application), supply visual mock-ups of the potential redesign. If it’s a physical interface, supply a sketch or similar representation of the altered interface. If it’s an interface that cannot be provided in a 2D visual form like a haptic, auditory, or virtual reality interface, describe the redesign in words using diagrams wherever possible. Your redesign can contain textual annotations or rely on text if it is non-visual, but the text should merely explain the redesigned interface, not justify it.
