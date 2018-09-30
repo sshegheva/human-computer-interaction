@@ -113,13 +113,26 @@
 
 \subsection*{Question 1 - Design Principles and Heuristics}
 
+\subsubsection*{Invisibility - Mapping}
+
+An \textit{invisible} interface is typically described as an interaction system that \textit{naturally} aligns with the user's mental models \cite{blog:fastcompany}. By \textit{mapping} the user's flow (one-to-one spacial correspondence between the layout and the controls \cite{norman2013design}), the designers can achieve interface simplicity. Having clear mapping bridges the \textit{gulf of execution}, specifically in the early stage of \textit{planning} when the user has to choose an appropriate action out of all possible actions. Simplifying this step helps the user specify and execute the correct actions to achieve their goal. Although the principle is simple, it is not always easy implement in practice because there could be cultural differences in how the world is represented.  
+
+\subsubsection*{Invisibility - Constraints}
+Another aspect of an invisible interface is discoverability that can be achieved with a successful implementation of \textit{constraints} which limit as set of possible actions. After user has planned their actions, they still need to determine how to execute them. This ties into the next stage of the gulf of evaluation - \textit{specify}. Even if the interface is entirely new to the user, they can still determine their course of actions. Constraints that reduce a set of possible operations across physical, cultural, semantic and logical domains are a most effective way to bridge the execution gulf in guiding the user to perform the right actions.
+
+\subsubsection*{Invisibility - Feedback}
+The accuracy of the interpretation depends on how well the user has perceived what happened in the world. Communicating the result of the action through the use of constant and immediate feedback helps bridging the \textit{gulf of evaluation} via \textit{perception} stage. Properly designing the feedback mechanism leads to invisible interfaces; therefore planning its implementation should be given a careful thought. Very frequently interfaces are designed with a feedback that informs a user that something has happened, but without a necessary detail of \textit{what} exactly has happened. These interfaces exemplify poor design that is usually a result for saving costs \cite{norman2013design}. 
+
+\subsubsection*{Participant View - Tolerance}
+Tolerance principle advocates for \textit{flexibility} in the design, and reduction in the cost of mistakes \cite{wiki:principles}. Humans are frequently blamed for wrong actions, or a lack of corrective actions without taking context into account ( recall the recent example of the false alert of the ballistic missile threat \cite{blog:fastcompany_hawaii}). Understanding \textit{why} an error occurs should lead not to a punishment, but to a better design with an attention to tolerance, especially to high-cost errors. The context becomes very important, and the interface design should assume that an action can be taken under severe emotional stress and/or in a rush.   
+
 \subsection*{Question 2 - Constraint, Mappings and Affordances Principles}
 
 Although, not entirely an activity of my everyday life, I used to regularly participate in an adrenaline-raising practice of flying trapeze. For safety reasons, all students must wear belt harness. When on the platform, safety lines are attached to the belt so that a trained professional can reduce the impact of wrong falling. Figure~\ref{fig::1} demonstrates attaching a carabiner (that holds safety lines) to a belt in two ways: \textit{overhook} vs \textit{underhook}\footnote{The terms \textit{overhook} vs. \textit{underhook} in this context have nothing to do with wrestling}. The preferred way is to use \textit{overhook} position that greatly simplifies the process of detachment. Although the \textit{underhook} position is not wrong, it makes it very inconvenient for your wrists to twist the lock to open and release. It is very \textbf{easy} to hook the carabiners from savety lines to the belt harness in the sub-optimal way because there is nothing to prevent you from hooking it in either direction (and both do their job of protecting you from a fall). The \textbf{penalty} here comes \textit{after} completing the jump where you have to release the safety lines from both your sides. It takes a lot of wiggling the carabiners around to put them back in the position where it is possible to unlock them safely for subsequent transfer back to the person on the board.   
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=3in,scale=.5]{figures/p3/flying_trapeze.png}
+\includegraphics[scale=.35]{figures/p3/flying_trapeze.png}
 \caption{Demonstration of two ways to attach a carabiner to a belt. Left: preferred. Right: Inconvenient (especially for detaching using one hand.)}
 \label{fig::1}
 \end{figure}
@@ -139,7 +152,7 @@ Yousican is an innovate application that allows students to learn how to play pi
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=3in,scale=.6]{figures/p3/yousician.png}
+\includegraphics[scale=.35]{figures/p3/yousician.png}
 \caption{A screenshot from Yousician App that teachers the user to play piano}
 \label{fig::2}
 \end{figure}
@@ -162,7 +175,7 @@ Duolingo is a science-based app that lets the user learn a language for free tha
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=3in,scale=.6]{figures/p3/duolingvo.png}
+\includegraphics[scale=.6]{figures/p3/duolingvo.png}
 \caption{A Screenshot from Duolingo App for learning a Language}
 \label{fig::3}
 \end{figure}
