@@ -183,10 +183,52 @@ A textual prototype: a plaintext description of the idea, how it will work, what
 After creating the prototype, evaluate it from the perspective of the requirements you gathered in Assignment M2. Which requirements does it meet? Which requirements does it miss? How well does the prototype mesh with the audience described in your data inventory?
 
 \subsection*{Prototype 3 - Wireframes}
+The task described in this project involves knowledge of data intended for transformations. Providing the user with a view that show a sample of the data aligns well with the \textit{perceptability} principle that keep user informed about what is going on through appropriate feedback \cite{nielsen1994usability}. Figure~\ref{fig::2} start with a view of the data (similar to a DataFrame concept in pandas \cite{mckinney2011pandas})
 
-A paper prototype or wireframe: a hand-drawn or simplistic wireframe of the interface you intend to create. It should be thorough enough to get user feedback on its design, but not so detailed that revision would require significant effort; after all, the goal is to get feedback. This is particularly well-suited for a desktop program, tablet app, or web site.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{figures/m3/wireframe-screen1.png}
+\caption{Screen 1: User selects a variable and is given a choice to either edit the existing variable or create a new one based on the selected. Data is retrieved via https://arxiv.org/'s API}
+\label{fig::2}
+\end{figure}
 
-After creating the prototype, evaluate it from the perspective of the requirements you gathered in Assignment M2. Which requirements does it meet? Which requirements does it miss? How well does the prototype mesh with the audience described in your data inventory?
+The user workflow can be described by: 
+
+\begin{itemize}
+    \item Select a variable that intended for a transformation. The variable name is highlighted (see Figure~\ref{fig::2}, step 1)
+    \item A context menu appears that gives user an option to either \textit{Edit} the existing variable, or \textit{Add New}  (see Figure~\ref{fig::2}, step 2)
+    \item Upon selecting to Add a new Variable based on the highlighted field, the user is given a list of Transformations to choose from (See Figure~\ref{fig::3})
+    
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{figures/m3/wireframe-screen2.png}
+\caption{Screen 2: User is given a list of transformations to choose from}
+\label{fig::3}
+\end{figure}
+
+    \item After the user selected a transformation, a \underline{new block} is created with \underline{a link} to the original variable. User is prompted to give the new variable a name (see Figure~\ref{fig::4}). The \textit{attached} transformation is kept in the block to remind the user on the selected transformation rule. 
+    
+    
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{figures/m3/wireframe-screen3.png}
+\caption{Screen 3: A new block appears that is connected to the selected variable with a cursor prompt to name a new variable}
+\label{fig::4}
+\end{figure}
+
+    \item Figure~\ref{fig::5} shows a hypothetical view on the outcome of multiple transformations. The information is presented on one screen that given user a feedback on the actions taken so far.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{figures/m3/wireframe-screen5.png}
+\caption{Screen 4: A hypothetical view of the Directed Acyclical Graph (DAG) that is a results of user creating multiple transformations}
+\label{fig::5}
+\end{figure}
+
+\end{itemize}
+
+\textbf{Evaluation.} The suggested interface addresses the requirements listed under \textit{functionality} and \textit{usability} sections (see Appendix A). A specific requirement for exporting the user-defined transformations in a human readable form is addressed by showing a DAG (directed acyclical graph) of the transformations and their relations to the original variables.  Additionally, using the DAG view captures user's progress and gives a clear visual messaging on the steps taken so far. This strongly relates to the \textit{learnability} section of the requirements.  
+
 
 \bibliographystyle{apacite} 
 \bibliography{bibtemp}
