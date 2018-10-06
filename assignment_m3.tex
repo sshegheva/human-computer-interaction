@@ -1,0 +1,195 @@
+\documentclass[12pt,letterpaper]{article}
+
+% just for the example
+\usepackage{lipsum}
+% Set margins to 1.5in
+\usepackage[margin=1.5in]{geometry}
+\usepackage[toc,page]{appendix}
+
+% for graphics
+\usepackage{graphicx}
+\graphicspath{{./figures/m3/}}
+
+% for crimson text
+\usepackage{crimson}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+
+% setup parameter indentation
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% for 1.15 spacing between text
+\renewcommand{\baselinestretch}{1.15}
+
+% For defining spacing between headers
+\usepackage{titlesec}
+% Level 1
+\titleformat{\section}
+  {\normalfont\fontsize{18}{0}\bfseries}{\thesection}{1em}{}
+% Level 2
+\titleformat{\subsection}
+  {\normalfont\fontsize{14}{0}\bfseries}{\thesection}{1em}{}
+% Level 3
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{12}{0}\bfseries}{\thesection}{1em}{}
+% Level 4
+\titleformat{\paragraph}
+  {\normalfont\fontsize{12}{0}\bfseries\itshape}{\theparagraph}{1em}{}
+% Level 5
+\titleformat{\subparagraph}
+  {\normalfont\fontsize{12}{0}\itshape}{\theparagraph}{1em}{}
+% Level 6
+\makeatletter
+\newcounter{subsubparagraph}[subparagraph]
+\renewcommand\thesubsubparagraph{%
+  \thesubparagraph.\@arabic\c@subsubparagraph}
+\newcommand\subsubparagraph{%
+  \@startsection{subsubparagraph}    % counter
+    {6}                              % level
+    {\parindent}                     % indent
+    {12pt} % beforeskip
+    {6pt}                           % afterskip
+    {\normalfont\fontsize{12}{0}}}
+\newcommand\l@subsubparagraph{\@dottedtocline{6}{10em}{5em}}
+\newcommand{\subsubparagraphmark}[1]{}
+\makeatother
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+\titlespacing*{\paragraph}{0pt}{12pt}{6pt}
+\titlespacing*{\subparagraph}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubparagraph}{0pt}{12pt}{6pt}
+
+% Set caption to correct size and location
+\usepackage[tableposition=top, figureposition=bottom, font=footnotesize, labelfont=bf]{caption}
+
+% set page number location
+\usepackage{fancyhdr}
+\fancyhf{} % clear all header and footers
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\rhead{\thepage}
+\pagestyle{fancy}
+
+% Overwrite Title
+\makeatletter
+\renewcommand{\maketitle}{\bgroup
+   \begin{center}
+   \textbf{{\fontsize{18pt}{20}\selectfont \@title}}\\
+   \vspace{10pt}
+   {\fontsize{12pt}{0}\selectfont \@author} 
+   \end{center}
+}
+\makeatother
+
+% Used for Tables and Figures
+\usepackage{float}
+
+% For using lists
+\usepackage{enumitem}
+
+% For using APA Citation format
+\usepackage{apacite}
+
+% Custom Quote
+\newenvironment{myquote}[1]%
+  {\list{}{\leftmargin=#1\rightmargin=#1}\item[]}%
+  {\endlist}
+  
+% Create Abstract 
+\renewenvironment{abstract}
+{\vspace*{-.5in}\fontsize{12pt}{12}\begin{myquote}{.5in}
+\noindent \par{\bfseries \abstractname.}}
+{\medskip\noindent
+\end{myquote}
+}
+
+\begin{document}
+
+% Set Title, Author, and email
+\title{Assignment M3}
+\author{Snejana Shegheva \\ sshegheva3@gatech.edu}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{abstract}
+Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process \cite{wiki:etl}. There exist many tools that can accomplish the task of creating and maintaining a data warehouse. However, sometimes it is advantageous to have a custom solution that allows a user to interact with the data directly during some or all of the ETL phases. In this project, we analyze an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. Our main goal is to assess all the weak areas of the existing interface to provide recommendations for alternative models that simplify the user interaction without assuming any pre-existing knowledge of the tool.
+\end{abstract}
+
+\subsection*{Brainstorming Plan}
+My brainstorming session will be initiated with writing down the core problem, so I can keep it in my sight at all time. I am planning to allocate approximately one hour to session on my blackboard. The choice of a blackboard is driven by the necessity to sketch some ideas rather than plain text only. I intend to generate at least ten ideas, preferably in one session since I am time-boxing it to an hour. Since my task involves an interface I have been interacting with for awhile, I want to constrain myself to come up with a least a few solution that approach the problem in reverse, i.e. is it possible to start with the end-goal and go backwards? Finally, I am not going to erase any ideas during the brainstorming session not matter how unfeasible or ridiculous they may appear. 
+
+\subsection*{Brainstorming Execution}
+Then, execute your individual brainstorming plan and report the ideas you provided. The ideas that you provide will depend on how you approach brainstorming: you might supply a flat list of ideas, an image of your brainstorming worksheet, an organized list of alternatives, etc. You may include a picture of your brainstorming sheet as a significant portion of your deliverable for this item.
+
+\subsection*{Selection Criteria}
+After brainstorming several alternatives, detail the selection criteria you will use to select which three ideas to move forward to prototyping. This may take the form of the rules that will be applied to selecting the alternatives to move forward, or this may take the form of an explanation of the more situated reasoning behind why certain alternatives are selected. In short, explain how the alternatives to move to prototyping either will be or were selected.
+
+During this phase, you may especially want to refer back to the requirements definition you posed in Assignment M2. For example, if one of your requirements was that the interface be affordable, then alternatives related to expensive hardware might be avoided.
+
+\subsection*{Prototype 1 - Verbal}
+Let's assume you work with data that is continuously generated, and is processed through as system that extracts relevant to you tidbits.  
+
+
+A verbal prototype: although this would be presented in text, a verbal prototype would take the form of a loose conversation script about the questions you might ask a person, the answers you would anticipate, the branches you would plan, etc. A verbal prototype is intended to be more dynamic and interactive than a textual prototype. This is well-suited for many types of design alternatives.
+
+After creating the prototype, evaluate it from the perspective of the requirements you gathered in Assignment M2. Which requirements does it meet? Which requirements does it miss? How well does the prototype mesh with the audience described in your data inventory?
+
+
+\subsection*{Prototype 2 - Textual}
+
+A textual prototype: a plaintext description of the idea, how it will work, what its functionality will be, etc. A textual prototype should be sufficiently detailed to get feedback. This is well-suited for many types of design alternatives.
+
+After creating the prototype, evaluate it from the perspective of the requirements you gathered in Assignment M2. Which requirements does it meet? Which requirements does it miss? How well does the prototype mesh with the audience described in your data inventory?
+
+\subsection*{Prototype 3 - Wireframes}
+
+A paper prototype or wireframe: a hand-drawn or simplistic wireframe of the interface you intend to create. It should be thorough enough to get user feedback on its design, but not so detailed that revision would require significant effort; after all, the goal is to get feedback. This is particularly well-suited for a desktop program, tablet app, or web site.
+
+After creating the prototype, evaluate it from the perspective of the requirements you gathered in Assignment M2. Which requirements does it meet? Which requirements does it miss? How well does the prototype mesh with the audience described in your data inventory?
+
+\bibliographystyle{apacite} 
+\bibliography{bibtemp}
+
+\newpage
+\section*{Appendices}
+
+\appendix
+
+\subsection*{Defining Requirements}
+
+Based on the results from the performed needfinding analysis, we can start describing the desired set of requirements for the interface that supports a data transformation task as part of the ETL process. The recommendations are provided for three areas - functionality, usability and learnability. Our analysis of existing users suggests that we need to cater to both, novices, and experts. The latter group benefits from the speed and efficiency, while the former is comforted with explorative feel of the interface.
+
+\bigskip
+\textbf{Functionality} - range of tasks supported for data transformation.
+
+1) The interface must let user \textit{select} a source data intended for modification, \textit{choose} a transformation, \textit{save} the configuration and \textit{apply} the task to the dataset.
+
+2) The interface should give the user a preview of the outcome for selected transformation \textit{before} the task is applied.
+
+3) The interface should allow the user to create/edit/delete transformations, and optionally export it to a human-readable form.
+
+\textbf{Usability} - quality of the available functionality.
+
+1) The interface must support a transformation that is based on multiple sources, for example, combining two fields into one, or performing mathematical operations on them.
+
+2) The interface must provide clear distinction between actions for \textit{saving} a configuration for a transformation, or \textit{applying} the transformation the data.
+
+\textbf{Learnability} - ease and speed for the task of transforming data.
+
+1) The interface should have a toolbox of standard transformations with meaningful names, and built-in tooltip that expands the capabilities of each transformation with examples.
+
+2) The interface should provide clear messaging and notifications on the system's progress. For example, what is the most recent user's request, and what is its status.
+
+3) The interface should allow the user to change the preferences on the order of the available transformations. The current order is alphabetical, and it does not help locate the needed transformation quickly. Options for ordering may include: 
+
+\begin{itemize}
+    \item Sort by relevance. Can the interface autodetect the transformations most compatible with the selected data type?
+    \item Sort by recency. Show the transformations on top which were accessed last.
+    \item Sort by popularity. A user may have a subset of transformations they access the most frequently, so it may be convenient to show a different set of transformations on top without requiring the user to scroll through the large list. 
+\end{itemize}
+
+Since the interface described in this project is an internal tool, I have access to the user's feedback that I could use to evaluate the successes of the prototype. For each of the items outlined, I am planning to gathers three data points: 1) priority 2) estimate for implementation 3) feasibility and alignment with the team's goals.
+
+\end{document}
