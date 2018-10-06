@@ -121,20 +121,59 @@ Mapping data from one form to another for its ease-of-use is at the core of the 
 My brainstorming session will be initiated with writing down the core problem, so I can keep it in my sight at all time. I am planning to allocate approximately one hour to session on my blackboard. The choice of a blackboard is driven by the necessity to sketch some ideas rather than plain text only. I intend to generate at least ten ideas, preferably in one session since I am time-boxing it to an hour. Since my task involves an interface I have been interacting with for awhile, I want to constrain myself to come up with a least a few solution that approach the problem in reverse, i.e. is it possible to start with the end-goal and go backwards? Finally, I am not going to erase any ideas during the brainstorming session not matter how unfeasible or ridiculous they may appear. 
 
 \subsection*{Brainstorming Execution}
-Then, execute your individual brainstorming plan and report the ideas you provided. The ideas that you provide will depend on how you approach brainstorming: you might supply a flat list of ideas, an image of your brainstorming worksheet, an organized list of alternatives, etc. You may include a picture of your brainstorming sheet as a significant portion of your deliverable for this item.
+The brainstorming session resulted in ten ideas (as per plan) and it took about 45-50 minutes to cover my entire blackboard. Figure~\ref{fig::1} shows the artifact of brainstorming where I attempted to sketch the ideas along the text as well. Although the blackboard is pretty big, I have realized that I will be running out of room very soon. Using paper and pen would have been easier, however I tend to come up with more creative ideas using a blackboard.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{figures/m3/brainstorm.jpg}
+\caption{Results of the individual brainstorming session for the task of a variable transformation.}
+\label{fig::1}
+\end{figure}
+
+The scope of the task is to \textit{transform} a variable as part of an ETL process. \underline{Two main directions} that ideas took place are: 1) start with a data field (variable that you wish to change), and find an optimal transformation; 2) start with a view of transformations and match them to the desired variables. Those two directions exemplify a reverse approach towards solving the problem and address the constrain I have set up for myself in the brainstorming rules section.  
+
+Another idea grouping that naturally occurred was using either a single page to show \textit{all} variables, or providing \textit{pagination} interface where user can go to the \textit{next} or \textit{previous} variable. Both have pros and cons, and can be further evaluated using user feedback. 
+
+An interesting idea that appeared is around the concept of recommendations, where the user selects a variable to transform, and instead of browsing through the available toolbox, the user is given a top five for possible transformations functions that are most compatible with the observed variable. I think long term, this idea can prove to be very beneficial, although I can imagine it requires some heavy logic in include the \textit{smartness} in the engine.   
+
+
 
 \subsection*{Selection Criteria}
-After brainstorming several alternatives, detail the selection criteria you will use to select which three ideas to move forward to prototyping. This may take the form of the rules that will be applied to selecting the alternatives to move forward, or this may take the form of an explanation of the more situated reasoning behind why certain alternatives are selected. In short, explain how the alternatives to move to prototyping either will be or were selected.
+In the process of choosing the top three ideas, I defined the following selection criteria:
 
-During this phase, you may especially want to refer back to the requirements definition you posed in Assignment M2. For example, if one of your requirements was that the interface be affordable, then alternatives related to expensive hardware might be avoided.
+\begin{itemize}
+    \item The idea should cover the significant count of items from the requirements list. Appendix A enumerates the full set of requirements delivered during the need-finding process.
+    \item The idea should be feasible in the short term. After the design is approved, it should not require more than two engineers to implement the approach in two sprints (almost a full month).
+    \item The idea should reflect the customer's needs, both internal and external, and should not be designed for a single user. 
+\end{itemize}
+
+Based on the selection criteria, these are the top three ideas that we shall move forward with the prototyping:
+
+\begin{itemize}
+    \item Idea \#7 as a candidate for the Textual prototype: Start with a list of most common transformations, and map them to one or more data variables.
+    \item Idea \#9 as a candidate for the Verbal prototype: Discuss a possible interface where a user is given a recommendation for which transformation function(s) is most compatible with the observed variable.
+    \item Idea \#6 as a candidate to the basic form of wire-frames: Guide the user for through the transformation task by keeping a data sample visible at all times.  
+\end{itemize}
+
 
 \subsection*{Prototype 1 - Verbal}
-Let's assume you work with data that is continuously generated, and is processed through as system that extracts relevant to you tidbits.  
 
+\textit{Imagine that you have an interface through which you can interact with the incoming streams of data. Your goal is to dynamically apply some rules to the received  data. Those rules would transform the current and future data into the desired alternative output. You can treat these transformation rules as simple mathematical functions.}
 
-A verbal prototype: although this would be presented in text, a verbal prototype would take the form of a loose conversation script about the questions you might ask a person, the answers you would anticipate, the branches you would plan, etc. A verbal prototype is intended to be more dynamic and interactive than a textual prototype. This is well-suited for many types of design alternatives.
+\textit{The way the system currently works is by iterating through all variables, one at time, giving user an option to edit variable. To find a rule you need to parse through a pile of currently available transformations to find the one most relevant to you. This, of course, could be daunting task if transformations are not organized in any meaningful way.}
 
-After creating the prototype, evaluate it from the perspective of the requirements you gathered in Assignment M2. Which requirements does it meet? Which requirements does it miss? How well does the prototype mesh with the audience described in your data inventory?
+\textit{Imagine an alternative way of interacting with a system like that. Let's take as an example a case where you might be looking at a variable that contains a large chunk of text (maybe, transcripts from video lectures). The interface could recommend you a list of most likely transformations, such as:
+\begin{itemize}
+    \item Remove all punctuation (which could be useful for some subsequent NLP tasks)
+    \item Extract keywords (instead of passing the entire text through the pipeline, you might be only interested in the top most representative terms, and entities) 
+\end{itemize}
+}
+
+\textit{The set you have given is limited to the selected data type. For example, it won't recommend you transformations intended for numerical fields, such as Averaging, Adding/Subtracting, Computing rates, etc. This way your task of transforming can be optimized to your data leading to a more efficient workflow. What do you think?}
+
+\textbf{Evaluation.}
+The proposed interface addresses a large chunk of the \textit{functionality} requirements (see Appendix A) by providing means to view, select and apply transformation to incoming streams of data. The \textit{earnability} requirements suggested a need for organization via sorting the current list of transformation. Although, the described prototype does not offer ordering of transformations explicitly, it does so, implicitly via a recommendation engine. Arguably, this could be considered an even better way for organizing a set of functions available in the system. A new interface follows a \textit{discoverability} principle that allows novices and experts to interact with the interface in a more intuitive manner. It addresses portions of the Data Inventory that asks questions on \underline{who are the users?}, \underline{what are their goals, tasks and subtasks?}, \underline{what are their needs?} and \underline{what is the user's context?} 
+
 
 
 \subsection*{Prototype 2 - Textual}
