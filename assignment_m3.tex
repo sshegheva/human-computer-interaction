@@ -118,7 +118,7 @@ Mapping data from one form to another for its ease-of-use is at the core of the 
 \end{abstract}
 
 \subsection*{Brainstorming Plan}
-My brainstorming session will be initiated with writing down the core problem so I can keep it in my sight at all time. I am planning to allocate approximately one hour to session on my blackboard. The choice of a blackboard is driven by the necessity to sketch some ideas rather than plain text only. I intend to generate at least ten ideas, preferably in one session since I am time-boxing it to an hour. Since my task involves an interface I have been interacting with for a while, I want to constrain myself to come up with a least a few solutions that approach the problem in reverse, i.e., is it possible to start with the end-goal and go backward? Finally, I am not going to erase any ideas during the brainstorming session regardless of how unfeasible or ridiculous they may appear. 
+My brainstorming session will be initiated with writing down the core problem - data transformation task - so I can keep it in my sight at all time. I am planning to allocate approximately one hour to a session on my blackboard. The choice of a blackboard is driven by the necessity to \textit{sketch} some ideas rather than plain text only. I intend to generate at least \textbf{ten} ideas, preferably in one session since I am time-boxing it to an hour. Since my task involves an interface I have been interacting with for a while, I want to constrain myself to come up with a least a few solutions that approach the problem in reverse mode, i.e., start with the end-goal and go backward to the input. Hopefully this will spark some creativity. Finally, I am not going to erase any ideas during the brainstorming session regardless of how unfeasible or ridiculous they may appear. 
 
 \subsection*{Brainstorming Execution}
 The brainstorming session resulted in ten ideas (as per plan), and it took about 45-50 minutes to cover my entire blackboard. Figure~\ref{fig::1} shows the artifact of brainstorming where I attempted to sketch the ideas along the text as well. Although the blackboard is pretty big, I have realized that I will be running out of room very soon. Using paper and pen would have been more comfortable; however, I tend to come up with more creative ideas using a blackboard.
@@ -130,11 +130,11 @@ The brainstorming session resulted in ten ideas (as per plan), and it took about
 \label{fig::1}
 \end{figure}
 
-The scope of the task is to \textit{transform} a variable as part of an ETL process. \underline{Two main directions} that ideas took place are: 1) start with a data field (a variable that you wish to change), and find an optimal transformation; 2) start with a view of transformations and match them to the desired variables. Those two directions exemplify an opposite approach towards solving the problem and address the constraint I have set up for myself in the brainstorming rules section.  
+The scope of the task is to \textit{transform} a variable as part of an ETL process that prepares the data for use. \underline{Two main directions} that the generated ideas took place are: 1) start with a data field (a variable that you wish to change), and find an optimal transformation; 2) start with a view of transformations and match them to the desired variables. Those two directions exemplify an contrasting approach towards solving the problem and address the constraint I have set up for myself in the brainstorming rules section.  
 
-Another idea grouping that naturally occurred was using either a single page to show \textit{all} variables, or providing \textit{pagination} interface where user can go to the \textit{next} or \textit{previous} variable. Both have pros and cons and can be further evaluated using user feedback. 
+Another grouping of ideas that naturally occurred was using either a single page to show \textit{all} variables, or providing \textit{pagination} interface where user can go to the \textit{next} or \textit{previous} variable. Both have pros and cons and can be further evaluated using user feedback. 
 
-An interesting idea that appeared is around the concept of recommendations, where the user selects a variable to transform, and instead of browsing through the available toolbox, the user is given a top five for possible transformations functions that are most compatible with the observed variable. I think long-term, this idea can prove to be very beneficial, although I can imagine it requires some heavy logic to include the \textit{smartness} in the engine.   
+An interesting idea that appeared during the brainstorm is around the concept of \textbf{recommendations}, where the user selects a variable to transform, and instead of browsing through the available toolbox, the user is given a top five for possible transformations functions that are most compatible with the observed variable. I think long-term, this idea can prove to be very beneficial, although I can imagine it requires some heavy logic to include the \textit{smartness} in the engine.   
 
 
 
@@ -150,10 +150,14 @@ In the process of choosing the top three ideas, I defined the following selectio
 Based on the selection criteria, these are the top three ideas that we shall move forward with the prototyping:
 
 \begin{itemize}
-    \item Idea \#7 as a candidate for the Textual prototype: Start with a list of most common transformations, and map them to one or more data variables.
     \item Idea \#9 as a candidate for the Verbal prototype: Discuss a possible interface where a user is given a recommendation for which transformation function(s) is most compatible with the observed variable.
+    
+    \item Idea \#7 as a candidate for the Textual prototype: Start with a list of most common transformations, and map them to one or more data variables.
+
     \item Idea \#6 as a candidate to the basic form of wire-frames: Guide the user for through the transformation task by keeping a data sample visible at all times.  
 \end{itemize}
+
+All three ideas cover the most of the requirements listed in the Appendix A, however each one is missing at least one item. The ideas can be firther refined after the initial feedback to address the gaps.
 
 
 \subsection*{Prototype 1 - Verbal}
@@ -169,10 +173,10 @@ Based on the selection criteria, these are the top three ideas that we shall mov
 \end{itemize}
 }
 
-\textit{The set you have given is limited to the selected data type. For example, it won't recommend you transformations intended for numerical fields, such as Averaging, Adding/Subtracting, Computing rates, etc. This way your task of transforming can be optimized to your data leading to a more efficient workflow. What do you think?}
+\textit{The set you are given back is limited to the selected data type. For example, it won't recommend you transformations intended for numerical fields, such as Averaging, Adding/Subtracting, Computing rates, etc. This way your task of transforming can be optimized to your data leading to a more efficient workflow. What do you think?}
 
 \textbf{Evaluation.}
-The proposed interface addresses a large chunk of the \textit{functionality} requirements (see Appendix A) by providing means to view, select and apply a transformation to incoming streams of data. The \textit{earnability} requirements suggested a need for the organization via sorting the current list of transformation. Although the described prototype does not offer to order of transformations explicitly, it does so, implicitly via a recommendation engine. Arguably, this could be considered an even better way of organizing a set of functions available in the system. A new interface follows a \textit{discoverability} principle that allows novices and experts to interact with the interface more intuitively. It addresses portions of the Data Inventory that asks questions on \underline{who are the users?}, \underline{what are their goals, tasks and subtasks?}, \underline{what are their needs?}, and \underline{what is the user's context?} 
+The proposed interface addresses a large chunk of the \textit{functionality} requirements (see Appendix A) by providing means to view, select and apply a transformation to incoming streams of data. The \textit{learnability} requirements suggested a need for the organization via sorting the current list of transformation. Although the described prototype does not offer to order of transformations explicitly, it does so, implicitly via a recommendation engine. Arguably, this could be considered an even better way of organizing a set of functions available in the system. A new interface follows a \textit{discoverability} principle that allows novices and experts to interact with the interface more intuitively. It addresses portions of the Data Inventory that asks questions on \underline{who are the users?}, \underline{what are their goals, tasks and subtasks?}, \underline{what are their needs?}, and \underline{what is the user's context?} 
 
 
 \subsection*{Prototype 2 - Textual}
@@ -242,7 +246,7 @@ The user workflow can be described by:
 
 \end{itemize}
 
-\textbf{Evaluation.} The suggested interface addresses the requirements listed under \textit{functionality} and \textit{usability} sections (see Appendix A). A specific requirement for exporting the user-defined transformations in a human-readable form is addressed by showing a DAG (directed acyclical graph) of the transformations and their relations to the original variables.  Additionally, using the DAG view captures the user's progress and gives a clear visual messaging on the steps taken so far. This strongly relates to the \textit{learnability} section of the requirements.  
+\textbf{Evaluation.} The suggested interface addresses the requirements listed under \textit{functionality} and \textit{usability} sections (see Appendix A). A specific requirement for exporting the user-defined transformations in a human-readable form is addressed by showing a DAG (directed acyclical graph) of the transformations and their relations to the original variables.  Additionally, using the DAG view captures the user's progress and gives a clear visual messaging on the steps taken so far. This strongly relates to the \textit{learnability} section of the requirements. The proposed prototype \textit{engages} with the user directly via \textit{interactive} process of data transformation. It is \textit{flexible} towards users' expertise by allowing transformations from simple to advanced to fit their diverse goals in the different data domains. 
 
 
 \bibliographystyle{apacite} 
