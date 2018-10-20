@@ -1,0 +1,222 @@
+\documentclass[12pt,letterpaper]{article}
+
+% just for the example
+\usepackage{lipsum}
+% Set margins to 1.5in
+\usepackage[margin=1.5in]{geometry}
+\usepackage[toc,page]{appendix}
+
+% for graphics
+\usepackage{graphicx}
+\graphicspath{{./figures/m3/}}
+
+% for crimson text
+\usepackage{crimson}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+
+% setup parameter indentation
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% for 1.15 spacing between text
+\renewcommand{\baselinestretch}{1.15}
+
+% For defining spacing between headers
+\usepackage{titlesec}
+% Level 1
+\titleformat{\section}
+  {\normalfont\fontsize{18}{0}\bfseries}{\thesection}{1em}{}
+% Level 2
+\titleformat{\subsection}
+  {\normalfont\fontsize{14}{0}\bfseries}{\thesection}{1em}{}
+% Level 3
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{12}{0}\bfseries}{\thesection}{1em}{}
+% Level 4
+\titleformat{\paragraph}
+  {\normalfont\fontsize{12}{0}\bfseries\itshape}{\theparagraph}{1em}{}
+% Level 5
+\titleformat{\subparagraph}
+  {\normalfont\fontsize{12}{0}\itshape}{\theparagraph}{1em}{}
+% Level 6
+\makeatletter
+\newcounter{subsubparagraph}[subparagraph]
+\renewcommand\thesubsubparagraph{%
+  \thesubparagraph.\@arabic\c@subsubparagraph}
+\newcommand\subsubparagraph{%
+  \@startsection{subsubparagraph}    % counter
+    {6}                              % level
+    {\parindent}                     % indent
+    {12pt} % beforeskip
+    {6pt}                           % afterskip
+    {\normalfont\fontsize{12}{0}}}
+\newcommand\l@subsubparagraph{\@dottedtocline{6}{10em}{5em}}
+\newcommand{\subsubparagraphmark}[1]{}
+\makeatother
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+\titlespacing*{\paragraph}{0pt}{12pt}{6pt}
+\titlespacing*{\subparagraph}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubparagraph}{0pt}{12pt}{6pt}
+
+% Set caption to correct size and location
+\usepackage[tableposition=top, figureposition=bottom, font=footnotesize, labelfont=bf]{caption}
+
+% set page number location
+\usepackage{fancyhdr}
+\fancyhf{} % clear all header and footers
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\rhead{\thepage}
+\pagestyle{fancy}
+
+% Overwrite Title
+\makeatletter
+\renewcommand{\maketitle}{\bgroup
+   \begin{center}
+   \textbf{{\fontsize{18pt}{20}\selectfont \@title}}\\
+   \vspace{10pt}
+   {\fontsize{12pt}{0}\selectfont \@author} 
+   \end{center}
+}
+\makeatother
+
+% Used for Tables and Figures
+\usepackage{float}
+
+% For using lists
+\usepackage{enumitem}
+
+% For using APA Citation format
+\usepackage{apacite}
+
+% Custom Quote
+\newenvironment{myquote}[1]%
+  {\list{}{\leftmargin=#1\rightmargin=#1}\item[]}%
+  {\endlist}
+  
+% Create Abstract 
+\renewenvironment{abstract}
+{\vspace*{-.5in}\fontsize{12pt}{12}\begin{myquote}{.5in}
+\noindent \par{\bfseries \abstractname.}}
+{\medskip\noindent
+\end{myquote}
+}
+
+\begin{document}
+
+% Set Title, Author, and email
+\title{Assignment M4}
+\author{Snejana Shegheva \\ sshegheva3@gatech.edu}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{abstract}
+Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process. In this project, we analyze an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. Our main goal is to assess all the weak areas of the existing interface to provide recommendations for alternative models that simplify the user interaction without assuming any pre-existing knowledge of the tool.
+\end{abstract}
+
+\subsection*{Qualitative Evaluation}
+\subsubsection*{Think-aloud for Verbal Prototype}
+\textit{Appendix} B contain verbal prototype that discusses a possible interface where a user is given a recommendation for which transformation function(s) is most compatible with the observed variable.
+
+\textbf{Evaluation Plan}
+For this stage of evaluation, the plan is to engage a single user in the think-aloud study. The chosen user, Product Manager with a client-facing role, has a significant experience with the task at hand, and is expected to provide a good feedback on the prototype that is delivered verbally. The evaluation will take place in the work setting where the user will be suggested an alternative way to perform their usual task of data transformation. The results of the conversation will be summarized and recorded \textit{after} the exchange takes place. Any notes drafted during the discussion will be collected as artifacts of the study. The goal of this evaluation is to collect an early feedback on the suggested idea, and estimate user's interest in taking it to the next step of implementation.
+
+\textbf{Think-Aloud Study}
+To get started with the evaluation of the verbal prototype, I will, first, describe the idea to the user so they can imagine their workflow within the new interface. After they confirm the understanding of new direction, I will ask them to perform a specific transformation task while thinking aloud through the steps. My directions will be based on actual use cases, and allow freedom in the execution of the task, i.e. I will not be providing detailed instructions on \textit{how} to accomplish the goal.
+
+\textit{Question 1 - Use case}: Let's say you have collected data on the recently published papers in the field in Machine Learning and Artificial Intelligence. You have a field that contains a list of \textit{keywords}, and let's assume you only want to get the first-mentioned keyword from the list. How would you accomplish this task in the new interface?  
+
+\textit{Question 2 - Use case}: Let's say that in the same data set, you have a field that captures the \textit{published date}. If you would like to split this into a \textit{year} and \textit{month} variable, how would you go about it?
+
+\textit{Question 3 - Use case}: Let's say you have two \textit{date} fields - \textit{submission date} and \textit{acceptance date}. Your goal is to create a variable that stores the elapsed time between the two dates. Do you think the new interface will sufficiently guide you through the process? What do you imagine the interface should do if you are stuck on the task, such as - the recommendations for the transformations do not capture your intentions very well?   
+
+\textit{Question 4 - General Satisfiability}: What tasks in your opinion are more efficiently performed in the new interface when compared to the current version? How about less efficiently? Would you still prefer the current interface and why? 
+
+\textit{Question 5 - Learnability}: Do you expect a significant amount of guidance from the interface, and which areas? For example, would you be able to easily find the variables you need to change? How easily do you expect to find a transformation that suits your needs? Do you expect to request a different set of recommendations? Would you like to easily access \textit{all} available transformations? 
+
+\textbf{Meeting the Requirements} \textit{Appendix A} lists the requirements identified at the earlier stages of the need-finding phase. The evaluation plan covers all three areas of the requirements - functionality, usability and learnability. By analyzing the results of the think-aloud study, I hope to further narrow down into the \textit{data inventory} on \textbf{what are the user's goals, tasks and subtasks?} and \textbf{what are their needs?}.  Successfully executing the plan will result in a data that would give insights into efficiency, learnability and satisfaction of the new interface when compared to the currently used interface. The crucial metric of this evaluation plan is to assess whether or not the user's needs have been met. A detailed list of \textit{hits} and \textit{misses}, in addition to user's overall sentiment will serve as a decision rule on whether or not to advance the prototype to the next stage. 
+
+
+\subsection*{Empirical Evaluation}
+Next, select one of the prototypes to evaluate empirically. First, define your control and experimental conditions: what are you testing, and what are you using as a point of comparison? Note that depending on your target problem and prototypes, you may have to create some variation within your existing prototype to create something to test empirically. This may especially be true if you’re designing for a new task, rather than redesigning an existing interface.
+
+Then, define your null and alternative hypotheses; remember, the null hypothesis is what you assume to be true unless you can find conclusive proof for your alternative hypothesis. Then, describe the experimental method you will use. Will it be between-subjects or within-subjects? How will subjects be assigned to groups, what will they complete as part of their condition, and what data will they generate? What analysis will you use on this data? Finally, identify what lurking variables might confound your data.
+
+Note that given the early stage of your project, empirical evaluation may be tough to design. In the next assignment, you will select two of these three evaluations to actually conduct, so you may design your empirical evaluation in a way that would be unfeasible to carry out based either on the available resources or the status of the prototypes. The important task here is to experience planning the three types of evaluation.
+
+\subsection*{Predictive Evaluation}
+
+For the predictive evaluation, you’ll perform either a cognitive walkthrough of your prototype, or you’ll construct a GOMS model of it. Those are tasks for Assignment M5 if you choose, however.
+
+Plan your predictive evaluation by first selecting which type of task analysis you’ll do: performing a cognitive walkthrough or creating one or more GOMS models. Then, describe the specific task or tasks that you’ll be addressing with that predictive evaluation. What will the user’s goal be? What operators will be available to them? Will you be evaluating a user accomplishing a single goal they know how to do in advance, or will you be evaluating a user’s navigation around the interface to figure out how to accomplish their goal?
+
+Note that the predictive evaluation you choose should likely depend on the task you want to investigate. If you’re looking at how efficiently an expert user can perform a known task, you like want to construct a GOMS model of the operators, methods, and selection rules that will lead to accomplishing that goal. If you’re instead looking at how a novice user navigates a new interface, or how a user makes decisions and branches within the interface, you likely want to perform a cognitive walkthrough.
+
+Note that with the predictive evaluation, the line between planning and execution is less well-defined because the evaluation is performed by you rather than real users. This is why less space in the assignment is dedicated to the predictive evaluation: the majority of the work will be in performing the predictive evaluation rather than in planning it.
+
+\subsection*{Preparing to Execute}
+
+Finally, select two of these evaluations to complete for the next assignment, and explain why you selected those two. It is acceptable for the ‘why’ to be superficial reasons, e.g. “My prototype isn’t ready for empirical evaluation” or “I can’t recruit people to participate in my qualitative evaluation”.
+
+\bibliographystyle{apacite} 
+\bibliography{bibtemp}
+
+\newpage
+\section*{Appendices}
+
+\appendix
+
+
+\subsection*{A}
+\subsection*{Requirements}
+
+\textbf{Functionality} - range of tasks supported for data transformation.
+
+1) The interface must let user \textit{select} a source data intended for modification, \textit{choose} a transformation, \textit{save} the configuration and \textit{apply} the task to the dataset.
+
+2) The interface should give the user a preview of the outcome for selected transformation \textit{before} the task is applied.
+
+3) The interface should allow the user to create/edit/delete transformations, and optionally export it to a human-readable form.
+
+\textbf{Usability} - quality of the available functionality.
+
+1) The interface must support a transformation that is based on multiple sources, for example, combining two fields into one, or performing mathematical operations on them.
+
+2) The interface must provide clear distinction between actions for \textit{saving} a configuration for a transformation, or \textit{applying} the transformation the data.
+
+\textbf{Learnability} - ease and speed for the task of transforming data.
+
+1) The interface should have a toolbox of standard transformations with meaningful names, and built-in tooltip that expands the capabilities of each transformation with examples.
+
+2) The interface should provide clear messaging and notifications on the system's progress. For example, what is the most recent user's request, and what is its status.
+
+3) The interface should allow the user to change the preferences on the order of the available transformations. The current order is alphabetical, and it does not help locate the needed transformation quickly. Options for ordering may include: 
+
+\begin{itemize}
+    \item Sort by relevance. Can the interface autodetect the transformations most compatible with the selected data type?
+    \item Sort by recency. Show the transformations on top which were accessed last.
+    \item Sort by popularity. A user may have a subset of transformations they access the most frequently so it may be convenient to show a different set of transformations on top without requiring the user to scroll through the large list. 
+\end{itemize}
+
+
+\subsection*{B}
+
+\subsection*{Prototype 1 - Verbal}
+
+\textit{Imagine that you have an interface through which you can interact with the incoming streams of data. Your goal is to apply some rules to the received data dynamically. Those rules would transform the current and future data into the desired alternative output. You can treat these transformation rules as simple mathematical functions.}
+
+\textit{The way the system currently works is by iterating through all variables, one at a time, giving the user an option to edit variable. To find a rule, you need to parse through a pile of currently available transformations to find the one most relevant to you. This, of course, could be a daunting task if transformations are not organized in any meaningful way.}
+
+\textit{Imagine an alternative way of interacting with a system like that. Let's take as an example a case where you might be looking at a variable that contains a large chunk of text (maybe, transcripts from video lectures). The interface could recommend you a list of most likely transformations, such as:
+\begin{itemize}
+    \item Remove all punctuation (which could be useful for some subsequent NLP tasks)
+    \item Extract keywords (instead of passing the entire text through the pipeline, you might be only interested in the topmost representative terms, and entities) 
+\end{itemize}
+}
+
+\textit{The set you are given back is limited to the selected data type. For example, it won't recommend you transformations intended for numerical fields, such as Averaging, Adding/Subtracting, Computing rates, etc. This way your task of transforming can be optimized to your data leading to a more efficient workflow. What do you think?}
+
+\end{document}
