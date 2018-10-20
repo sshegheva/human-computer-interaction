@@ -140,7 +140,7 @@ To get started with the evaluation of the verbal prototype, I will, first, descr
 \textbf{Meeting the Requirements} \textit{Appendix A} lists the requirements identified at the earlier stages of the need-finding phase. The evaluation plan covers all three areas of the requirements - functionality, usability and learnability. By analyzing the results of the think-aloud study, I hope to further narrow down into the \textit{data inventory} on \textbf{what are the user's goals, tasks and subtasks?} and \textbf{what are their needs?}.  Successfully executing the plan will result in a data that would give insights into efficiency, learnability and satisfaction of the new interface when compared to the currently used interface. The crucial metric of this evaluation plan is to assess whether or not the user's needs have been met. A detailed list of \textit{hits} and \textit{misses}, in addition to user's overall sentiment will serve as a decision rule on whether or not to advance the suggested prototype to the next stage. 
 
 
-\subsection*{Empirical Evaluation}
+\subsection*{Empirical Evaluation\footnote{This section of the assignment is based on the lecture notes and Chapter 5 from the \cite{mackenzie2012human} book}}
 \textit{Appendix C}  contain as a candidate for the Textual prototype: Start with a list of most common transformations, and map them to one or more data variables. The interface target experts who aim to perform their tasks more efficiently by quickly searching through the transformations and applying them in bulk operation.
 
 \textbf{Control and Experimental Conditions}
@@ -196,17 +196,43 @@ Another variable with a similar effect is due to the experiment setup. The order
 
 \subsection*{Predictive Evaluation}
 
-For the predictive evaluation, you’ll perform either a cognitive walkthrough of your prototype, or you’ll construct a GOMS model of it. Those are tasks for Assignment M5 if you choose, however.
+We are going to perform a \textbf{Cognitive Walkthrough} on the prototype shown in \textit{Appendix D}. The wireframes guide the user through the transformation task by keeping the sample of the data visible at all times. 
 
-Plan your predictive evaluation by first selecting which type of task analysis you’ll do: performing a cognitive walkthrough or creating one or more GOMS models. Then, describe the specific task or tasks that you’ll be addressing with that predictive evaluation. What will the user’s goal be? What operators will be available to them? Will you be evaluating a user accomplishing a single goal they know how to do in advance, or will you be evaluating a user’s navigation around the interface to figure out how to accomplish their goal?
+For the Cognitive Walkthrough, we need to identify the sequence of actions along with the series of questions that helps us evaluate the prototype.
 
-Note that the predictive evaluation you choose should likely depend on the task you want to investigate. If you’re looking at how efficiently an expert user can perform a known task, you like want to construct a GOMS model of the operators, methods, and selection rules that will lead to accomplishing that goal. If you’re instead looking at how a novice user navigates a new interface, or how a user makes decisions and branches within the interface, you likely want to perform a cognitive walkthrough.
+\begin{itemize}
+    \item \textbf{Step 1}: Select the variable to transform
+    \begin{itemize}
+        \item Does the user understand what does it mean for a variable to be selected?
+        \item Can the user see how the selection is accomplished? Is it visible on the screen or it requires filtering and contextual menus?
+        \item Is the source variable clearly labeled?
+        \item If the user is unable to select a variable, and the feedback is given to the user, can they undertand and apply the feedback? 
+    \end{itemize}
+    \item \textbf{Step 2}: Apply the desired transformation function
+    \begin{itemize}
+        \item Does the user have a correct conceptual model for that it means to change/transform the variable?
+        \item Can the user see the list of available transformation functions?
+        \item Do the functions' names reflect the clear operation? 
+        \item If the user select an incompatible transformation, is the feedback given to the user helpful and sufficient to correct their actions?
+    \end{itemize}
+    \item \textbf{Step 3}: Confirm the result for the transformation
+    \begin{itemize}
+        \item Does the user grasp how to evaluate the effect of the applied transformation?
+        \item Can the user see what type of transformation function has been applied to the variable?
+        \item Can the user infer if the transformation has been propagated (applied) or just saved (configured) on the screen?
+        \item Can the user infer based on the feedback if the transformation is succesfull or not?
+    \end{itemize}
+\end{itemize}
 
-Note that with the predictive evaluation, the line between planning and execution is less well-defined because the evaluation is performed by you rather than real users. This is why less space in the assignment is dedicated to the predictive evaluation: the majority of the work will be in performing the predictive evaluation rather than in planning it.
+The users will be accomplishing the sequence of steps described above in the context of the new interface. Although, they would be experienced in the task itself, they would have to navigate in an unfamiliar interface and discover the methods required to complete the tasks. The questions defined in each sub-task can be used to evaluate the prototype and compare it's usability between users with varying degree of experience on the task. 
+
+A success of the prototype will be measured by the number of affirmative answers to the questions. For any question that has been answered as "NO", we will supply an explanation and a recommendation to resolve the gap. For example, if the user cannot find the functionality they look for because it is incorrectly labeled or not visible on the screen, the outcome of this evaluation will augment the prototype with additional features to complete the requirements. 
+
+A limitation of the predictive evaluation is that for some of the steps we cannot get the affirmative answers because the interface does not exist yet. We cannot predict if the user would understand the feedback because the we do not show the actual feedback in the prototype. We might provide examples of a possible feedback, and how and where it would be shown, but we cannon anticipate the user's response. 
 
 \subsection*{Preparing to Execute}
 
-Finally, select two of these evaluations to complete for the next assignment, and explain why you selected those two. It is acceptable for the ‘why’ to be superficial reasons, e.g. “My prototype isn’t ready for empirical evaluation” or “I can’t recruit people to participate in my qualitative evaluation”.
+
 
 \bibliographystyle{apacite} 
 \bibliography{bibtemp}
@@ -285,6 +311,52 @@ Users are presented with a list of Transformations that allows them to apply the
     \item The transformations are \textbf{sortable} by relevance, recency, popularity, date of creation and date of update.
     \item Data fields available for a select transformation are \textbf{dynamic}. Incompatible fields are greyed out leaving user with a more manageable set.
     \item User is given an option to \textit{apply}, \textit{save}, and \textit{export} the current configuration in JSON format.
+\end{itemize}
+
+\subsection*{D}
+\subsection*{Prototype 3 - Wireframes}
+The task described in this project involves knowledge of data intended for transformations. Providing the user with a view that shows a sample of the data aligns well with the \textit{perceptability} principle that keeps the user informed about what is going on through appropriate feedback \cite{nielsen1994usability}. Figure~\ref{fig::2} start with a view of the data (similar to a DataFrame concept in pandas \cite{mckinney2011pandas})
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{figures/m3/wireframe-screen1.png}
+\caption{Screen 1: User selects a variable and is given a choice to either edit the existing variable or create a new one based on the selected. Data is retrieved via https://arxiv.org/'s API}
+\label{fig::2}
+\end{figure}
+
+The user workflow can be described by: 
+
+\begin{itemize}
+    \item Select a variable that intended for a transformation. The variable name is highlighted (see Figure~\ref{fig::2}, step 1)
+    \item A context menu appears that gives user an option to either \textit{Edit} the existing variable, or \textit{Add New}  (see Figure~\ref{fig::2}, step 2)
+    \item Upon selecting to Add a new Variable based on the highlighted field, the user is given a list of Transformations to choose from (See Figure~\ref{fig::3})
+    
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{figures/m3/wireframe-screen2.png}
+\caption{Screen 2: User is given a list of transformations to choose from}
+\label{fig::3}
+\end{figure}
+
+    \item After the user selected a transformation, a \underline{new block} is created with \underline{a link} to the original variable. A user is prompted to give the new variable a name (see Figure~\ref{fig::4}). The \textit{attached} transformation is kept in the block to remind the user on the selected transformation rule. 
+    
+    
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{figures/m3/wireframe-screen3.png}
+\caption{Screen 3: A new block appears that is connected to the selected variable with a cursor prompt to name a new variable}
+\label{fig::4}
+\end{figure}
+
+    \item Figure~\ref{fig::5} shows a possible view of the outcome of multiple transformations. The information is presented on one screen that given user feedback on the actions taken so far.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{figures/m3/wireframe-screen5.png}
+\caption{Screen 4: A hypothetical view of the Directed Acyclical Graph (DAG) that is a results of user creating multiple transformations}
+\label{fig::5}
+\end{figure}
+
 \end{itemize}
 
 \end{document}
