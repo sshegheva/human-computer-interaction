@@ -114,7 +114,7 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process. In this project, we evaluate various prototypes for an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. The task involves altering the form of the received data with a purpose to extract relevant features in form that is more advantageous for subsequent tasks. Our main goal is to assess all the weak areas of the suggested alternative models via early feedback collection from users who perform the task frequently and therefore have a good understanding of the task at hand.  
+Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process. In this project, we evaluate various prototypes for an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. The task involves altering the form of the received data with a purpose to extract relevant features in the form that is more advantageous for subsequent tasks. Our main goal is to assess all the weak areas of the suggested alternative models via early feedback collection from users who perform the task frequently and therefore have a good understanding of the task at hand.  
 \end{abstract}
 
 \section*{Qualitative Evaluation}
@@ -122,10 +122,10 @@ Mapping data from one form to another for its ease-of-use is at the core of the 
 \textit{Appendix} B contain verbal prototype that discusses a possible interface where a user is given a recommendation for which transformation function(s) is most compatible with the observed variable. The interface target novices who need to explore the system, and experts who aim to perform their tasks more efficiently.
 
 \textbf{Evaluation Plan}
-For this stage of evaluation, the plan is to engage a single user in the think-aloud study. The chosen user, Product Manager with a client-facing role, has a significant experience with the task at hand, and is expected to provide a good feedback on the prototype that is delivered verbally. The evaluation will take place in the work setting where the user will be suggested an alternative way to perform their usual task of data transformation. The results of the conversation will be summarized and recorded \textit{after} the exchange takes place. Any notes drafted during the discussion will be collected as artifacts of the study. The goal of this evaluation is to collect an early feedback on the suggested idea, and estimate user's interest in taking it to the next step of implementation.
+For this stage of evaluation, the plan is to engage a single user in the think-aloud study. The chosen user, Product Manager with a client-facing role, has significant experience with the task at hand and is expected to provide good feedback on the prototype that is delivered verbally. The evaluation will take place in the work setting where the user will be suggested an alternative way to perform their usual task of data transformation. The results of the conversation will be summarized and recorded \textit{after} the exchange takes place. Any notes drafted during the discussion will be collected as artifacts of the study. The goal of this evaluation is to collect early feedback on the suggested idea and estimate user's interest in taking it to the next step of implementation.
 
 \textbf{Think-Aloud Study}
-To get started with the evaluation of the verbal prototype, I will, first, describe the idea to the user so they can imagine their workflow within the new interface. After they confirm the understanding of new direction, I will ask them to perform a specific transformation task while thinking aloud through the steps. My directions will be based on actual use cases, and allow freedom in the execution of the task, i.e. I will not be providing detailed instructions on \textit{how} to accomplish the goal.
+To get started with the evaluation of the verbal prototype, I will, first, describe the idea to the user so they can imagine their workflow within the new interface. After they confirm the understanding of new direction, I will ask them to perform a specific transformation task while thinking aloud through the steps. My directions will be based on actual use cases, and allow freedom in the execution of the task, i.e., I will not be providing detailed instructions on \textit{how} to accomplish the goal.
 
 \textit{Question 1 - Use case}: Let's say you have collected data on the recently published papers in the field in Machine Learning and Artificial Intelligence. You have a field that contains a list of \textit{keywords}, and let's assume you only want to get the first-mentioned keyword from the list. How would you accomplish this task in the new interface?  
 
@@ -135,16 +135,16 @@ To get started with the evaluation of the verbal prototype, I will, first, descr
 
 \textit{Question 4 - General Satisfiability}: What tasks in your opinion are more efficiently performed in the new interface when compared to the current version? How about less efficiently? Would you still prefer the current interface and why? 
 
-\textit{Question 5 - Learnability}: Do you expect a significant amount of guidance from the interface, and which areas? For example, would you be able to easily find the variables you need to change? How easily do you expect to find a transformation that suits your needs? Do you expect to request a different set of recommendations? Would you like to easily access \textit{all} available transformations? 
+\textit{Question 5 - Learnability}: Do you expect a significant amount of guidance from the interface, and which areas? For example, would you be able to find the variables you need to change quickly? How quickly do you expect to see a transformation that suits your needs? Do you plan to request a different set of recommendations? Would you like to quickly access \textit{all} available transformations? 
 
-\textbf{Meeting the Requirements} \textit{Appendix A} lists the requirements identified at the earlier stages of the need-finding phase. The evaluation plan covers all three areas of the requirements - functionality, usability and learnability. By analyzing the results of the think-aloud study, I hope to further narrow down into the \textit{data inventory} on \textbf{what are the user's goals, tasks and subtasks?} and \textbf{what are their needs?}.  Successfully executing the plan will result in a data that would give insights into efficiency, learnability and satisfaction of the new interface when compared to the currently used interface. The crucial metric of this evaluation plan is to assess whether or not the user's needs have been met. A detailed list of \textit{hits} and \textit{misses}, in addition to user's overall sentiment will serve as a decision rule on whether or not to advance the suggested prototype to the next stage. 
+\textbf{Meeting the Requirements} \textit{Appendix A} lists the requirements identified at the earlier stages of the need-finding phase. The evaluation plan covers all three areas of the requirements - functionality, usability, and learnability. By analyzing the results of the think-aloud study, I hope to further narrow down into the \textit{data inventory} on \textbf{what are the user's goals, tasks, and subtasks?} and \textbf{what are their needs?}.  Successfully executing the plan will result in a data that would give insights into efficiency, learnability, and satisfaction of the new interface when compared to the currently used interface. The crucial metric of this evaluation plan is to assess whether or not the user's needs have been met. A detailed list of \textit{hits} and \textit{misses}, in addition to the user's overall sentiment will serve as a decision rule on whether or not to advance the suggested prototype to the next stage. 
 
 
 \section*{Empirical Evaluation\footnote{This section of the assignment is based on the lecture notes and Chapter 5 from the \cite{mackenzie2012human} book}}
 \textit{Appendix C}  contain as a candidate for the Textual prototype: Start with a list of most common transformations, and map them to one or more data variables. The interface target experts who aim to perform their tasks more efficiently by quickly searching through the transformations and applying them in bulk operation.
 
 \textbf{Control and Experimental Conditions}
-The goal of the empirical evaluation for the task described in the prototype is to \textit{compare} the efficiency of the task in the current and the new interface. We design three experiments that asks the users to complete same tasks in two different settings: \textit{control} - current interface, and \textit{treatment} - new prototype interface. The intention of the experiments is to analyze the relationship between two variables - dependent and independent - in order answer testable questions:  whether or not the new interface is advantageous to the current interface.
+The goal of the empirical evaluation for the task described in the prototype is to \textit{compare} the efficiency of the task in the current and the new interface. We design three experiments that asks the users to complete same tasks in two different settings: \textit{control} - current interface, and \textit{treatment} - new prototype interface. The experiments intend to analyze the relationship between two variables - dependent and independent - to answer testable questions:  whether or not the new interface is advantageous to the current interface.
 
 \hspace{10mm} \textbf{Independent variable}: Interface - \textit{Current} or \textit{New}  
 
@@ -156,13 +156,13 @@ The goal of the empirical evaluation for the task described in the prototype is 
 
 \hspace{20mm} - Average task completion time across three different tasks
 
-To run an experiment that decides which interface is superior in terms of the speed and efficiency, we design three tasks that covers most of common use cases ranging from simple to more advanced. 
+To run an experiment that decides which interface is superior regarding the speed and efficiency, we design three tasks that cover most of the everyday use cases ranging from simple to more advanced. 
 
 \textbf{Task 1} Splitting one variable in two separate variables
 \begin{itemize}
     \item Initial step (not measured): Load data with a field that contains \textit{Full Names}. 
-    \item Create a new variable that contains only first name
-    \item Create a new variable that contains only last name
+    \item Create a new variable that contains only the first name
+    \item Create a new variable that contains only the last name
 \end{itemize}
 
 \textbf{Task 2} Combining two variable into one by using a mathematical function
@@ -171,7 +171,7 @@ To run an experiment that decides which interface is superior in terms of the sp
     \item Create a new variable that computes the number of days between the start and the end
 \end{itemize}
 
-\textbf{Task 3} Chain multiple transformations by using the output of the previous as a input to the next one
+\textbf{Task 3} Chain multiple transformations by using the output of the previous as an input to the next one
 \begin{itemize}
     \item Initial step (not measured): Load data with a field that contains unstructured text. 
     \item Create a new variable that cleans the text variable by correcting typos.
@@ -180,18 +180,18 @@ To run an experiment that decides which interface is superior in terms of the sp
 \end{itemize}
 
 
-\textbf{Null Hypothesis}. Both interfaces provides the \textit{same} efficiency for accomplishing all three tasks (i.e. there is not difference in the final outcomes)
+\textbf{Null Hypothesis}. Both interfaces provide the \textit{same} efficiency for accomplishing all three tasks (i.e., there is no difference in the final outcomes)
 
-\textbf{Alternative Hypothesis}. Accomplishing the three tasks is \textit{faster} using the new interface as measured by average completion time and number of steps required to accomplish given tasks (i.e the new interface is superior)
+\textbf{Alternative Hypothesis}. Accomplishing the three tasks is \textit{faster} using the new interface as measured by average completion time and number of steps required to perform given tasks (i.e., the new interface is superior)
 
 \bigskip
-Since number of participants is very small, and their experience with the task may vary (therefore significantly skewing the results), it makes sense to use \textit{within-subjects} method, in which the same user is asked to perform given tasks with the current and with the new interface. The three tasks described above will \underline{collect two data points}: number of steps taken, and total time to complete a task. Since the dependent variable is expressed with \textit{ratio} data, we are going to analyze the results with \textbf{Student's t-test}, or, alternatively, with MWW or Kruskal-Wallis test. 
+Since the number of participants is very small, and their experience with the task may vary (therefore significantly skewing the results), it makes sense to use \textit{within-subjects} method, in which the same user is asked to perform given tasks with the current and with the new interface. The three tasks described above will \underline{collect two data points}: number of steps taken, and total time to complete a task. Since the dependent variable is expressed with \textit{ratio} data, we are going to analyze the results with \textbf{Student's t-test}, or, alternatively, with MWW or Kruskal-Wallis test. 
 
-In the experiments for interface efficiency, we are going to \textbf{control} for variables such as \textit{time of the day} and \textit{weekday vs. weekend} to reduce the effect they may have on the measured outcomes. It may it less time for users to execute the tasks early in the morning vs. at the end of the day when their cognitive resources are more depleted. 
+In the experiments for interface efficiency, we are going to \textbf{control} for variables such as \textit{time of the day} and \textit{weekday vs. weekend} to reduce the effect they may have on the measured outcomes. It may take it less time for users to execute the tasks early in the morning vs. at the end of the day when their cognitive resources are more depleted. 
 
-Finally, there are two circumstance that may change systematically between the experiments that might cause the results to be misinterpreted. One \textbf{confounding} variable is \textit{previous user experience} with the existing interface. If the the total time to complete the tasks is significantly lower in the existing interface vs. the new prototype, then the effect of \textit{familiarity}  confounded the experiments. In this case, focusing on the number of steps instead of time can help reduce the impact.
+Finally, two circumstances may change systematically between the experiments that might cause the results to be misinterpreted. One \textbf{confounding} variable is \textit{previous user experience} with the existing interface. If the total time to complete the tasks is significantly lower in the existing interface vs. the new prototype, then the effect of \textit{familiarity}  confounded the experiments. In this case, focusing on the number of steps instead of time can help reduce the impact.
 
-Another variable with a similar effect is due to the experiment setup. The order of the treatments matter because it provides user with an opportunity to re-use knowledge between experiments. As we are presenting the same tasks in both experiments, with the same participants, the time it takes to solve the task the second time may be only incremental nature. For example, when repeating the task in the different interface, the participant had already solved for what type of a transformation function is most applicable to the task. This effect could be potentially controlled for by varying the task's details slightly without changing it's difficulty level.
+Another variable with a similar effect is due to the experiment setup. The order of the treatments matters because it provides the user with an opportunity to re-use knowledge between experiments. As we are presenting the same tasks in both trials, with the same participants, the time it takes to solve the task the second time may be only incremental nature. For example, when repeating the task in the different interface, the participant had already solved for what type of a transformation function is most applicable to the task. This effect could be potentially controlled for by varying the task's details slightly without changing its difficulty level.
 
 
 \section*{Predictive Evaluation}
@@ -206,37 +206,37 @@ For the Cognitive Walkthrough, we need to identify the sequence of actions along
         \item Does the user understand what does it mean for a variable to be selected?
         \item Can the user see how the selection is accomplished? Is it visible on the screen or it requires filtering and contextual menus?
         \item Is the source variable clearly labeled?
-        \item If the user is unable to select a variable, and the feedback is given to the user, can they undertand and apply the feedback? 
+        \item If the user is unable to select a variable, and the feedback is given to the user, can they understand and apply the feedback? 
     \end{itemize}
     \item \textbf{Step 2}: Apply the desired transformation function
     \begin{itemize}
         \item Does the user have a correct conceptual model for that it means to change/transform the variable?
         \item Can the user see the list of available transformation functions?
         \item Do the functions' names reflect the clear operation? 
-        \item If the user select an incompatible transformation, is the feedback given to the user helpful and sufficient to correct their actions?
+        \item If the user selects an incompatible transformation, is the feedback given to the user helpful and sufficient to correct their actions?
     \end{itemize}
     \item \textbf{Step 3}: Confirm the result for the transformation
     \begin{itemize}
         \item Does the user grasp how to evaluate the effect of the applied transformation?
         \item Can the user see what type of transformation function has been applied to the variable?
         \item Can the user infer if the transformation has been propagated (applied) or just saved (configured) on the screen?
-        \item Can the user infer based on the feedback if the transformation is succesfull or not?
+        \item Can the user infer based on the feedback if the transformation is successful or not?
     \end{itemize}
 \end{itemize}
 
-The users will be accomplishing the sequence of steps described above in the context of the new interface. Although, they would be experienced in the task itself, they would have to navigate in an unfamiliar interface and discover the methods required to complete the tasks. The questions defined in each sub-task can be used to evaluate the prototype and compare it's usability between users with varying degree of experience on the task. 
+The users will be accomplishing the sequence of steps described above in the context of the new interface. Although they would be experienced in the task of transformation, they would have to navigate in an unfamiliar interface and discover the methods required to complete the tasks. The questions defined in each sub-task can be used to evaluate the prototype and compare its usability between users with varying degree of experience on the task. 
 
-A success of the prototype will be measured by the number of affirmative answers to the questions. For any question that has been answered as "NO", we will supply an explanation and a recommendation to resolve the gap. For example, if the user cannot find the functionality they look for because it is incorrectly labeled or not visible on the screen, the outcome of this evaluation will augment the prototype with additional features to complete the requirements. 
+The success of the prototype will be measured by the number of affirmative answers to the questions. For any item that has been answered as "NO," we will supply an explanation and a recommendation to resolve the gap. For example, if the user cannot find the functionality they look for because it is incorrectly labeled or not visible on the screen, the outcome of this evaluation will augment the prototype with additional features to complete the requirements. 
 
-A limitation of the predictive evaluation is that for some of the steps we cannot get the affirmative answers because the interface does not exist yet. We cannot predict if the user would understand the feedback because the we do not show the actual feedback in the prototype. We might provide examples of a possible feedback, and how and where it would be shown, but we cannon anticipate the user's response. 
+A limitation of the predictive evaluation is that for some of the steps we cannot get the affirmative answers because the interface does not exist yet. We cannot predict if the user would understand the feedback because then we do not show the actual feedback in the prototype. We might provide examples of possible feedback, and how and where it would be revealed, but we will not be able to anticipate the user's response. 
 
 \section*{Preparing to Execute}
 
-Without an actual interface, it will not be possible for us to carry out the Empirical Evaluation, especially because it collects the quantitative data such as time elapsed between the start and the end of the task, and the number of steps taken to complete the task. Therefore, we postpone this evaluation plan for future iterations. 
+Without an actual interface, it will not be possible for us to carry out the Empirical Evaluation, mainly because it collects the quantitative data such as time elapsed between the start and the end of the task, and the number of steps taken to complete the task. Therefore, we postpone this evaluation plan for future iterations. 
 
-The Qualitative Evaluation is typically performed  in the early stages of prototyping. The feedback from users can inform the subsequent iterations of needfinding and prototyping. At this stage, it is important to evaluate if the users' needs have been sufficiently met before proceeding to implementations that can be more costly in terms of time and allocated resources. 
+The Qualitative Evaluation is typically performed in the early stages of prototyping. The feedback from users can inform the subsequent iterations of needfinding and prototyping. At this stage, it is essential to evaluate if the users' needs have been sufficiently met before proceeding to implementations that can be more costly regarding time and allocated resources. 
 
-Since the Prediction Evaluation does not involve users, it is very \textit{cheap} and relatively efficient for informing ongoing design decisions, such as the positions and labeling of functionality required for accomplishing the task. This evaluation plan helps us formalize the user's thought process through the analysis of well defined methods and operators. 
+Since the Prediction Evaluation does not involve users, it is very \textit{cheap} and relatively efficient for informing ongoing design decisions, such as the positions and labeling of functionality required for accomplishing the task. This evaluation plan helps us formalize the user's thought process through the analysis of well-defined methods and operators. 
 
 In conclusion, we choose to \textit{advance} the Qualitative and Predictive Evaluations, and \textit{drop} the Empirical Evaluation.  
 
