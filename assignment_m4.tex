@@ -117,7 +117,7 @@
 Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process. In this project, we evaluate various prototypes for an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. The task involves altering the form of the received data with a purpose to extract relevant features in form that is more advantageous for subsequent tasks. Our main goal is to assess all the weak areas of the suggested alternative models via early feedback collection from users who perform the task frequently and therefore have a good understanding of the task at hand.  
 \end{abstract}
 
-\subsection*{Qualitative Evaluation}
+\section*{Qualitative Evaluation}
 \subsubsection*{Think-aloud for Verbal Prototype}
 \textit{Appendix} B contain verbal prototype that discusses a possible interface where a user is given a recommendation for which transformation function(s) is most compatible with the observed variable. The interface target novices who need to explore the system, and experts who aim to perform their tasks more efficiently.
 
@@ -140,7 +140,7 @@ To get started with the evaluation of the verbal prototype, I will, first, descr
 \textbf{Meeting the Requirements} \textit{Appendix A} lists the requirements identified at the earlier stages of the need-finding phase. The evaluation plan covers all three areas of the requirements - functionality, usability and learnability. By analyzing the results of the think-aloud study, I hope to further narrow down into the \textit{data inventory} on \textbf{what are the user's goals, tasks and subtasks?} and \textbf{what are their needs?}.  Successfully executing the plan will result in a data that would give insights into efficiency, learnability and satisfaction of the new interface when compared to the currently used interface. The crucial metric of this evaluation plan is to assess whether or not the user's needs have been met. A detailed list of \textit{hits} and \textit{misses}, in addition to user's overall sentiment will serve as a decision rule on whether or not to advance the suggested prototype to the next stage. 
 
 
-\subsection*{Empirical Evaluation\footnote{This section of the assignment is based on the lecture notes and Chapter 5 from the \cite{mackenzie2012human} book}}
+\section*{Empirical Evaluation\footnote{This section of the assignment is based on the lecture notes and Chapter 5 from the \cite{mackenzie2012human} book}}
 \textit{Appendix C}  contain as a candidate for the Textual prototype: Start with a list of most common transformations, and map them to one or more data variables. The interface target experts who aim to perform their tasks more efficiently by quickly searching through the transformations and applying them in bulk operation.
 
 \textbf{Control and Experimental Conditions}
@@ -194,7 +194,7 @@ Finally, there are two circumstance that may change systematically between the e
 Another variable with a similar effect is due to the experiment setup. The order of the treatments matter because it provides user with an opportunity to re-use knowledge between experiments. As we are presenting the same tasks in both experiments, with the same participants, the time it takes to solve the task the second time may be only incremental nature. For example, when repeating the task in the different interface, the participant had already solved for what type of a transformation function is most applicable to the task. This effect could be potentially controlled for by varying the task's details slightly without changing it's difficulty level.
 
 
-\subsection*{Predictive Evaluation}
+\section*{Predictive Evaluation}
 
 We are going to perform a \textbf{Cognitive Walkthrough} on the prototype shown in \textit{Appendix D}. The wireframes guide the user through the transformation task by keeping the sample of the data visible at all times. 
 
@@ -230,9 +230,15 @@ A success of the prototype will be measured by the number of affirmative answers
 
 A limitation of the predictive evaluation is that for some of the steps we cannot get the affirmative answers because the interface does not exist yet. We cannot predict if the user would understand the feedback because the we do not show the actual feedback in the prototype. We might provide examples of a possible feedback, and how and where it would be shown, but we cannon anticipate the user's response. 
 
-\subsection*{Preparing to Execute}
+\section*{Preparing to Execute}
 
+Without an actual interface, it will not be possible for us to carry out the Empirical Evaluation, especially because it collects the quantitative data such as time elapsed between the start and the end of the task, and the number of steps taken to complete the task. Therefore, we postpone this evaluation plan for future iterations. 
 
+The Qualitative Evaluation is typically performed  in the early stages of prototyping. The feedback from users can inform the subsequent iterations of needfinding and prototyping. At this stage, it is important to evaluate if the users' needs have been sufficiently met before proceeding to implementations that can be more costly in terms of time and allocated resources. 
+
+Since the Prediction Evaluation does not involve users, it is very \textit{cheap} and relatively efficient for informing ongoing design decisions, such as the positions and labeling of functionality required for accomplishing the task. This evaluation plan helps us formalize the user's thought process through the analysis of well defined methods and operators. 
+
+In conclusion, we choose to \textit{advance} the Qualitative and Predictive Evaluations, and \textit{drop} the Empirical Evaluation.  
 
 \bibliographystyle{apacite} 
 \bibliography{bibtemp}
