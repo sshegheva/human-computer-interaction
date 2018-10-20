@@ -114,12 +114,12 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process. In this project, we analyze an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. Our main goal is to assess all the weak areas of the existing interface to provide recommendations for alternative models that simplify the user interaction without assuming any pre-existing knowledge of the tool.
+Mapping data from one form to another for its ease-of-use is at the core of the \textit{Extract, Transform and Load} process. In this project, we evaluate various prototypes for an internal interface of a \textit{transform} task that prepares the data for use in a personalized recommendation system powered by Artificial Intelligence engines. The task involves altering the form of the received data with a purpose to extract relevant features in form that is more advantageous for subsequent tasks. Our main goal is to assess all the weak areas of the suggested alternative models via early feedback collection from users who perform the task frequently and therefore have a good understanding of the task at hand.  
 \end{abstract}
 
 \subsection*{Qualitative Evaluation}
 \subsubsection*{Think-aloud for Verbal Prototype}
-\textit{Appendix} B contain verbal prototype that discusses a possible interface where a user is given a recommendation for which transformation function(s) is most compatible with the observed variable.
+\textit{Appendix} B contain verbal prototype that discusses a possible interface where a user is given a recommendation for which transformation function(s) is most compatible with the observed variable. The interface target novices who need to explore the system, and experts who aim to perform their tasks more efficiently.
 
 \textbf{Evaluation Plan}
 For this stage of evaluation, the plan is to engage a single user in the think-aloud study. The chosen user, Product Manager with a client-facing role, has a significant experience with the task at hand, and is expected to provide a good feedback on the prototype that is delivered verbally. The evaluation will take place in the work setting where the user will be suggested an alternative way to perform their usual task of data transformation. The results of the conversation will be summarized and recorded \textit{after} the exchange takes place. Any notes drafted during the discussion will be collected as artifacts of the study. The goal of this evaluation is to collect an early feedback on the suggested idea, and estimate user's interest in taking it to the next step of implementation.
@@ -137,15 +137,62 @@ To get started with the evaluation of the verbal prototype, I will, first, descr
 
 \textit{Question 5 - Learnability}: Do you expect a significant amount of guidance from the interface, and which areas? For example, would you be able to easily find the variables you need to change? How easily do you expect to find a transformation that suits your needs? Do you expect to request a different set of recommendations? Would you like to easily access \textit{all} available transformations? 
 
-\textbf{Meeting the Requirements} \textit{Appendix A} lists the requirements identified at the earlier stages of the need-finding phase. The evaluation plan covers all three areas of the requirements - functionality, usability and learnability. By analyzing the results of the think-aloud study, I hope to further narrow down into the \textit{data inventory} on \textbf{what are the user's goals, tasks and subtasks?} and \textbf{what are their needs?}.  Successfully executing the plan will result in a data that would give insights into efficiency, learnability and satisfaction of the new interface when compared to the currently used interface. The crucial metric of this evaluation plan is to assess whether or not the user's needs have been met. A detailed list of \textit{hits} and \textit{misses}, in addition to user's overall sentiment will serve as a decision rule on whether or not to advance the prototype to the next stage. 
+\textbf{Meeting the Requirements} \textit{Appendix A} lists the requirements identified at the earlier stages of the need-finding phase. The evaluation plan covers all three areas of the requirements - functionality, usability and learnability. By analyzing the results of the think-aloud study, I hope to further narrow down into the \textit{data inventory} on \textbf{what are the user's goals, tasks and subtasks?} and \textbf{what are their needs?}.  Successfully executing the plan will result in a data that would give insights into efficiency, learnability and satisfaction of the new interface when compared to the currently used interface. The crucial metric of this evaluation plan is to assess whether or not the user's needs have been met. A detailed list of \textit{hits} and \textit{misses}, in addition to user's overall sentiment will serve as a decision rule on whether or not to advance the suggested prototype to the next stage. 
 
 
 \subsection*{Empirical Evaluation}
-Next, select one of the prototypes to evaluate empirically. First, define your control and experimental conditions: what are you testing, and what are you using as a point of comparison? Note that depending on your target problem and prototypes, you may have to create some variation within your existing prototype to create something to test empirically. This may especially be true if you’re designing for a new task, rather than redesigning an existing interface.
+\textit{Appendix C}  contain as a candidate for the Textual prototype: Start with a list of most common transformations, and map them to one or more data variables. The interface target experts who aim to perform their tasks more efficiently by quickly searching through the transformations and applying them in bulk operation.
 
-Then, define your null and alternative hypotheses; remember, the null hypothesis is what you assume to be true unless you can find conclusive proof for your alternative hypothesis. Then, describe the experimental method you will use. Will it be between-subjects or within-subjects? How will subjects be assigned to groups, what will they complete as part of their condition, and what data will they generate? What analysis will you use on this data? Finally, identify what lurking variables might confound your data.
+\textbf{Control and Experimental Conditions}
+The goal of the empirical evaluation for the task described in the prototype is to \textit{compare} the efficiency of the task in the current and the new interface. We design three experiments that asks the users to complete same tasks in two different settings: \textit{control} - current interface, and \textit{treatment} - new prototype interface. The intention of the experiments is to analyze the relationship between two variables - dependent and independent - in order answer testable questions:  whether or not the new interface is advantageous to the current interface.
 
-Note that given the early stage of your project, empirical evaluation may be tough to design. In the next assignment, you will select two of these three evaluations to actually conduct, so you may design your empirical evaluation in a way that would be unfeasible to carry out based either on the available resources or the status of the prototypes. The important task here is to experience planning the three types of evaluation.
+\hspace{10mm} \textbf{Independent variable}: Interface - \textit{Current} or \textit{New}  
+
+\hspace{10mm} \textbf{Dependent variables}: 
+
+
+\hspace{20mm} - Average number of steps across three different tasks 
+
+
+\hspace{20mm} - Average task completion time across three different tasks
+
+To run an experiment that decides which interface is superior in terms of the speed and efficiency, we design three tasks that covers most of common use cases ranging from simple to more advanced. 
+
+\textbf{Task 1} Splitting one variable in two separate variables
+\begin{itemize}
+    \item Initial step (not measured): Load data with a field that contains \textit{Full Names}. 
+    \item Create a new variable that contains only first name
+    \item Create a new variable that contains only last name
+\end{itemize}
+
+\textbf{Task 2} Combining two variable into one by using a mathematical function
+\begin{itemize}
+    \item Initial step (not measured): Load data with a field that contains \textit{start} and \textit{end date}. 
+    \item Create a new variable that computes the number of days between the start and the end
+\end{itemize}
+
+\textbf{Task 3} Chain multiple transformations by using the output of the previous as a input to the next one
+\begin{itemize}
+    \item Initial step (not measured): Load data with a field that contains unstructured text. 
+    \item Create a new variable that cleans the text variable by correcting typos.
+    \item Create a new variable extract keywords from the \textit{corrected} text
+    \item Create a new variable that assigns the keywords a category
+\end{itemize}
+
+
+\textbf{Null Hypothesis}. Both interfaces provides the \textit{same} efficiency for accomplishing all three tasks (i.e. there is not difference in the final outcomes)
+
+\textbf{Alternative Hypothesis}. Accomplishing the three tasks is \textit{faster} using the new interface as measured by average completion time and number of steps required to accomplish given tasks (i.e the new interface is superior)
+
+\bigskip
+Since number of participants is very small, and their experience with the task may vary (therefore significantly skewing the results), it makes sense to use \textit{within-subjects} method, in which the same user is asked to perform given tasks with the current and with the new interface. The three tasks described above will \underline{collect two data points}: number of steps taken, and total time to complete a task. Since the dependent variable is expressed with \textit{ratio} data, we are going to analyze the results with \textbf{Student's t-test}, or, alternatively, with MWW or Kruskal-Wallis test. 
+
+In the experiments for interface efficiency, we are going to \textbf{control} for variables such as \textit{time of the day} and \textit{weekday vs. weekend} to reduce the effect they may have on the measured outcomes. It may it less time for users to execute the tasks early in the morning vs. at the end of the day when their cognitive resources are more depleted. 
+
+Finally, there are two circumstance that may change systematically between the experiments that might cause the results to be misinterpreted. One \textbf{confounding} variable is \textit{previous user experience} with the existing interface. If the the total time to complete the tasks is significantly lower in the existing interface vs. the new prototype, then the effect of \textit{familiarity}  confounded the experiments. In this case, focusing on the number of steps instead of time can help reduce the impact.
+
+Another variable with a similar effect is due to the experiment setup. The order of the treatments matter because it provides user with an opportunity to re-use knowledge between experiments. As we are presenting the same tasks in both experiments, with the same participants, the time it takes to solve the task the second time may be only incremental nature. For example, when repeating the task in the different interface, the participant had already solved for what type of a transformation function is most applicable to the task. This effect could be potentially controlled for by varying the task's details slightly without changing it's difficulty level.
+
 
 \subsection*{Predictive Evaluation}
 
@@ -218,5 +265,26 @@ Finally, select two of these evaluations to complete for the next assignment, an
 }
 
 \textit{The set you are given back is limited to the selected data type. For example, it won't recommend you transformations intended for numerical fields, such as Averaging, Adding/Subtracting, Computing rates, etc. This way your task of transforming can be optimized to your data leading to a more efficient workflow. What do you think?}
+
+\subsection*{C}
+
+\subsection*{Prototype 2 - Textual}
+
+\textbf{The Idea}.
+Users are presented with a list of Transformations that allows them to apply the same rule to a set of fields in a \textit{single} instruction (think one-to-many as opposed to one-to-one described in the previous prototype)
+
+\textbf{How it Works}. In order to perform any transformations on the input data, a user A) navigates to a dedicated Tab that lists transformation organized in alphabetical order by default; B) The user selects a transformation and is subsequently presented with the set of all available fields compatible with the chosen transformation; C) User highlights the areas they wish to apply the transformation to, and hits Save. Then repeat the process if other transformations are needed.
+
+\textbf{Example}. \textit{User decides to clean the unstructured data by removing all special characters and maybe stop words as well. Users find a transformation "Remove Punctuation," and observes that half of the available fields for transformations become disabled (greyed out) since they represented numerical data or date ranges. From the subset of variables, the user selects data fields - "summary," "keywords," and "content" - and applies the selected transformation. Then user finds another transformation "Remove STOP words," and repeats that for the fields "summary."}
+
+\subsubsection*{Functionality}
+
+\begin{itemize}
+    \item The page with the transformation \textbf{displays the top 10 choices} and provides a pagination mechanism in addition to a customization for how many results are shown on the page.
+    \item The transformations are \textbf{searchable} by the names and their descriptions. 
+    \item The transformations are \textbf{sortable} by relevance, recency, popularity, date of creation and date of update.
+    \item Data fields available for a select transformation are \textbf{dynamic}. Incompatible fields are greyed out leaving user with a more manageable set.
+    \item User is given an option to \textit{apply}, \textit{save}, and \textit{export} the current configuration in JSON format.
+\end{itemize}
 
 \end{document}
