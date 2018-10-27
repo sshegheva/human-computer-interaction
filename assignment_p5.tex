@@ -153,12 +153,29 @@ Patients are one of the principal stakeholders, therefore their involvement in t
 
 \section*{Question 3 - Piazza Post Filtering Redesign}
 
+As a candidate for re-design, I selected Piazza's functionality on \textbf{filtering posts} based on the user's preference to prioritize the selection. Figure~\ref{fig::1} demonstrates the new design that focuses in making post-reading activity more efficient. 
+
+\textbf{Explaining the Mock-up}. Current Piazza interface provides an ability to filter messages by categories such as \textit{Unread}, \textit{Updated}, \textit{Unresolved}, etc. The idea behind the re-design is 1) \textbf{augmenting} the available selections with visual representation of post statistics and 2) \textbf{changing} the existing categories by adding \textit{Read} and \textit{Authored by me} and removing \textit{Updated}, \textit{Unresolved}, \textit{Due to Answer} and \textit{Archived}.
+
+Each category in the filtering set is captured statistically by counting a frequency of posts in the category aggregated by a certain period of time (for example weekly). The goal of the visualizations is to identify and communicate trends for participant's behavior, students or instructors. With the addition of charts, some of the categories are removed to avoid the clutter leaving only the more essential filters. 
+
+
 \begin{figure}[h]
 \centering
-\includegraphics[scale=.3]{figures/p5/pizza_filtering.png}
-\caption{Screen 4: A hypothetical view of the Directed Acyclical Graph (DAG) that is a results of user creating multiple transformations}
-\label{fig::5}
+\includegraphics[scale=.4]{figures/p5/piazza_filtering.png}
+\caption{Mock-up for Piazza Filtering Functionality redesign}
+\label{fig::1}
 \end{figure}
+
+\subsection*{Justifying the Redesign}
+
+\textbf{Cognitive Load}. An important aspect in designing a good interface is planning a task execution that reduces the user effort or requires a minimal cognitive load that is not related to the task itself. When a user logs into Piazza, they need to optimize their cognitive efforts for reading and digesting the material. Finding the right content should not be time-consuming, therefore a good design must guide the user through the interface that de-emphasizes the clutter and off-loads tasks that require heavy user processing onto the interface. How does the Piazza user know if they are staying on top of reading the new content? Currently, they have to scroll down the list of posts, and count how many of them have a \textit{blue-dot} that indicated the unread material. Alternatively, they can see counts of posts in each folder, such as \textit{announcements}, \textit{class discussions}, etc. The new design with post frequencies histograms that is accessed via filtering functionality gives the user a sense of volume of read/unread posts. A student may use this information to adjust their learning habits as needed, for example visit Piazza more frequently.     
+
+\textbf{Perception in the Gulf of Evaluation}. The new design communicates information on the rate of incoming Piazza posts effectively by aggregating their frequencies over time. The user stays informed about the pattern of content creation thorough the visual feedback represented with histograms over time. If the user's goal is to keep up with Piazza's updates, they can easily bridge the gulf of evaluation via perception stage that helps determine if their intentions have been met.
+
+\textbf{Flexibility Heuristic}. The selection of current filters does not address potential user's preferences to narrow down Piazza's content to their posts with intention to review the comments in responses. The new design adds categories for \textit{Read} and \textit{Authored by me} posts to remove the limitation. Ideally, the user could customize their filters in the advanced mode (not shown in the mock-up) to fit their individual interaction habits. 
+
+\textbf{Representation in Interfaces}. The new re-design of the filtering functionality gives representation of the student's pace in the class. For example, by showing a weekly count of read posts (with the histogram icons), the student can get a sense for how consistent they are in keeping up with the new content. The new design also provides a good representation at a glance for how much they contribute, and how does the latest pattern compare with their past habbits. An interface like this can have a power to change user behavior. 
 
 \section*{Question 4 - Paper Distillation}
 
