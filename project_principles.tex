@@ -137,6 +137,19 @@ Cells are viewed as physical building blocks, and as such can be re-arranged usi
 \subsubsection*{What doesn't works well}
 Drag-n-dropping cells works pretty well when the distance between the positions (current and the desired) is small. As the distance increases, and the user has to scroll through the page while simultaneously "dragging" a cell, the \textbf{ease and comfort} principles are infringed that reduce the overall efficiency in accomplishing the task. 
 
+Current implementation of the interface provides signifiers located in the toolbar for adding and deleting cells (see Figure~\ref{fig::2}). There are two issues with the chosen position for those two opposing operations: 1) by placing them \textit{next to each other}, the interface invites user errors such as \textbf{slips}; 2) by situating them on the toolbar the \textbf{gulf of execution} is widened at the stage of \textit{performing} an action.
+
+The user has a correct \textit{mental model} on how to add or delete a cell as the icons for signifiers are self-explanatory and consistent. However, a user intending to do one action, for example, adding a cell, may inadvertently execute the opposing one - deletion. This is an example of \textit{action-based} slip that occurred due to a rushed user behavior. 
+
+A sub-optimal interaction with executing the action (add/delete) presents itself again when the notebook is long enough that the user needs to move the mouse between the current position and the toolbar. This increases the \textit{gulf of execution} and decreases the efficiency especially for new users who have not learned the shortcuts for these commands.  
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.6]{figures/project-principles/jupyter_add_delete.png}
+\caption{Aspect of the interface that allow Slip erros}
+\label{fig::2}
+\end{figure}
+
 Ease and Comfort
 - Merging cells 
 - Reordering cells over large distances (netflix queue inspiration)
@@ -165,14 +178,14 @@ In writing this evaluation, it is critical that you ground your critiques in ter
 \centering
 \includegraphics[scale=.6]{figures/project-principles/cell_merge.png}
 \caption{Mock-up for merging cells}
-\label{fig::2}
+\label{fig::3}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=.6]{figures/project-principles/cell_create.png}
 \caption{Mock-up for ordering/deleting cells}
-\label{fig::3}
+\label{fig::4}
 \end{figure}
 
 Second, based on your evaluation, redesign the interface. If it’s a visual interface (such as a mobile app, visual wearable interface, or traditional desktop application), supply visual mock-ups of the potential redesign. If it’s a physical interface, supply a sketch or similar representation of the altered interface. If it’s an interface that cannot be provided in a 2D visual form like a haptic, auditory, or virtual reality interface, describe the redesign in words using diagrams wherever possible. Your redesign can contain textual annotations or rely on text if it is non-visual, but the text should merely explain the redesigned interface, not justify it.
