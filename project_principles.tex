@@ -145,15 +145,20 @@ A sub-optimal interaction with executing the action (add/delete) presents itself
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=.6]{figures/project-principles/jupyter_add_delete.png}
-\caption{Aspect of the interface that allow Slip erros}
+\includegraphics[scale=.4]{figures/project-principles/jupyter_add_delete.png}
+\caption{Aspect of the interface that allow Slip errors}
 \label{fig::2}
 \end{figure}
 
-Ease and Comfort
-- Merging cells 
-- Reordering cells over large distances (netflix queue inspiration)
-- Deleting cells (netflix queue)
+Another feature that contributes to a wide execution gulf is \textit{merging} cells that is a commonly requested action. The aspect of the interface that is designated for this functionality violates the \textbf{discoverability} principle. Unlike other operations, merging is accessible via \textit{Edit} Menu -> Merge Selected Cells and thus not easily discoverable. The contextual menu available at the right-click of the does not include the pointer to the merging operation. mental model? conceptial model that operation is not supported.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.55]{figures/project-principles/cell_merge_eval.png}
+\caption{Inefficiency of merging cells}
+\label{fig::3}
+\end{figure}
+
 
 \iffalse
 2.1 Introduction to Principles
@@ -178,14 +183,14 @@ In writing this evaluation, it is critical that you ground your critiques in ter
 \centering
 \includegraphics[scale=.6]{figures/project-principles/cell_merge.png}
 \caption{Mock-up for merging cells}
-\label{fig::3}
+\label{fig::4}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=.6]{figures/project-principles/cell_create.png}
 \caption{Mock-up for ordering/deleting cells}
-\label{fig::4}
+\label{fig::5}
 \end{figure}
 
 Second, based on your evaluation, redesign the interface. If it’s a visual interface (such as a mobile app, visual wearable interface, or traditional desktop application), supply visual mock-ups of the potential redesign. If it’s a physical interface, supply a sketch or similar representation of the altered interface. If it’s an interface that cannot be provided in a 2D visual form like a haptic, auditory, or virtual reality interface, describe the redesign in words using diagrams wherever possible. Your redesign can contain textual annotations or rely on text if it is non-visual, but the text should merely explain the redesigned interface, not justify it.
