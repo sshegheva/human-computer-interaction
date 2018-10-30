@@ -119,13 +119,6 @@ JupyterLab is a web-based interface for Project Jupyter that provides an interac
 \subsection*{Heuristic Evaluation}
 Figure~\ref{fig::1} shows an example of my current JupyterLab workspace, that include a file navigation section, interactive notebook area, additional consoles, and many other things that the platform provides. As a development environment, JupyterLab allows access to terminals, file viewers, notebooks, text editors - all from one place, which I personally find very convenient. With a rapid growth of data science and machine learning, Jupyter Notebooks have become a standard for creating reproducible computational narratives \cite{blog:jupyter}. 
 
-\subsubsection*{What works well}. 
-Its most attractive feature - interactivity - thrives in both \textbf{gulfs}: \textbf{execution} and \textbf{evaluation}. The execution gulf is easily bridged as the cells provide a clear indication for where text/code should be entered. In the early stage of planning where the user has to choose an appropriate action out of all possible actions, the interface prompts the user to type in a cell by positioning blinking cursor at the beginning of a cell. This follows the \textit{consistency} principle for designing interfaces where user can easily transfer the learning between different systems.
-
-Compared to other more traditional IDEs (Integrated Development Environment), the Jupyter Lab has a narrower  gulf of evaluation. \textit{Running} a cell yields immediate feedback that allows user assessing how well their intentions have been met. 
-
-Cells are viewed as building blocks, and as such can be re-arranged using a \textit{direct manipulation} via drag-n-drop functionality. User is engaged in the process of interacting with the interface by 1) planning the action, for example, hovering over the cell that needs to be moved; 2) grabbing the cell and dragging it over the area that specifies the new location; 3) performing the cell move operation by releasing the hold. The interface is so intuitive largely due to the tight relationships between two gulfs. As the user is performing the action of re-arrangement, the system provides a "hint" in form of target line for where the new cell would land before the action is complete. Therefore, the goal can be accomplished more accurately and more efficiently with means to see and interpret the actions and necessary adjustments.      
-
 \begin{figure}[h]
 \centering
 \includegraphics[scale=.5]{figures/project-principles/jupyter.png}
@@ -133,7 +126,21 @@ Cells are viewed as building blocks, and as such can be re-arranged using a \tex
 \label{fig::1}
 \end{figure}
 
-\textbf{What doesn't works well}.
+\subsubsection*{What works well}
+Its most attractive feature - interactivity - thrives in both \textbf{gulfs}: \textbf{execution} and \textbf{evaluation}. The execution gulf is easily bridged as the cells provide a clear indication for where text/code should be entered. In the early stage of planning where the user has to choose an appropriate action out of all possible actions, the interface positions the blinking cursor at the beginning of a cell prompting the user to enter a code inside it. This follows the \textit{consistency} principle for designing interfaces where user can easily transfer the learning between different systems.
+
+Compared to other more traditional IDEs (Integrated Development Environment), the Jupyter Lab has also a much narrower gulf of evaluation. \textit{Running} a cell yields immediate feedback that allows user assessing how well their intentions have been met. The output is displayed \textit{asynchronously} as it is generated in the Kernel allowing user to perceive, interpret, and compare the state of the execution with their goal or a sub-goal.
+
+Cells are viewed as physical building blocks, and as such can be re-arranged using a \textbf{direct manipulation} via drag-n-drop operation. User is engaged in the process of completing their task by 1) planning the action, for example, hovering over the cell that needs to be moved; 2) grabbing the cell and dragging it over the area that specifies the new location; 3) releasing the hold when the cell is aligned with the desired destination. For the described task, the interface becomes \textit{invisible} and intuitive largely due to the tight relationships between two gulfs. As the user is working on their task of cell re-arrangement, the system provides a "hint" in form of target line for where the new cell would land before the action is complete. The \textit{feedback} is easy to interpret, and it matches with what the user is expecting to happen. Therefore, the goal can be accomplished more accurately (cell is in the correct position) and more efficiently (speed of execution) without the user focusing on the interface.
+
+
+\subsubsection*{What doesn't works well}
+Drag-n-dropping cells works pretty well when the distance between the positions (current and the desired) is small. As the distance increases, and the user has to scroll through the page while simultaneously "dragging" a cell, the \textbf{ease and comfort} principles are infringed that reduce the overall efficiency in accomplishing the task. 
+
+Ease and Comfort
+- Merging cells 
+- Reordering cells over large distances (netflix queue inspiration)
+- Deleting cells (netflix queue)
 
 \iffalse
 2.1 Introduction to Principles
