@@ -127,18 +127,39 @@ The evaluation span across two sessions in the same day with the same participan
 
 The second part of the evaluation happened a few hours later in the office setting. We choose to follow up on the remaining set of questions from the discussions that took place earlier. The participant expressed their feedback by sketching their thoughts on the piece of paper and elaborating on several analogies drawn from different tools and fields. Overall, the evaluation exceeded my expectations as it impacted how I was thinking about the design originally. 
 
-\textbf{Think-Aloud Study}
-To get started with the evaluation I described the idea to the user so they can imagine their workflow within the new interface. After they confirmed the understanding of new direction, I asked them to perform a specific transformation task while thinking aloud through the steps. \textit{Appendix B} contains the set of questions asked in the sessions.
+\textbf{Reporting on the Results of the Think-Aloud Study}
+To get started with the evaluation I described the idea to the user so they can imagine their workflow within the new interface. After they confirmed the understanding of new direction, I asked them to perform a specific transformation task while thinking aloud through the steps. \textit{Appendix B} contains the set of questions asked in the two sessions. As the questions were focused mostly on the actual use cases, for the simple examples (one-to-one transformations) the participant did not have a difficult time \textit{thinking-aloud} about the steps required to accomplish the task in the new interface. 
 
+The user's thought process across all cases can be summarized with the following steps:
+
+\begin{itemize}
+    \item Find the input variable from a drop down list
+    \item See the list of recommendations somewhere on the page
+    \item Start from the top recommendation and evaluate its applicability to the case
+    \item If it solves the case, then apply the recommendation and move on to the next variable
+    \item If the recommendation is not applicable, go to the next recommendation in the list until the desired recommendation is found
+\end{itemize}
+
+The participant struggled with the use cases than required many-to-one or one-to-many transformations. I was asked to further elaborate on how the interface would support that. After additional guidance, the user was able to \textit{think} through the task, although they invoked imaginary steps not mentioned in the interface. Eventually, the conversation has shifted to how the user would prefer to accomplish the variations of the tasks by describing an alternative approach. As a result of the shift, questions 4 and 5 were on general satisfiability and learnability were not addressed directly, although I was able to infer them from the feedback that followed. Overall, the goal of the study was accomplished - the user has identified the usefulness and the limitation of the new interaction, and suggested ways to improve it.  
 
 \textbf{Feedback from the Participant}
 
-Although the user liked the idea of a \textit{recommended} transformations, they were not convinced that this would increase the efficiency of the task. The main take-away was the recommendation should be focused on the \textit{outcome} instead of the \textit{function}. For example, if we have an unstructured field that contains \textit{dates}, recommending a transformation such as \textit{DateFinder} would be useful, however it does not communicate the result. If, instead, the interface suggests a few \textit{patterns} for what can be found 
+Although the user liked the idea of a \textit{recommended} transformations, they were not convinced that this would increase the efficiency of the task. The main take-away was that the recommendation should be focused on the \textit{outcome} instead of the \textit{function}. This is akin to flipping the problem in its head by starting from possible final results and walking backwards by narrowing down the steps to achieve the desired outcome. 
 
+For example, if we have an unstructured field that contains \textit{dates}, recommending a transformation such as \textit{DateFinder} might be useful, however it does not communicate the result. If, instead, the interface suggests a few \textit{patterns} for what kinds dates \textit{can be} found in the text, then the user is able to make more informed decision on what type of transformations they wish to apply. The participant brought up a few analogies, such as Microsoft Excel's functionality for date transformation, and Spacy's Entity Recognition service. Figure~\ref{fig::1} demonstrates an example for using Spacy\footnote{https://spacy.io/ - Industrial-Strength
+Natural Language Processing tool} tool for similar tasks of  pattern recognition. The user emphasized the \textit{intuitiveness} of  Spacy's interface.
 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{figures/m3/spacy_date_finder.png}
+\caption{Example for pattern recognition for dates from DisplaCy Named Entity Visualizer (https://explosion.ai/demos/displacy-ent)}
+\label{fig::1}
+\end{figure}
 
+The aspect of the feedback that surprised me the most that the user \textit{did not} seek solutions that would increase the speed of their task processing, or efficiency for finding the transformations. Based on my interpretation of their feedback, the user wanted an interface that would get them \textit{closer} to the data. Their ideal interaction seems to be \textit{discovering} the data, and a \textit{transformation} task is a way to extract specific elements from the text, and \textit{remember} those rules for subsequent streams of the same data.  
 
-
+\textbf{Impact on the Prototype Design}
+Based on the evaluation plan I need to re-iterate on the design cycle by brainstorming possible approaches for how to include \textit{previews} for possible \textit{outcomes} of transformations. 
 
 \section*{Predictive Evaluation}
 
@@ -215,8 +236,6 @@ In conclusion, we choose to \textit{advance} the Qualitative and Predictive Eval
 \subsection*{B}
 
 \textbf{Think-Aloud Study}
-To get started with the evaluation I described the idea to the user so they can imagine their workflow within the new interface. After they confirmed the understanding of new direction, I asked them to perform a specific transformation task while thinking aloud through the steps.
-
 \textit{Question 1 - Use case}: Let's say you have collected data on the recently published papers in the field in Machine Learning and Artificial Intelligence. You have a field that contains a list of \textit{keywords}, and let's assume you only want to get the first-mentioned keyword from the list. How would you accomplish this task in the new interface?  
 
 \textit{Question 2 - Use case}: Let's say that in the same data set, you have a field that captures the \textit{published date}. If you would like to split this into a \textit{year} and \textit{month} variable, how would you go about it?
