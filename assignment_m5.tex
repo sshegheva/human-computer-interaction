@@ -165,47 +165,72 @@ Based on the evaluation plan I need to re-iterate on the design cycle by brainst
 
 We are going to perform a \textbf{Cognitive Walkthrough} on the prototype shown in \textit{Appendix D}. The wireframes guide the user through the transformation task by keeping the sample of the data visible at all times. 
 
-For the Cognitive Walkthrough, we need to identify the sequence of actions along with the series of questions that helps us evaluate the prototype.
+For the Cognitive Walkthrough, we identified the sequence of actions along with the series of questions that helps us evaluate the prototype.
 
 \begin{itemize}
-    \item \textbf{Step 1}: Select the variable to transform
+    \item \textbf{Step 1: Select a variable for transformation}
     \begin{itemize}
         \item Does the user understand what does it mean for a variable to be selected?
-        \item Can the user see how the selection is accomplished? Is it visible on the screen or it requires filtering and contextual menus?
+        \begin{itemize}
+            \item Yes. By \textit{highlighting} the selected column, the interface is \textit{consistent} with other tools which means that user does not need an additional effort to learn the new interface. 
+        \end{itemize}
+        \item Can the user \textit{see} how the selection is accomplished? Is it visible on the screen or it requires filtering and contextual menus?
+        \begin{itemize}
+            \item No. The interface relies on the user having a good \textit{mental model} for how something can be selected. There are no visible menus or buttons for the selection step.  
+        \end{itemize}
         \item Is the source variable clearly labeled?
+            \begin{itemize}
+                \item No. The header row contains all variable names available for the transformation, however, there is no label that marks the type of the variable. Users that deal with data on regular basis, would have no problem identifying the variables without labels, as it is \textit{consistent} with other data analysis tools.    
+        \end{itemize}
         \item If the user is unable to select a variable, and the feedback is given to the user, can they understand and apply the feedback? 
+        \begin{itemize}
+                \item Yes. As the user hovers over the variable, the mouse cursor changes from an arrow to a pointer, therefore providing an \textit{affordance} that suggests how the user should interact with the displayed table of data.
+        \end{itemize}
     \end{itemize}
-    \item \textbf{Step 2}: Apply the desired transformation function
+    \item \textbf{Step 2: Apply the desired transformation function}
     \begin{itemize}
         \item Does the user have a correct conceptual model for that it means to change/transform the variable?
+        \begin{itemize}
+                \item Yes. When the user selects a variable, a contextual menu appears that suggests an operation for either creating a new variable based on the selected one, or edit the existing variable.
+        \end{itemize}
         \item Can the user see the list of available transformation functions?
-        \item Do the functions' names reflect the clear operation? 
+        \begin{itemize}
+                \item Yes. When the user selects an operation, there are presented with a list of transformations, and a labeled action to choose a transformation. 
+        \end{itemize}
+        \item Do the functions' names reflect the clear operation?
+        \begin{itemize}
+                \item Yes. The names of the transformation demonstrate obvious \textit{signifiers} for the functions they perform. For example, if the user selected a textual variable and a transformation \textit{Remove Punctuation}, the user would have to trouble conceptualizing the outcome. 
+        \end{itemize}
         \item If the user selects an incompatible transformation, is the feedback given to the user helpful and sufficient to correct their actions?
+        \begin{itemize}
+                \item No. The proposed interface did not consider feedback for this stage. It will be added in the future revisions.   
+        \end{itemize}
     \end{itemize}
-    \item \textbf{Step 3}: Confirm the result for the transformation
+    \item \textbf{Step 3: Confirm the result for the transformation}
     \begin{itemize}
         \item Does the user grasp how to evaluate the effect of the applied transformation?
+        \begin{itemize}
+                \item Yes. When the user applies a transformation, a new variable is created that is automatically linked to the original variable. The interface generates a layout of the Directed Acyclical Graph (DAG) that provides a \textit{mapping} between the user's actions and the outcomes.   
+        \end{itemize}
         \item Can the user see what type of transformation function has been applied to the variable?
+        \begin{itemize}
+                \item Yes. The new variable is labeled with the transformation that was used to create it. The interface keeps this information visible to help the user track their progress.
+        \end{itemize}
         \item Can the user infer if the transformation has been propagated (applied) or just saved (configured) on the screen?
+        \begin{itemize}
+                \item No. The interface needs to be augmented to include communication of the phases of transformations. 
+        \end{itemize}
         \item Can the user infer based on the feedback if the transformation is successful or not?
+        \begin{itemize}
+                \item Yes. User can see the sample of the data (not shown in the mockup to avoid the cluttering the space), therefore the evaluation of the outcome would pose no challenge. 
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 
-The users will be accomplishing the sequence of steps described above in the context of the new interface. Although they would be experienced in the task of transformation, they would have to navigate in an unfamiliar interface and discover the methods required to complete the tasks. The questions defined in each sub-task can be used to evaluate the prototype and compare its usability between users with varying degree of experience on the task. 
 
-The success of the prototype will be measured by the number of affirmative answers to the questions. For any item that has been answered as "NO," we will supply an explanation and a recommendation to resolve the gap. For example, if the user cannot find the functionality they look for because it is incorrectly labeled or not visible on the screen, the outcome of this evaluation will augment the prototype with additional features to complete the requirements. 
+\section*{Evaluation Summary}
 
-A limitation of the predictive evaluation is that for some of the steps we cannot get the affirmative answers because the interface does not exist yet. We cannot predict if the user would understand the feedback because then we do not show the actual feedback in the prototype. We might provide examples of possible feedback, and how and where it would be revealed, but we will not be able to anticipate the user's response. 
-
-\section*{Preparing to Execute}
-
-Without an actual interface, it will not be possible for us to carry out the Empirical Evaluation, mainly because it collects the quantitative data such as time elapsed between the start and the end of the task, and the number of steps taken to complete the task. Therefore, we postpone this evaluation plan for future iterations. 
-
-The Qualitative Evaluation is typically performed in the early stages of prototyping. The feedback from users can inform the subsequent iterations of needfinding and prototyping. At this stage, it is essential to evaluate if the users' needs have been sufficiently met before proceeding to implementations that can be more costly regarding time and allocated resources. 
-
-Since the Prediction Evaluation does not involve users, it is very \textit{cheap} and relatively efficient for informing ongoing design decisions, such as the positions and labeling of functionality required for accomplishing the task. This evaluation plan helps us formalize the user's thought process through the analysis of well-defined methods and operators. 
-
-In conclusion, we choose to \textit{advance} the Qualitative and Predictive Evaluations, and \textit{drop} the Empirical Evaluation.  
+ 
 
 \bibliographystyle{apacite} 
 \bibliography{bibtemp}
@@ -248,26 +273,6 @@ In conclusion, we choose to \textit{advance} the Qualitative and Predictive Eval
 
 \subsection*{C}
 
-\subsection*{Prototype 2 - Textual}
-
-\textbf{The Idea}.
-Users are presented with a list of Transformations that allows them to apply the same rule to a set of fields in a \textit{single} instruction (think one-to-many as opposed to one-to-one described in the previous prototype)
-
-\textbf{How it Works}. In order to perform any transformations on the input data, a user A) navigates to a dedicated Tab that lists transformation organized in alphabetical order by default; B) The user selects a transformation and is subsequently presented with the set of all available fields compatible with the chosen transformation; C) User highlights the areas they wish to apply the transformation to, and hits Save. Then repeat the process if other transformations are needed.
-
-\textbf{Example}. \textit{User decides to clean the unstructured data by removing all special characters and maybe stop words as well. Users find a transformation "Remove Punctuation," and observes that half of the available fields for transformations become disabled (greyed out) since they represented numerical data or date ranges. From the subset of variables, the user selects data fields - "summary," "keywords," and "content" - and applies the selected transformation. Then user finds another transformation "Remove STOP words," and repeats that for the fields "summary."}
-
-\subsubsection*{Functionality}
-
-\begin{itemize}
-    \item The page with the transformation \textbf{displays the top 10 choices} and provides a pagination mechanism in addition to a customization for how many results are shown on the page.
-    \item The transformations are \textbf{searchable} by the names and their descriptions. 
-    \item The transformations are \textbf{sortable} by relevance, recency, popularity, date of creation and date of update.
-    \item Data fields available for a select transformation are \textbf{dynamic}. Incompatible fields are greyed out leaving user with a more manageable set.
-    \item User is given an option to \textit{apply}, \textit{save}, and \textit{export} the current configuration in JSON format.
-\end{itemize}
-
-\subsection*{D}
 \subsection*{Prototype 3 - Wireframes}
 The task described in this project involves knowledge of data intended for transformations. Providing the user with a view that shows a sample of the data aligns well with the \textit{perceptability} principle that keeps the user informed about what is going on through appropriate feedback \cite{nielsen1994usability}. Figure~\ref{fig::2} start with a view of the data (similar to a DataFrame concept in pandas \cite{mckinney2011pandas})
 
