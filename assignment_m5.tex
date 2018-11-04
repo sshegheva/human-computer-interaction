@@ -119,39 +119,39 @@ Mapping data from one form to another for its ease-of-use is at the core of the 
 
 \section*{Qualitative Evaluation}
 \subsubsection*{Think-aloud for Verbal Prototype}
-\textit{Appendix} A contain verbal prototype that discusses a possible interface where a user is given a recommendation for which transformation function(s) is most compatible with the observed variable. The interface target both, novices who need to explore the system, and experts who aim to perform their tasks more efficiently.
+\textit{Appendix} A contain verbal prototype that discusses a possible interface where a user is recommended which transformation function(s) is most compatible with the observed variable. The interface target both, novices who need to explore the system, and experts who aim to perform their tasks more efficiently.
 
 \textbf{Evaluation Results}
 
-The evaluation span across two sessions in the same day with the same participant. The first part took place in a casual setting of a short walk where I, as a "designer", engaged with the Product Manager in a conversation about the alternative design for the data transformation task. At the beginning of our conversation, I have set up the expectations for what I would like to get out of the discussion. The chosen participant has significant experience with the task at hand that contributed to a \textbf{productive session} given that the prototype was delivered verbally.
+The evaluation span across two sessions on the same day with the same participant. The first part took place in a casual setting of a short walk where I, as a "designer," engaged with the Product Manager in a conversation about the alternative design for the data transformation task. At the beginning of our discussion, I have set up the expectations for what I would like to get out of the session. The chosen participant has significant experience with the task at hand that contributed to a \textbf{productive session} given that the prototype was delivered verbally.
 
-The second part of the evaluation happened a few hours later in the office setting. We choose to follow up on the remaining set of questions from the discussions that took place earlier. The participant expressed their feedback by sketching their thoughts on the piece of paper and elaborating on several analogies drawn from different tools and fields. Overall, the evaluation exceeded my expectations as it impacted how I was thinking about the design originally. 
+The second part of the evaluation happened a few hours later in the office setting. We choose to follow up on the remaining set of questions from the discussions that took place earlier. The participant expressed their feedback by sketching their thoughts on the piece of paper and elaborating on several analogies drawn from different tools and fields. Overall, the evaluation exceeded my expectations as it impacted how I was thinking about the design initially. 
 
 \textbf{Reporting on the Results of the Think-Aloud Study}
-To get started with the evaluation I described the idea to the user so they can imagine their workflow within the new interface. After they confirmed the understanding of new direction, I asked them to perform a specific transformation task while thinking aloud through the steps. \textit{Appendix B} contains the set of questions asked in the two sessions. As the questions were focused mostly on the actual use cases, for the simple examples (one-to-one transformations) the participant did not have a difficult time \textit{thinking-aloud} about the steps required to accomplish the task in the new interface. 
+\textit{Appendix B} contains the set of questions asked in the two sessions. As the questions were focused mostly on the actual use cases, for the simple examples (one-to-one transformations) the participant did not have a difficult time \textit{thinking-aloud} about the steps required to accomplish the task in the new interface. 
 
 The user's thought process across all cases can be summarized with the following steps:
 
 \begin{itemize}
-    \item Find the input variable from a drop down list
+    \item Find the input variable from a drop-down list
     \item See the list of recommendations somewhere on the page
     \item Start from the top recommendation and evaluate its applicability to the case
     \item If it solves the case, then apply the recommendation and move on to the next variable
     \item If the recommendation is not applicable, go to the next recommendation in the list until the desired recommendation is found
 \end{itemize}
 
-The participant struggled with the use cases than required many-to-one or one-to-many transformations. I was asked to further elaborate on how the interface would support that. After additional guidance, the user was able to \textit{think} through the task, although they invoked imaginary steps not mentioned in the interface. Eventually, the conversation has shifted to how the user would prefer to accomplish the variations of the tasks by describing an alternative approach. As a result of the shift, questions 4 and 5 were on general satisfiability and learnability were not addressed directly, although I was able to infer them from the feedback that followed. Overall, the goal of the study was accomplished - the user has identified the usefulness and the limitation of the new interaction, and suggested ways to improve it.  
-
+The participant struggled with the use cases than required many-to-one or one-to-many transformations. I was asked to further elaborate on how the interface would support that. After additional guidance, the user was able to \textit{think} through the task, although they invoked imaginary steps not mentioned in the interface. Eventually, the conversation has shifted to how the user would prefer to accomplish the variations of the tasks by describing an alternative approach. As a result of the shift, questions 4 and 5 were on general \textit{satisfiability} and \textit{learnability} were not addressed directly, although I was able to infer them from the feedback that followed. 
+ 
 \textbf{Feedback from the Participant}
 
-Although the user liked the idea of a \textit{recommended} transformations, they were not convinced that this would increase the efficiency of the task. The main take-away was that the recommendation should be focused on the \textit{outcome} instead of the \textit{function}. This is akin to flipping the problem in its head by starting from possible final results and walking backwards by narrowing down the steps to achieve the desired outcome. 
+Although the user liked the idea of a \textit{recommended} transformations, they were not convinced that this would increase the efficiency of the task. The main takeaway was that the recommendation should be focused on the \textit{outcome} instead of the \textit{function}. Looking at the function from the new lens is akin to flipping the problem in its head by starting from possible final results and walking backward by narrowing down the steps to achieve the desired outcome. 
 
-For example, if we have an unstructured field that contains \textit{dates}, recommending a transformation such as \textit{DateFinder} might be useful, however it does not communicate the result. If, instead, the interface suggests a few \textit{patterns} for what kinds dates \textit{can be} found in the text, then the user is able to make more informed decision on what type of transformations they wish to apply. The participant brought up a few analogies, such as Microsoft Excel's functionality for date transformation, and Spacy's Entity Recognition service. Figure~\ref{fig::1} demonstrates an example for using Spacy\footnote{https://spacy.io/ - Industrial-Strength
-Natural Language Processing tool} tool for similar tasks of  pattern recognition. The user emphasized the \textit{intuitiveness} of  Spacy's interface.
+For example, if we have an unstructured field that contains \textit{dates}, recommending a transformation such as \textit{DateFinder} might be useful; however it does not communicate the result. If, instead, the interface suggests a few \textit{patterns} for what kinds dates \textit{can be} found in the text, then the user can make a more informed decision on what type of transformations they wish to apply. The participant brought up a few analogies using Microsoft Excel's functionality for \textit{date} formatting. Looking into analogies lead to the Spacy's Entity Recognition tool that we use for Natural Language Processing tasks. Figure~\ref{fig::1} demonstrates an example for using Spacy\footnote{https://spacy.io/ - Industrial-Strength
+Natural Language Processing tool} tool for tasks of pattern recognition. 
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=.3]{figures/m3/spacy_date_finder.png}
+\includegraphics[scale=.15]{figures/m3/spacy_date_finder.png}
 \caption{Example for pattern recognition for dates from DisplaCy Named Entity Visualizer (https://explosion.ai/demos/displacy-ent)}
 \label{fig::1}
 \end{figure}
@@ -180,7 +180,7 @@ For the Cognitive Walkthrough, we identified the sequence of actions along with 
         \end{itemize}
         \item Is the source variable clearly labeled?
             \begin{itemize}
-                \item No. The header row contains all variable names available for the transformation, however, there is no label that marks the type of the variable. Users that deal with data on regular basis, would have no problem identifying the variables without labels, as it is \textit{consistent} with other data analysis tools.    
+                \item No. The header row contains all variable names available for the transformation; however, no label marks the type of the variable. Users that deal with data on a regular basis, would have no problem identifying the variables without labels, as it is \textit{consistent} with other data analysis tools.    
         \end{itemize}
         \item If the user is unable to select a variable, and the feedback is given to the user, can they understand and apply the feedback? 
         \begin{itemize}
@@ -189,17 +189,17 @@ For the Cognitive Walkthrough, we identified the sequence of actions along with 
     \end{itemize}
     \item \textbf{Step 2: Apply the desired transformation function}
     \begin{itemize}
-        \item Does the user have a correct conceptual model for that it means to change/transform the variable?
+        \item Does the user have a correct conceptual model for what it means to change/transform the variable?
         \begin{itemize}
-                \item Yes. When the user selects a variable, a contextual menu appears that suggests an operation for either creating a new variable based on the selected one, or edit the existing variable.
+                \item Yes. When the user selects a variable, a contextual menu appears that suggests an operation for either creating a new variable based on the selected one or edit the existing variable. The interface uses labels as \textit{signifiers} to suggest a further action.
         \end{itemize}
         \item Can the user see the list of available transformation functions?
         \begin{itemize}
-                \item Yes. When the user selects an operation, there are presented with a list of transformations, and a labeled action to choose a transformation. 
+                \item Yes*. When the user selects an operation, there are presented with a collection of transformations that appear in the close proximity to the variable for which a transformation is applied. The answer is marked with a * because the interface did not include an \textit{affordance} to indicate that the list if scrollable and there could be more functions available.
         \end{itemize}
         \item Do the functions' names reflect the clear operation?
         \begin{itemize}
-                \item Yes. The names of the transformation demonstrate obvious \textit{signifiers} for the functions they perform. For example, if the user selected a textual variable and a transformation \textit{Remove Punctuation}, the user would have to trouble conceptualizing the outcome. 
+                \item Yes. The names of the transformation serve as obvious \textit{signifiers} for the functions they perform. For example, if the user selected a textual variable and a transformation \textit{Remove Punctuation}, the user would have to trouble to conceptualize the outcome, therefore expecting that the output variable will contain no punctuation. It is not necessary to communicate the list of characters removed, because the set should be consistent with what user normally treats as a punctuation. 
         \end{itemize}
         \item If the user selects an incompatible transformation, is the feedback given to the user helpful and sufficient to correct their actions?
         \begin{itemize}
@@ -218,11 +218,11 @@ For the Cognitive Walkthrough, we identified the sequence of actions along with 
         \end{itemize}
         \item Can the user infer if the transformation has been propagated (applied) or just saved (configured) on the screen?
         \begin{itemize}
-                \item No. The interface needs to be augmented to include communication of the phases of transformations. 
+                \item No. The interface needs to be augmented to include communication of the phases of transformations in a form of feedback, synchronous or asynchronous. 
         \end{itemize}
         \item Can the user infer based on the feedback if the transformation is successful or not?
         \begin{itemize}
-                \item Yes. User can see the sample of the data (not shown in the mockup to avoid the cluttering the space), therefore the evaluation of the outcome would pose no challenge. 
+                \item Yes. The user can see the sample of the data (not shown in the mockup to avoid the cluttering space); therefore the evaluation of the outcome would pose no challenge. This however raises a concern for when the system contains a large number of variables. It will generate a significant \textit{cognitive load} requiring the user to parse through the large graph.
         \end{itemize}
     \end{itemize}
 \end{itemize}
@@ -230,18 +230,20 @@ For the Cognitive Walkthrough, we identified the sequence of actions along with 
 
 \section*{Evaluation Summary}
 
-The two evaluations - quantitative evaluation of the verbal prototype, and the cognitive walk through the wireframe prototype-  showed that both versions have significant limitations that were not apparent during the brainstorming and prototyping phases. My assessment of the gap leads me to conclude that the needfinding exercises were insufficient. Therefore an additional more thorough needfinding exercise is required before making improvements to the prototype.  
+The two evaluations - quantitative evaluation of the verbal prototype, and the cognitive walkthrough the wireframe prototype -  showed that both versions have significant limitations that were not apparent during the brainstorming and prototyping phases. My assessment of the gap leads me to conclude that the needfinding exercises were insufficient. Therefore an additional more thorough needfinding activity is required before making improvements to the prototype.  
 
-I need to re-evaluate the \textbf{what do the users need} and \textbf{what are their tasks} from the data inventory. My original assumption was that users want a quick and efficient access to a \textit{transformation} task. However, it became apparent that to goal is \textbf{not} to \textbf{transform} the data, but to \textbf{explore} it, to \textbf{learn} the relationships between properties, and to \textbf{find} patterns in the unstructured data. 
+I need to re-evaluate \textbf{what do the users need} and \textbf{what are their tasks} from the data inventory. My original assumption was that users want a quick and efficient access to a \textit{transformation} task. However, it became apparent that to goal is \textbf{not} to \textbf{transform} the data, but to \textbf{explore} it, to \textbf{learn} the relationships between properties, and to \textbf{find} patterns in the unstructured data. 
 
-The original needfinding plans were structured around the analysis of the existing interface which biases my task definitions. The interviews performed at the earlier stages focused on the limitations of the current functionality, and ways to minimize them. The think-aloud study discussed above provided evidence that the user may be thinking about the problem in a different way. The fact that think-aloud evaluation was performed on a verbal prototype, was actually beneficial because it did not constrain the user to a specific interface in front of their eyes. I would like to carry an additional needfinding exercise with a focus on the user and their goal \textbf{independently} of the interface.  
+The original needfinding plans were structured around the analysis of the \textit{existing} interface which biased my task definitions. The interviews performed at the earlier stages focused on the limitations of the current functionality, and ways to minimize them. In contrast, the think-aloud study, discussed above, provided evidence that the user may be thinking about the problem differently. The fact that think-aloud evaluation was performed on a verbal prototype was actually beneficial because it did not constrain the user to a specific interface in front of their eyes. The feedback I received in the think-aloud sessions serves as a great input to the needfinding exercise with a focuses on the user and their goal \textbf{independently} of the interface.  
 
 
-As the original task of data transformation shifts to a task \textbf{data explorations}, it may be necessary to brainstorm a few new approaches that can address the goal more directly. With a new objective to \textit{bring the data closer to user}, the plan it to explore methods that align with the user's behavior. The requirements have to reflect not just the actions the users need to take, but the analysis of those actions. When a user is instructed to evaluate an interface, their cognitive efforts would be directed towards learning what the new interface provides. To counteract this outcome, the evaluation has to be structured in a way that is limiting the time to familiarize with the interface, and instead, \textit{lasering} user's attention on comparing the results of the ultimate goal with the outcome of the performed tasks.  
+As the original task of data transformation shifts to a task \textbf{data explorations}, it may be necessary to brainstorm a few new approaches that can address the goal more directly. With a further objective to \textit{bring the data closer to user}, the plan is to explore methods that align with the user's behavior. The requirements have to reflect not just the actions the users need to take, but the analysis of those actions. When a user is instructed to evaluate an interface, their cognitive efforts would be directed towards learning what the new interface provides. To counteract this outcome, the evaluation has to be structured in a way that is limiting the time to familiarize with the interface, and instead, \textit{lasering} user's attention on comparing the results of their ultimate goal with the outcome of the performed tasks. Does the task address user's needs directly? Does the user see the task a sub-task that only partially gets them to the goal? 
 
-\textbf{Revised Prototype}. Prior to the evaluation, I was anticipating to raise the fidelity of the proposed prototypes. However, the results showed that I need to re-engage with the user on their needs and goals. Although, initially, the users focused on the efficiency and flexibility of the transformation task, the evaluation of the prototypes demonstrated that users would prefer to trade-off efficiency for exploration. Rather than \textit{automating} the data transformation tasks, the users responded more positively to the idea of providing more \textit{control} in the \textit{journey} towards \textit{understanding} their data. 
+Although the user in my evaluation did not explicitly negate the usefulness of the task, and the feedback was positive, it was becoming more apparent that the current system does not solve the user's problem directly. By following the \textit{same} taks, the prototype's potential to improve user's experience is only incremental. 
 
-Figure~\ref{fig::2} shows all-new design based on the recent feedback from the user. Here, the user is presented with the data sample that they can search through thus making them feel that they are closer to the data. Right beneath the sample, the user can select a transformation from the drop-down list. Since providing a recommendation for the transformation is no more at the center of the task, the user may \textit{feel} a better control over actions to take. And finally, the new interface adds the focus on the outcome that leads to an improved experience for exploring the data. 
+\textbf{Revised Prototype}. Before the evaluation, I was anticipating to raise the fidelity of the proposed prototypes. However, the results showed that I need to re-engage with the user on their needs and goals. Although, initially, the users focused on the efficiency and flexibility of the transformation task, the evaluation of the prototypes demonstrated that users would prefer to trade-off efficiency for exploration. Rather than \textit{automating} the data transformation tasks, the users responded more positively to the idea of providing more \textit{control} in the \textit{journey} towards \textit{understanding} their data. 
+
+Figure~\ref{fig::2} shows \textbf{all-new design} based on the recent feedback from the user. Here, the user is presented with the data sample that they can search through thus making them feel that they are closer to the data. Right beneath the sample, the user can select a transformation from the drop-down list. Since providing a recommendation for the transformation is no more at the center of the task, the user may \textit{feel} a better control over actions to take. And importantly, the new interface shifts the focus on the \textit{outcome} that leads to a better experience for goals of exploring and learning the data. 
 
 \begin{figure}[h]
 \centering
@@ -260,7 +262,7 @@ Figure~\ref{fig::3} shows the pop-up window when the user hits \textit{save}. He
 \label{fig::3}
 \end{figure}
 
-The \textbf{plan} is to re-evalaute the new prototype and collect responses from users (via interviews or think-aloud studies) on whether or not their suggestions have been incorporated. Another cognitive walk through will explore the intuitiveness of the new interface with the focus on data exploration. The new prototype is still in the low fidelity stage, so it wouldn't be ready for an empirical evaluation. The goal is that the next round will deliver results ready to be advanced to the next stage.
+The \textbf{plan} is to re-evaluate the new prototype and collect responses from users (via interviews or think-aloud studies) on whether or not their suggestions have been incorporated. Another cognitive walkthrough will explore the intuitiveness of the new interface with a focus on data exploration. The new prototype is still in the low fidelity stage, so it wouldn't be ready for empirical evaluation. The goal is that the next round will deliver results ready to be advanced to the next stage.
 
 
 \newpage
