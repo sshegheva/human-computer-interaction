@@ -122,7 +122,7 @@ JupyterLab is a web-based interface for Project Jupyter that provides an interac
 
 Notebooks are a form of interactive computing that allow \textit{more powerful connections between topics, theories, data and results} \cite{perkel2018jupyter}. Figure~\ref{fig::1} shows an example of my current JupyterLab workspace, that include a file navigation section, interactive notebook area, additional consoles, and many other things that the platform provides. As a development environment, JupyterLab allows access to terminals, file viewers, notebooks, text editors - all from one place, which I personally find very convenient. With a rapid growth of data science and machine learning, Jupyter Notebooks have become a standard for creating reproducible computational narratives \cite{perkel2018jupyter}. JupytrerLab is rich in features, so covering them all is outside of the scope for this project. Here, we are going to focus our attention on the \textbf{Notebook} area only (the center component) that allows the user to \textit{create}, \textit{edit}, and \textit{execute} the code cells.  
 
-\begin{figure}[h]
+\begin{figure}[hbt!]
 \centering
 \includegraphics[scale=.5]{figures/project-principles/jupyter.png}
 \caption{An example of JupyterLab Workspace.}
@@ -139,59 +139,74 @@ Compared to other more traditional IDEs (Integrated Development Environment), th
 
 \textbf{Direct Manipulation}
 
-Cells are viewed as physical building blocks, and as such can be re-arranged using a \textit{direct manipulation} via \textbf{drag-n-drop} functionality. The user is engaged in the process of completing their task by 1) planning the action by hovering over the cell that needs to be moved; 2) grabbing the cell and dragging it over the area that specifies the new location; 3) releasing the hold when the cell is aligned with the desired destination. For the described task, the interface becomes \textit{invisible} and intuitive largely due to the tight relationships between the two gulfs. As the user is working on their task of cell re-arrangement, the system provides a "hint" in form of target line for where the new cell would land before the action is complete \footnote{It is challenging to capture the drag-and-drop action with a screenshot.}. The \textit{feedback} is easy to interpret, and it matches with what the user is expecting to happen. Therefore, the goal can be accomplished more accurately (cell is in the correct position) and more efficiently (speed of execution) without the user focusing on the interface.
+Cells are viewed as physical building blocks, and as such can be re-arranged using a \textit{direct manipulation} via \textbf{drag-n-drop} functionality \cite{frohlich1997direct}. The user is engaged in the process of completing their task by 1) planning the action by hovering over the cell that needs to be moved; 2) grabbing the cell and dragging it over the area that specifies the new location; 3) releasing the hold when the cell is aligned with the desired destination. For the described task, the interface becomes \textit{invisible} and intuitive largely due to the tight relationships between the two gulfs. As the user is working on their task of cell re-arrangement, the system provides a "hint" in form of target line for where the new cell would land before the action is complete \footnote{It is challenging to capture the drag-and-drop action with a screenshot.}. The \textit{feedback} is easy to interpret, and it matches with what the user is expecting to happen. Therefore, the goal can be accomplished more accurately (cell is in the correct position) and more efficiently (speed of execution) without the user focusing on the interface.
 
-\begin{figure}[h]
-\centering
-\includegraphics[scale=.4]{figures/project-principles/jupyter_add_delete.png}
-\caption{Aspect of the interface that allow Slip errors}
-\label{fig::2}
-\end{figure}
 
 
 \subsubsection*{What doesn't works well}
-Drag-n-dropping cells works pretty well when the distance between the positions (current and the desired) is small. As the distance increases, and the user has to scroll through the page while simultaneously "dragging" a cell, the \textbf{ease and comfort} principles are infringed that reduce the overall efficiency in accomplishing the task. 
 
-Current implementation of the interface provides signifiers located in the toolbar for adding and deleting cells (see Figure~\ref{fig::2}). There are two issues with the chosen position for those two opposing operations: 1) by placing them \textit{next to each other}, the interface invites user errors such as \textbf{slips}; 2) by situating them on the toolbar the \textbf{gulf of execution} is widened at the stage of \textit{performing} an action.
+\textbf{Ease and Comfort Principle}
 
-The user has a correct \textit{mental model} on how to add or delete a cell as the icons for signifiers are self-explanatory and consistent. However, a user intending to do one action, for example, adding a cell, may inadvertently execute the opposing one - deletion. This is an example of \textit{action-based} slip that occurred due to a rushed user behavior. 
+Drag-n-dropping cells works pretty well when the distance between the positions (current and the desired) is small. As the distance increases, and the user has to scroll through the page while simultaneously "dragging" a cell, the \textbf{ease and comfort} principles are infringed that reduce the overall efficiency in accomplishing the task \cite{story1998universal}. If the the distance between the current and the target location spans across a few pages, then the user has to perform a few "stops" by splitting their action of \textit{move} into a sequence of drag-n-drops and page scrolls. 
 
-A sub-optimal interaction with executing the action (add/delete) presents itself again when the notebook is long enough that the user needs to move the mouse between the current position and the toolbar. This increases the \textit{gulf of execution} and decreases the efficiency especially for new users who have not learned the shortcuts for these commands.  
+\textbf{Slips in the Gulf of Execution} 
 
-\begin{figure}[h]
+Current implementation of the interface provides signifiers located in the toolbar for \textbf{adding} (plus sign) and \textbf{deleting} (scissors icon) cells (see Figure~\ref{fig::2}). 
+
+\begin{figure}[hbt!]
 \centering
 \includegraphics[scale=.4]{figures/project-principles/jupyter_add_delete.png}
 \caption{Aspect of the interface that allow Slip errors}
 \label{fig::2}
 \end{figure}
 
-Another feature that contributes to a wide execution gulf is \textit{merging} cells that is a commonly requested action. The aspect of the interface that is designated for this functionality violates the \textbf{discoverability} principle. Unlike other operations, merging is accessible via \textit{Edit} Menu -> Merge Selected Cells and thus not easily discoverable. The contextual menu available at the right-click of the does not include the pointer to the merging operation. The mismatch between menus fails the consistency check \textit{within} the application, and further increases the gulf of execution. 
+There are two issues with the chosen position for those two opposing operations: 
 
-\begin{figure}[h]
+1) by placing them \textit{next to each other}, the interface invites user errors such as \textit{slips}; the user accidentally clicks on \textit{delete} instead of the intended \textit{add} action. \footnote{I have personally made this type of slip numerous times wishing the interface was less inviting for accidental actions}  
+
+2) by situating them on the toolbar, the \textit{gulf of execution} is widened at the stage of \textit{performing} an action; the user has to move the mouse from the current location to the toolbar to perform either of these most frequent actions.
+
+The user has a correct \textbf{mental model} on how to add or delete a cell as the icons for signifiers are self-explanatory and consistent. However, a user intending to do one action, such as, cell addition, may inadvertently execute the opposing one - deletion. This is an example of \textit{action-based} slip that occurred due to a rushed user behavior \cite{norman2013design}.
+
+A sub-optimal interaction with executing the action (add/delete) presents itself again when the notebook is large enough that the user needs to move the mouse between the current position and the toolbar. This increases the \textbf{gulf of execution} and decreases the efficiency especially for new users who have not learned the shortcuts for these commands.  
+
+
+\textbf{Discoverability}
+
+Another feature that contributes to a wide execution gulf is \textbf{merging} cells that is a commonly requested action. The aspect of the interface that is designated for this functionality violates the \textit{discoverability} principle. Unlike other operations, merging is only accessible via \textit{Edit} Menu -> Merge Selected Cells and thus not immediately visible or easily discoverable \cite{jayasimman2011dynamic}. The contextual menu available at the right-click of the mouse button does not include the pointer to the merging operation. The mismatch between menus fails the consistency check \textit{within} the application, and further increases the \textit{gulf of execution}.  Figure~\ref{fig::3} shows the \textit{merging} operation accessible in the \textit{Edit} menu, beyond which there is no indication that an operation is possible at all.
+
+\begin{figure}[hbt!]
 \centering
-\includegraphics[scale=.55]{figures/project-principles/cell_merge_eval.png}
-\caption{Inefficiency of merging cells}
+\includegraphics[scale=.4]{figures/project-principles/cell_merge_eval.png}
+\caption{Limited visibility for cell merging functionality.}
 \label{fig::3}
 \end{figure}
 
-
+\newpage
 \subsection*{Interface Redesign}
-We redesign the Notebook interface by adding \textbf{six} different components that can improve user's efficiency.
+Based on the evaluation performed above, we redesign the \textit{Notebook} section by adding \textbf{six} different components that can improve the interactions between the user and the interface.
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[scale=.5]{figures/project-principles/jupyter_mock_screen_a.png}
+\caption{Screen A: Mockup of the Jupyter Notebook Interface}
+\label{fig::4}
+\end{figure}
 
 \subsubsection*{1. Expand/Collapse Side Bar}
-Figure~\ref{fig::4} (in the area labeled as 1) shows a small arrow in the left side (mid-point) that suggests that an area has been collapsed and it can be expanded. The expansion area is designed to reveal \textbf{new} controllers that are not available in the default view. After the expansion the side bar (see Figure~\ref{fig::5}) displays the additional affordances described below.
+Figure~\ref{fig::4} (in the area labeled as 1) shows a small arrow in the left side (mid-point) that suggests that an area has been \textit{collapsed} and it can be \textit{expanded}. The expansion area is designed to reveal \textbf{newly-designed} controllers and hide them when not needed \footnote{This feature is inspired by the recent Overleaf redesign}. After the expansion the side bar (see Figure~\ref{fig::5}) displays the additional affordances described below.
 
 \subsubsection*{2. Delete a Cell}
 The rightmost edge of the cell is augmented with a \textit{right cross}  that suggest that a cell can be deleted by clicking on the little rectangle area (see Figure~\ref{fig::4} - section labeled as 2)
 
 \subsubsection*{3. Ticker to Add Cells}
-Each cell will be decorated with a small tick in a shape of a \textit{triangle} that upon hovering over with a mouse will give a \textit{hint} for the action. By clicking on the triangle, a new cell line is added above (see Figure~\ref{fig::4} - section labeled as 3)
+In the redesign, each cell decorated with a small tick in a shape of a \textit{triangle} that upon hovering over with a mouse will give a \textit{hint} for the action. By clicking on the triangle, a new cell line is added above (see Figure~\ref{fig::4} - section labeled as 3)
 
-\begin{figure}[h]
+\begin{figure}[hbt!]
 \centering
-\includegraphics[scale=.6]{figures/project-principles/jupyter_mock_screen_a.png}
-\caption{Screen A: Mockup of the Jupyter Notebook Interface}
-\label{fig::4}
+\includegraphics[scale=.5]{figures/project-principles/jupyter_mock_screen_b.png}
+\caption{Screen B: Mockup of the Jupyter Notebook Interface}
+\label{fig::5}
 \end{figure}
 
 \subsubsection*{4. Force order the cells}
@@ -200,17 +215,21 @@ Figure~\ref{fig::5} demonstrates the features that become available after the si
 \subsubsection*{5. Move to the top}
 Another feature inspired by the Netflix's queue management is an \textit{arrow} and \textit{top} that allow the user to move certain cells to the top of the queue (most applicable to \textit{import} cells). Both features (force order and move to the top) are hidden from the default view to avoid the clutter.
 
-\begin{figure}[h]
-\centering
-\includegraphics[scale=.6]{figures/project-principles/jupyter_mock_screen_b.png}
-\caption{Screen B: Mockup of the Jupyter Notebook Interface}
-\label{fig::5}
-\end{figure}
 
 \subsubsection*{6. In-context Operations}
-The last feature in the redesign is shown in Figure~\ref{fig::6}, and it appear upon \textit{cell-selection} operation. In mock-up screen, when the user highlights a sequence of cells, the interface suggests three possible operations:
+The last feature in the redesign is shown in Figure~\ref{fig::6}, and it appear upon \textit{cell-selection} operation. 
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[scale=.35]{figures/project-principles/jupyter_mock_screen_c.png}
+\caption{Screen C: Mockup of the Jupyter Notebook Interface}
+\label{fig::6}
+\end{figure}
+
+In mock-up screen, when the user highlights a sequence of cells, the interface suggests three possible operations:
 
 \begin{itemize}
+\itemsep0em 
     \item \textit{Run} the selected cells depicted by an icon of a running person
     \item \textit{Merge} the selected cells depicted by an icon of arrow connected at a point.
     \item \textit{Copy} the selected cells depicted by an icon of two stacked papers.
@@ -219,16 +238,42 @@ The last feature in the redesign is shown in Figure~\ref{fig::6}, and it appear 
 Although the described operations are represented by visual icons, when the user places their mouse over designated areas, an additional small pop-up area appears with \textit{text} labels for the functions - \textit{Run}, \textit{Merge}, \textit{Copy}. Figure~\ref{fig::6} includes the \textit{zoomed-in} screen section to show the example of \textit{hover-over} text for a \textit{Run} controller.
 
 
-\begin{figure}[h]
-\centering
-\includegraphics[scale=.45]{figures/project-principles/jupyter_mock_screen_c.png}
-\caption{Screen C: Mockup of the Jupyter Notebook Interface}
-\label{fig::6}
-\end{figure}
-
 
 \subsection*{Interface Justification}
+All six features enable a more efficient access to the operations over cells, such as \textit{addition}, \textit{deletion}, \textit{reorder}, \textit{merge}, \textit{copy}, and \textit{run}.
 
+\textbf{Discoverability}
+
+The main principle driving redesign in the presented interface  is improving the \textit{discoverability}. Larry Constantine and Lucy Lockwood advocated for a design the makes options needs for a task \textit{visible} without extraneous efforts from the user \cite{jayasimman2011dynamic}. The previously hidden operation for \textit{merging} cells now appears as an icon among two other most common operations - \textit{run} and \textit{copy}. In addition to providing an easy access to those actions, their functionality is further identified by \textit{callouts} than appear upon mouse hover-overs. This enables the user, especially a novice, to explore the interface and learn its capabilities. 
+
+The new affordances for operations of \textit{add} and \textit{delete} are similarly provisioned with callout menus that give users additional clues for possible interactions with the interface. The discoverability is improved by presenting a redesign that applies the fundamental concepts, such as \textit{affordances}, \textit{signifiers} and \textit{mappings}, to uncover a functionality that can positively impact the user's experience. 
+
+\textbf{The Gulf of Execution}
+
+In addition to enhancing the discoverability, the same affordances and signifiers, narrow down the \textit{gulf of execution}, specifically at the stages of \textit{planning} and \textit{performing}. By allowing the user to \textit{delete} a cell by clicking on the red cross shown for \textit{each} cell, the action can be executed faster than navigating to the toolbar for clicking the \textit{scissors} icon. The planning portion is simplified by removing the confusion for which cell is intended to be deleted. 
+
+A user who seeks to insert a new cell is relieved from having to reach to the toolbar for the \textit{plus} sign each time the action is needed. By introducing a small tick above each cell, the user can unequivocally insert a cell in the desired place. Inevitably, this further contributes to the \textit{directness} of the interface described earlier on an example of drag-n-drop functionality. 
+
+The new contextual toolbar, consisting of three operations - \textit{run}, \textit{merge} and \textit{copy} brings the user closer the action. The menu appears upon an \textit{event} of cell(s) selection, so it does not impede the workflow of adding and executing new cells. Evaluating the gulf of execution gave clues for the areas that could benefit from a redesign to enhance the interaction. 
+
+\textbf{Proximity Constraints}
+
+The evaluation section described an area in the interface where users can make a \textit{slip} in rush. This type of error can be minimized by forcing some type of constraints. The redesign exercises this principle by \textit{separating} in space the affordances for \textit{addition} and \textit{deletion}. Previously, the buttons were located next to each other allowing for a possibility to choose the wrong action. The redesign addresses that by placing an affordance for adding a cell on the left most edge, and affordance for deletion on the right most edge, thus imposing a \textit{proximal constraint}.  Additionally, the action for the actual icon for deletion is made more prominent by changing its color to red. This ensures that even when distracted or in a rush, the user is more likely to choose a correct action.
+
+\textbf{Flexibility}
+
+Designing for everyone means that interface may need to include accelerators that can speed up some of the interactions \cite{nielsen1994usability}. In the redesigned version of the interface, a user can expand the sidebar (the expansion is afforded by the arrow) to access additional functionality related to \textit{cell ordering}. When an user wants to move a cell up without dragging it, or copy/pasting it, a new action is afforded by assigning a cell a new number (higher or lower). Similarly to how Netflix interface manages users' movie queue by allowing them the re-arrange the order of titles, the cells in Notebooks can be moved to predefined positions. 
+
+One of the criticisms for the Notebooks interface is the fact that it encourages poor coding practice by allowing the cells to be executed out of order \cite{perkel2018jupyter}. And, while the new redesign, does enforce a different user behavior, it makes it easier to organize the cells that can follow a more logical flow. Additionally by making the \textit{merging} functionality more accessible (in the event of cell selection), the user can combine cells into units that can be re-factored into reusable functions. 
+
+Thus, the interface preserves it's widely embraced interactivity that \textit{gives great power for exploration} \footnote{a quote from Lorena Barba, a  mechanical and aeronautical engineer at George Washington University in Washington DC} while also providing means to structure and organize the code.
+
+
+\textbf{Cognitive Load}
+
+In designing good interfaces, it is imperative to strike a balance between the \textit{discoverability} via visible operations and \textit{simplicity} via minimalizm. In the redesign this is achieved by adding a affordance to \textit{collapse} the side bar with the extended functionality when not used. This follows the principle of \textit{reducing the clutter} to avoid unnecessary user distractions. Hiding the side bar lessens the cognitive load on the user interacting with the interface. 
+
+Another aspect of the redesign that addresses the principle of cognitive load, is enabling the \textit{callout} menus when the user hovers over a visual icon. In some instances, for example, representing the \textit{run} function with a picture of a \textit{running man} communicated the operation efficiently. In other instance, the icon may not have that power as the user cannot easily associate the action with the icon image. In such cases, it is imperative to provide user with additional clues in the form of pop-up text describing the activity. Thus, instead of having the remember the action or \textit{figure it out}, the user can be reminded of it when needed.  
 
 
 \bibliographystyle{apacite} 
