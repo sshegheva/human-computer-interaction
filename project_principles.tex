@@ -117,7 +117,7 @@ JupyterLab is a web-based interface for Project Jupyter that provides an interac
 \end{abstract}
 
 \subsection*{Heuristic Evaluation}
-Figure~\ref{fig::1} shows an example of my current JupyterLab workspace, that include a file navigation section, interactive notebook area, additional consoles, and many other things that the platform provides. As a development environment, JupyterLab allows access to terminals, file viewers, notebooks, text editors - all from one place, which I personally find very convenient. With a rapid growth of data science and machine learning, Jupyter Notebooks have become a standard for creating reproducible computational narratives \cite{blog:jupyter}. 
+Notebooks are a form of interactive computing that allow \textit{more powerful connections between topics, theories, data and results} \cite{perkel2018jupyter}. Figure~\ref{fig::1} shows an example of my current JupyterLab workspace, that include a file navigation section, interactive notebook area, additional consoles, and many other things that the platform provides. As a development environment, JupyterLab allows access to terminals, file viewers, notebooks, text editors - all from one place, which I personally find very convenient. With a rapid growth of data science and machine learning, Jupyter Notebooks have become a standard for creating reproducible computational narratives \cite{perkel2018jupyter}. 
 
 \begin{figure}[h]
 \centering
@@ -161,6 +161,16 @@ Another feature that contributes to a wide execution gulf is \textit{merging} ce
 
 
 \subsection*{Interface Redesign}
+We redesign the Notebook interface by adding \textbf{six} different components that can improve user's efficiency.
+
+\subsubsection*{1. Expand/Collapse Side Bar}
+Figure~\ref{fig::4} (in the area labeled as 1) shows a small arrow in the left side (mid-point) that suggests that an area has been collapsed and it can be expanded. The expansion area is designed to reveal \textbf{new} controllers that are not available in the default view. After the expansion the side bar (see Figure~\ref{fig::5}) displays the additional affordances described below.
+
+\subsubsection*{2. Delete a Cell}
+The rightmost edge of the cell is augmented with a \textit{right cross}  that suggest that a cell can be deleted by clicking on the little rectangle area (see Figure~\ref{fig::4} - section labeled as 2)
+
+\subsubsection*{3. Ticker to Add Cells}
+Each cell will be decorated with a small tick in a shape of a \textit{triangle} that upon hovering over with a mouse will give a \textit{hint} for the action. By clicking on the triangle, a new cell line is added above (see Figure~\ref{fig::4} - section labeled as 3)
 
 \begin{figure}[h]
 \centering
@@ -169,12 +179,30 @@ Another feature that contributes to a wide execution gulf is \textit{merging} ce
 \label{fig::4}
 \end{figure}
 
+\subsubsection*{4. Force order the cells}
+Figure~\ref{fig::5} demonstrates the features that become available after the side bar has been extended. Here we have a depiction of each cell where user can enter a number to force the order of the cells (see section labeled as 4). This feature is inspired by Netflix's movie queue. 
+
+\subsubsection*{5. Move to the top}
+Another feature inspired by the Netflix's queue management is an \textit{arrow} and \textit{top} that allow the user to move certain cells to the top of the queue (most applicable to \textit{import} cells). Both features (force order and move to the top) are hidden from the default view to avoid the clutter.
+
 \begin{figure}[h]
 \centering
 \includegraphics[scale=.6]{figures/project-principles/jupyter_mock_screen_b.png}
 \caption{Screen B: Mockup of the Jupyter Notebook Interface}
 \label{fig::5}
 \end{figure}
+
+\subsubsection*{6. In-context Operations}
+The last feature in the redesign is shown in Figure~\ref{fig::6}, and it appear upon \textit{cell-selection} operation. In mock-up screen, when the user highlights a sequence of cells, the interface suggests three possible operations:
+
+\begin{itemize}
+    \item \textit{Run} the selected cells depicted by an icon of a running person
+    \item \textit{Merge} the selected cells depicted by an icon of arrow connected at a point.
+    \item \textit{Copy} the selected cells depicted by an icon of two stacked papers.
+\end{itemize}
+
+Although the described operations are represented by visual icons, when the user places their mouse over designated areas, an additional small pop-up area appears with \textit{text} labels for the fucntions - \textit{Run}, \textit{Merge}, \textit{Copy}.
+
 
 \begin{figure}[h]
 \centering
@@ -183,10 +211,10 @@ Another feature that contributes to a wide execution gulf is \textit{merging} ce
 \label{fig::6}
 \end{figure}
 
-Second, based on your evaluation, redesign the interface. If it’s a visual interface (such as a mobile app, visual wearable interface, or traditional desktop application), supply visual mock-ups of the potential redesign. If it’s a physical interface, supply a sketch or similar representation of the altered interface. If it’s an interface that cannot be provided in a 2D visual form like a haptic, auditory, or virtual reality interface, describe the redesign in words using diagrams wherever possible. Your redesign can contain textual annotations or rely on text if it is non-visual, but the text should merely explain the redesigned interface, not justify it.
 
 \subsection*{Interface Justification}
 Third, justify the redesigned interface. Describe how your redesigned interface addresses the criticisms from the first section, while preserving the positive elements of the original interface. Again, make sure to put your justification in terms of the principles covered in Unit 2, both conceptually and using the same vocabulary. You need not focus on the same principles covered in the previous section; you may, for example, leverage a particular principle to improve the interface even if it wasn’t explicitly violating that principle in the first place.
+
 
 \bibliographystyle{apacite} 
 \bibliography{bibtemp}
