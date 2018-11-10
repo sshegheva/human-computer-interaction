@@ -113,11 +113,14 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-JupyterLab is a web-based interface for Project Jupyter that provides an interactive and reproducible computing platform\footnote{https://github.com/jupyterlab/jupyterlab}. In this project, we evaluate the user interaction with Documents and Kernels, specifically with the Notebook plugin that serves an observable list of cells containing code, markdown, or raw data. Based on the evaluation results we suggest and justify interface improvements that can increase Data Scientists' productivity for creating reproducible computational narratives.
+JupyterLab is a web-based interface for Project Jupyter that provides an interactive and reproducible computing platform\footnote{https://github.com/jupyterlab/jupyterlab}. In this project, we evaluate the user interaction with Documents and Kernels, specifically with the Notebook plugin that serves an observable list of cells containing code, markdown, or raw data. Based on the evaluation results we suggest and justify interface improvements that can increase users' productivity for creating and maintaining reproducible computational narratives.
 \end{abstract}
 
 \subsection*{Heuristic Evaluation}
-Notebooks are a form of interactive computing that allow \textit{more powerful connections between topics, theories, data and results} \cite{perkel2018jupyter}. Figure~\ref{fig::1} shows an example of my current JupyterLab workspace, that include a file navigation section, interactive notebook area, additional consoles, and many other things that the platform provides. As a development environment, JupyterLab allows access to terminals, file viewers, notebooks, text editors - all from one place, which I personally find very convenient. With a rapid growth of data science and machine learning, Jupyter Notebooks have become a standard for creating reproducible computational narratives \cite{perkel2018jupyter}. 
+
+\subsubsection*{Introduction}
+
+Notebooks are a form of interactive computing that allow \textit{more powerful connections between topics, theories, data and results} \cite{perkel2018jupyter}. Figure~\ref{fig::1} shows an example of my current JupyterLab workspace, that include a file navigation section, interactive notebook area, additional consoles, and many other things that the platform provides. As a development environment, JupyterLab allows access to terminals, file viewers, notebooks, text editors - all from one place, which I personally find very convenient. With a rapid growth of data science and machine learning, Jupyter Notebooks have become a standard for creating reproducible computational narratives \cite{perkel2018jupyter}. JupytrerLab is rich in features, so covering them all is outside of the scope for this project. Here, we are going to focus our attention on the \textbf{Notebook} area only (the center component) that allows the user to \textit{create}, \textit{edit}, and \textit{execute} the code cells.  
 
 \begin{figure}[h]
 \centering
@@ -127,11 +130,23 @@ Notebooks are a form of interactive computing that allow \textit{more powerful c
 \end{figure}
 
 \subsubsection*{What works well}
-Its most attractive feature - interactivity - thrives in both \textbf{gulfs}: \textbf{execution} and \textbf{evaluation}. The execution gulf is easily bridged as the cells provide a clear indication for where text/code should be entered. In the early stage of planning where the user has to choose an appropriate action out of all possible actions, the interface positions the blinking cursor at the beginning of a cell prompting the user to enter a code inside it. This follows the \textit{consistency} principle for designing interfaces where user can easily transfer the learning between different systems.
 
-Compared to other more traditional IDEs (Integrated Development Environment), the Jupyter Lab has also a much narrower gulf of evaluation. \textit{Running} a cell yields immediate feedback that allows user assessing how well their intentions have been met. The output is displayed \textit{asynchronously} as it is generated in the Kernel allowing user to perceive, interpret, and compare the state of the execution with their goal or a sub-goal.
+\textbf{The Gulfs of Execution and Evaluation}
 
-Cells are viewed as physical building blocks, and as such can be re-arranged using a \textbf{direct manipulation} via drag-n-drop operation. User is engaged in the process of completing their task by 1) planning the action, for example, hovering over the cell that needs to be moved; 2) grabbing the cell and dragging it over the area that specifies the new location; 3) releasing the hold when the cell is aligned with the desired destination. For the described task, the interface becomes \textit{invisible} and intuitive largely due to the tight relationships between two gulfs. As the user is working on their task of cell re-arrangement, the system provides a "hint" in form of target line for where the new cell would land before the action is complete. The \textit{feedback} is easy to interpret, and it matches with what the user is expecting to happen. Therefore, the goal can be accomplished more accurately (cell is in the correct position) and more efficiently (speed of execution) without the user focusing on the interface.
+The most attractive feature of the Jupyter environment - \textbf{interactivity} - thrives in both \textit{gulfs}: \textit{execution} and \textit{evaluation} \cite{norman2013design}. The execution gulf is easily bridged as the cells provide a clear indication for where text/code should be entered. In the early stage of \textit{planning} where the user has to choose an appropriate action out of all possible actions, the interface positions a blinking cursor at the beginning of a cell thus prompting the user to enter a code inside it. This follows the \textit{consistency} principle for designing interfaces where user can easily transfer the learning across different systems.
+
+Compared to other more traditional IDEs (Integrated Development Environment), the Jupyter Lab has also a much narrower \textit{gulf of evaluation}. The action of \textit{Running} a cell yields immediate feedback that allows user assessing how well their intentions have been met. The output is displayed \textit{asynchronously} as it is generated in the Kernel allowing user to \textit{perceive}, \textit{interpret}, and \textit{compare} the state of the execution with their goal or a sub-goal.
+
+\textbf{Direct Manipulation}
+
+Cells are viewed as physical building blocks, and as such can be re-arranged using a \textit{direct manipulation} via \textbf{drag-n-drop} functionality. The user is engaged in the process of completing their task by 1) planning the action by hovering over the cell that needs to be moved; 2) grabbing the cell and dragging it over the area that specifies the new location; 3) releasing the hold when the cell is aligned with the desired destination. For the described task, the interface becomes \textit{invisible} and intuitive largely due to the tight relationships between the two gulfs. As the user is working on their task of cell re-arrangement, the system provides a "hint" in form of target line for where the new cell would land before the action is complete \footnote{It is challenging to capture the drag-and-drop action with a screenshot.}. The \textit{feedback} is easy to interpret, and it matches with what the user is expecting to happen. Therefore, the goal can be accomplished more accurately (cell is in the correct position) and more efficiently (speed of execution) without the user focusing on the interface.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.4]{figures/project-principles/jupyter_add_delete.png}
+\caption{Aspect of the interface that allow Slip errors}
+\label{fig::2}
+\end{figure}
 
 
 \subsubsection*{What doesn't works well}
@@ -201,19 +216,19 @@ The last feature in the redesign is shown in Figure~\ref{fig::6}, and it appear 
     \item \textit{Copy} the selected cells depicted by an icon of two stacked papers.
 \end{itemize}
 
-Although the described operations are represented by visual icons, when the user places their mouse over designated areas, an additional small pop-up area appears with \textit{text} labels for the fucntions - \textit{Run}, \textit{Merge}, \textit{Copy}.
+Although the described operations are represented by visual icons, when the user places their mouse over designated areas, an additional small pop-up area appears with \textit{text} labels for the functions - \textit{Run}, \textit{Merge}, \textit{Copy}. Figure~\ref{fig::6} includes the \textit{zoomed-in} screen section to show the example of \textit{hover-over} text for a \textit{Run} controller.
 
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=.6]{figures/project-principles/jupyter_mock_screen_c.png}
+\includegraphics[scale=.45]{figures/project-principles/jupyter_mock_screen_c.png}
 \caption{Screen C: Mockup of the Jupyter Notebook Interface}
 \label{fig::6}
 \end{figure}
 
 
 \subsection*{Interface Justification}
-Third, justify the redesigned interface. Describe how your redesigned interface addresses the criticisms from the first section, while preserving the positive elements of the original interface. Again, make sure to put your justification in terms of the principles covered in Unit 2, both conceptually and using the same vocabulary. You need not focus on the same principles covered in the previous section; you may, for example, leverage a particular principle to improve the interface even if it wasn’t explicitly violating that principle in the first place.
+
 
 
 \bibliographystyle{apacite} 
