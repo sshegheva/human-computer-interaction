@@ -113,14 +113,14 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-JupyterLab is a web-based interface for Project Jupyter that provides an interactive and reproducible computing platform\footnote{https://github.com/jupyterlab/jupyterlab} (free and open source). In this project, we evaluate the user interaction with Documents and Kernels, specifically with the Notebook plugin that serves the user an observable list of cells containing code, computational output, embedded multimedia sources, and plain text. Based on the evaluation results we suggest and justify interface redesign that can increase users' productivity for creating and maintaining reproducible computational narratives.
+JupyterLab is a web-based interface from Project Jupyter that provides an interactive computing platform\footnote{https://github.com/jupyterlab/jupyterlab} (free and open source). In this project, we evaluate the user interaction with Documents and Kernels, specifically with the Notebook plugin that serves the user an observable list of cells that can contain code, computational output, embedded multimedia sources, and plain text. Based on the evaluation results we suggest and justify a redesign that can increase users' productivity for creating and maintaining reproducible computational narratives.
 \end{abstract}
 
 \subsection*{Heuristic Evaluation}
 
 \subsubsection*{Introduction}
 With the rapid growth of data science and machine learning, Jupyter Notebooks have become a standard for creating reproducible computational narratives \cite{perkel2018jupyter}. 
-Jupyter interface provides a form of interactive computing that allow \textit{more powerful connections between topics, theories, data, and results}. Figure~\ref{fig::1} shows an example of my current JupyterLab workspace, that includes a file navigation section, interactive notebook area, additional consoles, and many other things that the platform provides. As a development environment, JupyterLab allows access to terminals, file viewers, notebooks, text editors - all from one place, which I personally find very convenient. 
+Jupyter interface provides a form of interactive computing that allows \textit{more powerful connections between topics, theories, data, and results}. Figure~\ref{fig::1} shows an example of my current JupyterLab workspace, that includes a file navigation section, interactive notebook area, additional consoles, and many other things that the platform provides. As a development environment, JupyterLab allows access to terminals, file viewers, notebooks, text editors - all from one place, which I personally find very convenient. 
 
 JupytrerLab is rich in features, so covering them all is outside of the scope for this project. Here, we are going to focus our attention on the Notebook area only (the center component) that allows the user to \textit{create}, \textit{edit}, and \textit{execute} the code cells. These tasks are the most fundamental operations, so a good interface design must start here. The main goal, therefore, is to re-design portions of the interface that boost the efficiency.
 
@@ -143,11 +143,11 @@ Unlike other code editors, Jupyter Notebooks signals the state of each cell by 1
 
 \textbf{Direct Manipulation}
 
-Cells are viewed as physical building blocks, and as such can be re-arranged using a \textit{direct manipulation} via \textbf{drag-n-drop} functionality \cite{frohlich1997direct}. The user is engaged in the process of completing their task by 1) planning the action by hovering over the cell that needs to be moved; 2) grabbing the cell and dragging it over the area that specifies the new location; 3) releasing the hold when the cell is aligned with the desired destination. For the described task, the interface becomes \textit{invisible} and intuitive largely due to the tight relationships between the two gulfs. As the user is working on their task of cell re-arrangement, the system provides a "hint" in the form of target line for where the new cell would land before the action is complete \footnote{It is challenging to capture the drag-and-drop action with a screenshot.}. The \textit{feedback} is easy to interpret, and it matches with what the user is expecting to happen. Therefore, the goal can be accomplished more accurately (cell is in the correct position) and more efficiently (speed of execution) without the user focusing on the interface.
+Cells are viewed as physical building blocks, and as such can be re-arranged using a \textit{direct manipulation} via \textbf{drag-n-drop} functionality \cite{frohlich1997direct}. The user is engaged in the process of completing their task by 1) planning the action by hovering over the cell that needs to be moved; 2) grabbing the cell and dragging it over the area that specifies the new location; 3) releasing the hold when the cell is aligned with the desired destination. For the described task, the interface becomes \textit{invisible} and intuitive largely due to the tight relationships between the two gulfs. As the user is working on their task of cell re-arrangement, the system provides a "hint" in the form of target line for where the new cell would land before the action is complete \footnote{It is challenging to capture the drag-and-drop action with a screenshot.}. The feedback is easy to interpret, and it matches with what the user is expecting to happen. Therefore, the goal can be accomplished more accurately (cell is in the correct position) and more efficiently (speed of execution) without the user focusing on the interface.
 
 \textbf{Feedback}
 
-The Jupyter interface is highly interactive. Compared to other more traditional IDEs (Integrated Development Environment), the Jupyter Lab has a much narrower \textit{gulf of evaluation}. The action of \textit{Running} a cell yields immediate feedback that allows the user assessing how well their intentions have been met. The output is displayed \textit{asynchronously} as it is generated in the Kernel allowing user to \textit{perceive}, \textit{interpret}, and \textit{compare} the state of the execution with their goal or a sub-goal. 
+The Jupyter interface is highly interactive. Compared to other more traditional IDEs, the Jupyter Lab has a much narrower \textit{gulf of evaluation}. The action of \textit{Running} a cell yields immediate feedback that allows the user assessing how well their intentions have been met. The output is displayed \textit{asynchronously} as it is generated in the Kernel allowing user to \textit{perceive}, \textit{interpret}, and \textit{compare} the state of the execution with their goal or a sub-goal. 
 
 This format drives more direct exploration as the user can see what happens after each step. The interface enables rapid iterations that enhances the usability. Instead of re-running an entire module, each cell can be executed individually that may save significant time in troubleshooting code. 
 
@@ -170,7 +170,7 @@ Current implementation of the interface provides signifiers located in the toolb
 
 There are two issues with the chosen position for those two opposing operations: 
 
-1) by placing them \textit{next to each other}, the interface invites user errors such as \textit{slips}; the user accidentally clicks on \textit{delete} instead of the intended \textit{add} action. \footnote{I have personally made this type of slip numerous times wishing the interface was less inviting for accidental actions}  
+1) by placing them \textit{next to each other}, the interface invites user errors such as \textit{slips}; for example, the user accidentally clicks on \textit{delete} instead of the intended \textit{add} action. \footnote{I have personally made this type of slip numerous times wishing the interface was less inviting for accidental actions}  
 
 2) by situating them on the toolbar, the \textit{gulf of execution} is widened at the stage of \textit{performing} an action; the user has to move the mouse from the current location to the toolbar to perform either of these most frequent actions.
 
@@ -196,7 +196,7 @@ Based on the evaluation performed above, we redesign the \textit{Notebook} secti
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[scale=.5]{figures/project-principles/jupyter_mock_screen_a.png}
+\includegraphics[scale=.6]{figures/project-principles/jupyter_mock_screen_a.png}
 \caption{Screen A: Mockup of the Jupyter Notebook Interface. The first three components: 1) Sidebar expansion 2) Affordance for cell additions 3) Affordance for cell deletions}
 \label{fig::4}
 \end{figure}
@@ -205,7 +205,7 @@ Based on the evaluation performed above, we redesign the \textit{Notebook} secti
 Figure~\ref{fig::4} (in the area labeled as 1) shows a small arrow in the left side (mid-point) that suggests that an area has been \textit{collapsed} and it can be \textit{expanded}. The expansion area is designed to reveal \textbf{newly-designed} controllers and hide them when not needed \footnote{This feature is inspired by the recent Overleaf redesign}. After the expansion, the sidebar (see Figure~\ref{fig::5}) displays the additional affordances described below.
 
 \subsubsection*{2. Delete a Cell / Undo the Delete}
-The rightmost edge of the cell is augmented with a \textit{right cross}  that suggest that a cell can be deleted by clicking on the little rectangle area (see Figure~\ref{fig::undo}). When the user clicks on the red cross, the icon changes to a \textit{circled arrow} pointing anti-clockwise that signifies that an \textit{undo} operation is available. The cell becomes greyed-out for a few seconds until it disappears entirely.
+The rightmost edge of the cell is augmented with a \textit{red cross}  that suggest that a cell can be deleted by clicking on the little rectangle area (see Figure~\ref{fig::undo}). When the user clicks on the red cross, the icon changes to a \textit{circled arrow} pointing anti-clockwise that signifies that an \textit{undo} operation is available. The cell becomes greyed-out for a few seconds until it disappears entirely.
 
 \begin{figure}[hbt!]
 \centering
@@ -219,7 +219,7 @@ In the redesign, each cell decorated with a small tick in the shape of a \textit
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[scale=.5]{figures/project-principles/jupyter_mock_screen_b.png}
+\includegraphics[scale=.6]{figures/project-principles/jupyter_mock_screen_b.png}
 \caption{Screen B: Mockup of the Jupyter Notebook Interface. The additional two components 4) Re-order the cells 5) Move a cell to the top position.}
 \label{fig::5}
 \end{figure}
@@ -236,7 +236,7 @@ The last feature in the redesign is shown in Figure~\ref{fig::6}, and it appear 
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[scale=.35]{figures/project-principles/jupyter_mock_screen_c.png}
+\includegraphics[scale=.4]{figures/project-principles/jupyter_mock_screen_c.png}
 \caption{Screen C: Mockup of the Jupyter Notebook Interface. The last component: 6) Expose contextual controls upon cell selection.}
 \label{fig::6}
 \end{figure}
@@ -265,11 +265,13 @@ The new affordances for operations of \textit{add} and \textit{delete} are simil
 
 \textbf{The Gulf of Execution}
 
-In addition to enhancing the discoverability, the same affordances and signifiers, narrow down the \textit{gulf of execution}, specifically at the stages of \textit{planning} and \textit{performing}. By allowing the user to \textit{delete} a cell by clicking on the red cross shown for \textit{each} cell, the action can be executed faster than navigating to the toolbar for clicking the \textit{scissors} icon. The planning portion is simplified by removing the confusion for which cell is intended to be deleted. 
+In addition to enhancing the discoverability, the same affordances and signifiers, narrow down the \textit{gulf of execution}, specifically at the stages of \textit{planning} and \textit{performing}. By allowing the user to \textit{delete} a cell via click on the red cross shown for \textit{each} cell, the action can be executed faster than navigating to the toolbar for clicking the \textit{scissors} icon. The planning portion is simplified by removing the confusion for which cell is intended to be deleted. 
 
 A user who seeks to insert a new cell is relieved from having to reach to the toolbar for the \textit{plus} sign each time the action is needed. By introducing a small tick above each cell, the user can unequivocally insert a cell in the desired place. Inevitably, this further contributes to the \textit{directness} of the interface described earlier on an example of drag-n-drop functionality. 
 
-The new contextual toolbar, consisting of three operations - \textit{run}, \textit{merge} and \textit{copy} brings the user closer the action. The menu appears upon an \textit{event} of cell(s) selection, so it does not impede the workflow of adding and executing new cells. Evaluating the gulf of execution gave clues for the areas that could benefit from a redesign to enhance the interaction. 
+The new contextual toolbar, consisting of three operations - \textit{run}, \textit{merge} and \textit{copy} brings the user closer the action. The menu appears upon an \textit{event} of cell(s) selection, so it does not impede the workflow of adding and executing new cells. 
+
+Performing a heuristic evaluation for the gulf of execution gave clues for the areas that could benefit from a redesign to enhance the interaction. 
 
 \textbf{Proximity Constraints}
 
@@ -292,12 +294,12 @@ Another aspect of the redesign that addresses the principle of cognitive load is
 
 \textbf{Feedback and Tolerance}
 
-The outcome of the action to add a cell is a new empty cell. The result of the deletion of the cell is that it disappears immediately. If a cell was deleted unintentionally, in the current interface the user can to reach out the main menu and find an \textit{undo} operation. 
+The result of the deletion of the cell is that it disappears immediately. If a cell was deleted unintentionally, in the current interface the user can reach out the main menu and find an \textit{undo} operation. 
 
-The redesign adds a slight delay between execution of the delete operation and removing the cell from the notebook. In the window of a few seconds, the deleted cell is \textit{greyed-out} to communicate the outcome \textit{before} it disappears from the screen. Furthermore, the red-cross is replaced with an arrow pointing anti-clockwise to give the user a more convenient way to reverse the operation. This feature applies a \textit{tolerance} principle to provide the user with a chance to rethink the executed transaction. If the action was performed due a slip, a small delay window should be sufficient to correct the action.
+The redesign adds a slight delay between execution of the delete operation and removing the cell from the notebook. In the window of a few seconds, the deleted cell is \textit{greyed-out} to communicate the outcome \textit{before} it disappears from the screen. Furthermore, the red-cross is replaced with a rounded arrow pointing anti-clockwise to give the user a more convenient way to reverse the operation. This feature applies a \textit{tolerance} principle to provide the user with a chance to rethink the executed transaction. If the action was performed due a slip, a small delay window should be sufficient to correct the action.
 
 \bigbreak
-In \textbf{conclusion}, the new interface fully preserves the positive elements while enhancing the user's experience in navigating the capabilities of the interface. Most of the added functionality does not impact the advanced users who are accustomed to numerous keyboard short-cuts while performing the frequent operations. Novices, on the other hand, would benefit greatly from a more user-friendly interactions. Future redesigns may target the expert users by providing means to customize their layouts. 
+In \textbf{conclusion}, the new interface fully preserves the positive elements while enhancing the user's experience in navigating the capabilities of the interface. Most of the added functionality does not impact the advanced users who are accustomed to numerous keyboard short-cuts while performing the frequent operations. Novices, on the other hand, would benefit greatly from a more user-friendly interactions. Future redesigns may additionally target the expert users by \textit{tagging} cells for timing and profiling routines.
 
 \bibliographystyle{apacite} 
 \bibliography{bibtemp}
